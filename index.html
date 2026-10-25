@@ -670,6 +670,15 @@ html{scroll-padding-top:100px}
   image-rendering: crisp-edges;
   image-rendering: pixelated;
 }
+
+/* Contribution image lightbox: smooth return-to-origin zoom */
+#contribution-image-zoom{position:fixed;inset:0;z-index:99999;display:none;align-items:center;justify-content:center;background:rgba(9,5,9,.84);backdrop-filter:blur(5px);-webkit-backdrop-filter:blur(5px);cursor:zoom-out}
+#contribution-image-zoom.is-open{display:flex}
+#contribution-image-zoom img{position:fixed;display:block;margin:0;max-width:none;max-height:none;border-radius:8px;box-shadow:0 20px 75px rgba(0,0,0,.6);object-fit:contain;cursor:default;transform-origin:center;user-select:none;-webkit-user-select:none}
+#game-modal-content .game-evidence img{cursor:zoom-in}
+#game-modal-content .game-evidence img:focus-visible{outline:3px solid #d99aaa;outline-offset:5px}
+#contribution-image-zoom img[src*="dance-sprites/"]{image-rendering:pixelated;image-rendering:crisp-edges}
+@media(prefers-reduced-motion:reduce){#contribution-image-zoom{backdrop-filter:none;-webkit-backdrop-filter:none}}
 </style>
 <style>
 .bp-showcase{margin:48px 0 28px}.bp-showcase h2{font-size:clamp(26px,3.4vw,42px);margin:8px 0 12px}.bp-showcase>p:not(.section-kicker){color:#d8bec8;max-width:720px;line-height:1.7}
@@ -3316,6 +3325,73 @@ modal.querySelectorAll('[data-close-modal]').forEach(b=>b.addEventListener('clic
 document.addEventListener('keydown',e=>{if(e.key==='Escape'){if(!modal.hidden)closeModal();else if(drawer.classList.contains('open'))closeDrawer()}});
 window.addEventListener('hashchange',()=>{resetModalVideos();if(drawer.classList.contains('open'))closeDrawer()});
 go(0);
+})();
+</script>
+
+<script>
+/* All games: click contribution screenshots or sprite sheets to zoom; click outside to return. */
+(()=>{
+ const modal=document.getElementById('game-modal');
+ if(!modal)return;
+ const zoom=document.createElement('div');
+ zoom.id='contribution-image-zoom';
+ zoom.setAttribute('role','dialog');
+ zoom.setAttribute('aria-modal','true');
+ zoom.setAttribute('aria-label','Enlarged contribution image. Click outside the image or press Escape to close.');
+ const large=document.createElement('img');
+ large.alt='';
+ zoom.appendChild(large);
+ document.body.appendChild(zoom);
+ let source=null,anim=null,closing=false;
+ const reduced=()=>window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+ const bounds=()=>{
+   const iw=large.naturalWidth||source?.naturalWidth||1000;
+   const ih=large.naturalHeight||source?.naturalHeight||700;
+   const ratio=Math.min((innerWidth*.9)/iw,(innerHeight*.86)/ih,4);
+   const w=Math.max(1,iw*ratio),h=Math.max(1,ih*ratio);
+   return {left:(innerWidth-w)/2,top:(innerHeight-h)/2,width:w,height:h};
+ };
+ const rect=o=>({left:o.left,top:o.top,width:o.width,height:o.height});
+ const apply=o=>{large.style.left=o.left+'px';large.style.top=o.top+'px';large.style.width=o.width+'px';large.style.height=o.height+'px'};
+ const frames=(a,b)=>[{left:a.left+'px',top:a.top+'px',width:a.width+'px',height:a.height+'px',opacity:.85},{left:b.left+'px',top:b.top+'px',width:b.width+'px',height:b.height+'px',opacity:1}];
+ const run=(a,b,done)=>{
+   if(anim)anim.cancel();
+   if(reduced()){apply(b);done();return;}
+   anim=large.animate(frames(a,b),{duration:360,easing:'cubic-bezier(.2,.8,.2,1)',fill:'forwards'});
+   anim.onfinish=()=>{anim=null;apply(b);done()};
+ };
+ function close(immediate=false){
+   if(!source||closing)return;
+   closing=true;
+   const original=source;
+   const end=original.isConnected?rect(original.getBoundingClientRect()):rect(large.getBoundingClientRect());
+   const finish=()=>{zoom.classList.remove('is-open');large.removeAttribute('src');original.style.visibility='';source=null;closing=false;document.removeEventListener('keydown',onKey,true)};
+   if(immediate){if(anim)anim.cancel();finish();return;}
+   const start=rect(large.getBoundingClientRect());
+   run(start,end,finish);
+ }
+ function onKey(e){if(e.key==='Escape'&&source){e.preventDefault();e.stopImmediatePropagation();close()}}
+ modal.addEventListener('click',e=>{
+   const img=e.target.closest('.game-evidence img');
+   if(!img||source||modal.hidden)return;
+   e.preventDefault();
+   source=img;
+   closing=false;
+   const from=rect(img.getBoundingClientRect());
+   large.src=img.currentSrc||img.src;
+   large.alt=img.alt||'Contribution image';
+   zoom.classList.add('is-open');
+   apply(from);
+   img.style.visibility='hidden';
+   document.addEventListener('keydown',onKey,true);
+   const show=()=>{if(source===img&&!closing)run(from,bounds(),()=>{})};
+   if(large.complete)show();else large.addEventListener('load',show,{once:true});
+ });
+ zoom.addEventListener('click',e=>{if(e.target===zoom)close()});
+ large.addEventListener('click',e=>e.stopPropagation());
+ // If a contribution closes or a tab changes, release the zoomed image safely.
+ new MutationObserver(()=>{if(source&&modal.hidden)close(true)}).observe(modal,{attributes:true,attributeFilter:['hidden']});
+ modal.querySelector('#game-modal-content')?.addEventListener('click',e=>{if(source&&e.target.closest('[data-clip-tab]'))close(true)},true);
 })();
 </script>
 <script>
