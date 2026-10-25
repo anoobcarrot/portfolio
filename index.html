@@ -2723,23 +2723,21 @@ footer.footer .footer-inner .footer-extras > button.pixel-heart.is-loved svg {
 .game-detail-banner--dance>img{object-fit:contain!important;object-position:center!important;background:#00131d}
 </style>
 <style id="dance-centered-sprites-2026">
-/* Corrected pixel-art gallery: centered, bounded previews that can enlarge in the lightbox. */
+/* Large, crisp pixel-art previews, with no native-size shrinking. */
 #game-modal .game-evidence--visual .survival-player:has(img[src*="dance-sprites/"]),
 #game-modal .game-evidence--visual .survival-player:has(img[src^="data:image/png;base64,"]){
  display:flex!important;align-items:center!important;justify-content:center!important;
- min-height:280px!important;width:min(100%,570px)!important;
+ width:min(100%,650px)!important;min-height:360px!important;
 }
 #game-modal .game-evidence--visual .survival-player img[src*="dance-sprites/"],
 #game-modal .game-evidence--visual .survival-player img[src^="data:image/png;base64,"]{
- display:block!important;width:auto!important;height:auto!important;
- max-width:min(100%,400px)!important;max-height:260px!important;
- margin:auto!important;object-fit:contain!important;object-position:center center!important;
+ display:block!important;width:min(100%,540px)!important;height:auto!important;
+ max-width:100%!important;max-height:400px!important;
+ margin:auto!important;object-fit:contain!important;object-position:center!important;
  image-rendering:pixelated!important;
 }
-#game-modal .game-evidence--visual .survival-player img[src^="data:image/png;base64,"]{
- width:400px!important;max-width:100%!important;height:auto!important;
-}
-#contribution-image-zoom-v2 .zoom-v2-picture{object-fit:fill!important;transform:none!important;}
+#contribution-image-zoom-v2 .zoom-v2-picture{object-fit:fill!important;image-rendering:pixelated}
+@media(max-width:600px){#game-modal .game-evidence--visual .survival-player:has(img[src*="dance-sprites/"]){min-height:250px!important}}
 </style></head>
 <body>
 <svg aria-hidden="true" height="0" style="position:absolute;pointer-events:none" width="0" xmlns="http://www.w3.org/2000/svg"><filter height="120%" id="hand-ink-filter" width="120%" x="-10%" y="-10%"><feturbulence basefrequency="0.035" numoctaves="2" result="noise" seed="7" type="fractalNoise"></feturbulence><fedisplacementmap in="SourceGraphic" in2="noise" scale="1.4" xchannelselector="R" ychannelselector="G"></fedisplacementmap></filter></svg>
@@ -3396,11 +3394,10 @@ go(0);
   const rect=(r)=>({left:r.left,top:r.top,width:r.width,height:r.height});
   const setRect=r=>Object.assign(picture.style,{left:r.left+'px',top:r.top+'px',width:r.width+'px',height:r.height+'px'});
   const center=(start)=>{
-    // Scale from the actual on-screen rectangle, not the tiny native sprite size.
-    // This prevents small sprite sheets from shrinking on click.
-    const maxW=innerWidth*.90,maxH=innerHeight*.85;
-    const scale=Math.min(maxW/Math.max(start.width,1),maxH/Math.max(start.height,1),4.5);
-    const factor=Math.max(1,scale);
+    // Always grow relative to the displayed preview; never use tiny PNG dimensions.
+    const maxW=innerWidth*.94,maxH=innerHeight*.90;
+    const available=Math.min(maxW/Math.max(start.width,1),maxH/Math.max(start.height,1));
+    const factor=Math.max(1,Math.min(available,3.2));
     const width=start.width*factor,height=start.height*factor;
     return {left:(innerWidth-width)/2,top:(innerHeight-height)/2,width,height};
   };
