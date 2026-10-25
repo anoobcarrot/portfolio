@@ -3158,7 +3158,7 @@ const games = [
   ],
   gameplay:[
     ["Level Design","Designed a single asylum level with a library, office, locked exit and environmental details.","assets/mental-level-library.png"],
-    ["UI & Player Feedback","Designed the menu, computer interface, sanity indicator and readable notes to support the player experience.","assets/mental-main-menu.mp4"],
+    ["Main Menu UI - Video Editing","Experimented with video editing and main-menu presentation to establish the asylum’s atmosphere.","assets/mental-main-menu.mp4"],
     ["Player Onboarding & Movement","A movement tutorial introduces the player to the asylum and its task-based progression.","assets/mental-onboarding.mp4"],
     ["Environmental Storytelling & Library Lore","Readable books in the library reveal fragments of the asylum's story.","assets/mental-books-lore.mp4"],
     ["Office Computer & Investigation","A Staff To Do List provides the office computer password, leading players to patient records and further clues.","assets/mental-computer-mechanic.mp4"],
@@ -3193,8 +3193,9 @@ function openDrawer(i){
  <h3>Project Details</h3><dl class="game-detail-meta">${g.meta.map(([a,b])=>`<div><dt>${escapeHTML(a)}</dt><dd>${escapeHTML(b)}</dd></div>`).join('')}</dl>${g.link?`<p style="margin-top:28px"><a class="button secondary" href="${g.link}" target="_blank" rel="noopener noreferrer">View playable project ↗</a></p>`:''}</div>`;
  drawer.scrollTop=0;drawer.dataset.game=i;drawer.classList.add('open');drawer.setAttribute('aria-hidden','false');scrim.hidden=false;requestAnimationFrame(()=>scrim.classList.add('visible'));document.body.style.overflow='hidden';drawer.scrollTop=0;drawer.focus({preventScroll:true});
 }
-function closeDrawer(){if(!modal.hidden)closeModal();drawer.classList.remove('open');drawer.setAttribute('aria-hidden','true');scrim.classList.remove('visible');document.body.style.overflow='';setTimeout(()=>{if(!drawer.classList.contains('open'))scrim.hidden=true},570);lastFocus?.focus()}
+function closeDrawer(){resetModalVideos();if(!modal.hidden)closeModal();drawer.classList.remove('open');drawer.setAttribute('aria-hidden','true');scrim.classList.remove('visible');document.body.style.overflow='';setTimeout(()=>{if(!drawer.classList.contains('open'))scrim.hidden=true},570);lastFocus?.focus()}
 function openModal(kind){
+ resetModalVideos();
  const g=games[+drawer.dataset.game],items=g[kind],title=kind==='gameplay'?'Gameplay Design Contributions':'Technical Design Contributions';
  const mediaMarkup=(name,src)=>{
    if(!src)return '';
@@ -3231,17 +3232,28 @@ document.getElementById('game-modal-content').addEventListener('click',e=>{
    player.innerHTML=`<img src="${escapeHTML(sources[i][1])}" alt="${escapeHTML(sources[i][0])}" style="display:block;width:100%;height:auto;object-fit:contain">`;
  }else{
    if(!video)return;
-   video.pause();video.src=sources[i][1];video.setAttribute('aria-label',sources[i][0]+' footage');video.load();
+   video.pause();try{video.currentTime=0}catch(e){};video.src=sources[i][1];video.setAttribute('aria-label',sources[i][0]+' footage');video.load();
  }
  section.querySelectorAll('[data-clip-tab]').forEach(b=>b.setAttribute('aria-selected',String(b===tab)));
 });
-function closeModal(){const video=modal.querySelector("video");if(video){video.pause();video.removeAttribute("src");video.load()}modal.hidden=true;modal.setAttribute('aria-hidden','true');drawer.focus()}
+function resetModalVideos(){
+ modal.querySelectorAll('video').forEach(video=>{
+   video.pause();
+   try{video.currentTime=0}catch(e){}
+   video.removeAttribute('autoplay');
+   // Removing the source also releases playback/decoding when the popup closes.
+   video.removeAttribute('src');
+   video.querySelectorAll('source').forEach(source=>source.removeAttribute('src'));
+   video.load();
+ });
+}
+function closeModal(){resetModalVideos();modal.hidden=true;modal.setAttribute('aria-hidden','true');drawer.focus()}
 root.querySelectorAll('.game-open').forEach(b=>b.addEventListener('click',()=>openDrawer(+b.dataset.game)));
 document.getElementById('game-drawer-close').addEventListener('click',closeDrawer);scrim.addEventListener('click',closeDrawer);
 drawer.addEventListener('click',e=>{const b=e.target.closest('[data-evidence]');if(b)openModal(b.dataset.evidence);if(e.target.closest('[data-trailer]')){const g=games[+drawer.dataset.game];if(g.trailer){document.getElementById('game-modal-content').innerHTML=`<h2>${escapeHTML(g.title)} — Trailer</h2><video src="${g.trailer}" controls autoplay playsinline preload="metadata" style="width:100%;max-height:65vh"></video>`;modal.hidden=false;modal.setAttribute("aria-hidden","false");modal.querySelector(".game-modal-panel").focus()}}});
 modal.querySelectorAll('[data-close-modal]').forEach(b=>b.addEventListener('click',closeModal));
 document.addEventListener('keydown',e=>{if(e.key==='Escape'){if(!modal.hidden)closeModal();else if(drawer.classList.contains('open'))closeDrawer()}});
-window.addEventListener('hashchange',()=>{if(drawer.classList.contains('open'))closeDrawer()});
+window.addEventListener('hashchange',()=>{resetModalVideos();if(drawer.classList.contains('open'))closeDrawer()});
 go(0);
 })();
 </script>
