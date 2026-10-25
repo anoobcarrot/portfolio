@@ -658,6 +658,11 @@ html{scroll-padding-top:100px}
 #game-modal .survival-player video{width:100%;max-width:100%;max-height:320px}
 @media(max-width:540px){#game-modal .survival-tab{padding:8px 11px;font-size:11px}}
 
+
+/* Dance Beatz follows the same artwork + intro layout as the other games. */
+.game-detail-banner--dance .game-detail-intro{position:relative!important;inset:auto!important;width:100%!important;min-height:0!important;padding:18px 22px!important;background:linear-gradient(180deg,#21121b,#1e1019)!important;box-sizing:border-box!important;text-align:center}
+.game-detail-banner--dance>img{width:100%;height:auto;max-height:420px;object-fit:contain!important;object-position:center!important;background:#00131d}
+#game-modal .dance-evidence-desc{max-width:660px;margin:16px auto 0;text-align:center;line-height:1.65;color:#e5cbd4}
 </style>
 <style>
 .bp-showcase{margin:48px 0 28px}.bp-showcase h2{font-size:clamp(26px,3.4vw,42px);margin:8px 0 12px}.bp-showcase>p:not(.section-kicker){color:#d8bec8;max-width:720px;line-height:1.7}
@@ -2664,6 +2669,11 @@ footer.footer .footer-inner .footer-extras > button.pixel-heart.is-loved svg {
 .game-detail-banner--mental::after{display:none!important}
 .game-detail-banner--mental>img{object-fit:cover!important;object-position:center!important}
 </style>
+<style id="dance-beatz-portfolio-style">
+.game-slide[aria-label="Dance Beatz"] .game-slide-visual{background:#00131d}
+.game-slide[aria-label="Dance Beatz"] .game-slide-visual img{object-fit:contain}
+.game-detail-banner--dance>img{object-fit:contain!important;object-position:center!important;background:#00131d}
+</style>
 </head>
 <body>
 <svg aria-hidden="true" height="0" style="position:absolute;pointer-events:none" width="0" xmlns="http://www.w3.org/2000/svg"><filter height="120%" id="hand-ink-filter" width="120%" x="-10%" y="-10%"><feturbulence basefrequency="0.035" numoctaves="2" result="noise" seed="7" type="fractalNoise"></feturbulence><fedisplacementmap in="SourceGraphic" in2="noise" scale="1.4" xchannelselector="R" ychannelselector="G"></fedisplacementmap></filter></svg>
@@ -2740,40 +2750,48 @@ footer.footer .footer-inner .footer-extras > button.pixel-heart.is-loved svg {
 <button aria-label="Show August In Maplewood" class="game-index-btn" data-game="1" type="button">02 <span>August In Maplewood</span></button>
 <button aria-label="Show Carlos The Penguin!" class="game-index-btn" data-game="2" type="button">03 <span>Carlos The Penguin!</span></button>
 <button aria-label="Show Mental Maze - The Asylum Experiment" class="game-index-btn" data-game="3" type="button">04 <span>Mental Maze</span></button>
-<span class="game-index-count">01 / 04</span>
+<button aria-label="Show Dance Beatz" class="game-index-btn" data-game="4" type="button">05 <span>Dance Beatz</span></button>
+<span class="game-index-count">01 / 05</span>
 </nav>
 <div aria-label="Game showcase. Use arrow keys to change slides" class="game-window" tabindex="0">
 <div class="game-track">
 <article aria-label="Breaking Point" class="game-slide">
-<div class="game-slide-copy"><span class="game-slide-num">01 / 04</span><h2>Breaking Point</h2><p class="game-date">Final major university project · 2025</p>
+<div class="game-slide-copy"><span class="game-slide-num">01 / 05</span><h2>Breaking Point</h2><p class="game-date">Final major university project · 2025</p>
 <p class="game-blurb">A narrative-driven 3D game following Alice and Phillip as they climb Mount Everest. The experience combines character-driven storytelling with survival-inspired gameplay.</p>
 <h3>My main contributions</h3><p>UI and UX design, narrative and dialogue systems, gameplay mechanics, level design, programming, and team coordination.</p>
 <button class="button game-open" data-game="0" type="button">Explore project <span aria-hidden="true" class="game-open-arrow"><span class="arrow-default"><svg aria-hidden="true" class="handdrawn-arrow" focusable="false" viewbox="0 0 36 36"><path d="M8 28 Q18 18 29 8 M17 8 Q23 7 30 7 L30 20"></path><path class="pencil-echo" d="M10 30 Q20 20 28 12"></path></svg></span><span class="arrow-hover"><svg aria-hidden="true" class="handdrawn-arrow" focusable="false" viewbox="0 0 36 36"><path d="M5 18 Q17 17 31 18 M24 10 Q28 14 32 18 Q28 23 24 26"></path><path class="pencil-echo" d="M8 20 Q18 19 28 20"></path></svg></span></span></button>
 </div><div class="game-slide-visual"><img alt="Breaking Point poster" src="assets/BP_poster_final.png"/></div>
 </article>
 <article aria-label="August In Maplewood" class="game-slide">
-<div class="game-slide-copy"><span class="game-slide-num">02 / 04</span><h2>August In Maplewood</h2><p class="game-date">University proof of concept · 2024</p>
+<div class="game-slide-copy"><span class="game-slide-num">02 / 05</span><h2>August In Maplewood</h2><p class="game-date">University proof of concept · 2024</p>
 <p class="game-blurb">A 2.5D murder mystery set in a small town. Players track clues and investigate what happened to uncover the truth.</p>
 <h3>My main contributions</h3><p>Mechanics, narrative, user interface, and overall game design.</p>
 <button class="button game-open" data-game="1" type="button">Explore project <span aria-hidden="true" class="game-open-arrow"><span class="arrow-default"><svg aria-hidden="true" class="handdrawn-arrow" focusable="false" viewbox="0 0 36 36"><path d="M8 28 Q18 18 29 8 M17 8 Q23 7 30 7 L30 20"></path><path class="pencil-echo" d="M10 30 Q20 20 28 12"></path></svg></span><span class="arrow-hover"><svg aria-hidden="true" class="handdrawn-arrow" focusable="false" viewbox="0 0 36 36"><path d="M5 18 Q17 17 31 18 M24 10 Q28 14 32 18 Q28 23 24 26"></path><path class="pencil-echo" d="M8 20 Q18 19 28 20"></path></svg></span></span></button>
 </div><div class="game-slide-visual"><img alt="August In Maplewood poster" src="assets/august-in-maplewood-poster.png"/></div>
 </article>
 <article aria-label="Carlos The Penguin!" class="game-slide">
-<div class="game-slide-copy"><span class="game-slide-num">03 / 04</span><h2>Carlos The Penguin!</h2><p class="game-date">University First Official Game · 2023</p>
+<div class="game-slide-copy"><span class="game-slide-num">03 / 05</span><h2>Carlos The Penguin!</h2><p class="game-date">University First Official Game · 2023</p>
 <p class="game-blurb">A fast-paced 2D platformer where players race to reach an igloo. Every level must be completed before the ten-second timer runs out.</p>
 <h3>My main contributions</h3><p>Initial concept, core gameplay mechanics, and level design.</p>
 <button class="button game-open" data-game="2" type="button">Explore project <span aria-hidden="true" class="game-open-arrow"><span class="arrow-default"><svg aria-hidden="true" class="handdrawn-arrow" focusable="false" viewbox="0 0 36 36"><path d="M8 28 Q18 18 29 8 M17 8 Q23 7 30 7 L30 20"></path><path class="pencil-echo" d="M10 30 Q20 20 28 12"></path></svg></span><span class="arrow-hover"><svg aria-hidden="true" class="handdrawn-arrow" focusable="false" viewbox="0 0 36 36"><path d="M5 18 Q17 17 31 18 M24 10 Q28 14 32 18 Q28 23 24 26"></path><path class="pencil-echo" d="M8 20 Q18 19 28 20"></path></svg></span></span></button>
 </div><div class="game-slide-visual"><img alt="Carlos The Penguin! banner" src="assets/carlos-the-penguin-banner.png"/></div>
 </article>
 <article aria-label="Mental Maze - The Asylum Experiment" class="game-slide">
-<div class="game-slide-copy"><span class="game-slide-num">04 / 04</span><h2>Mental Maze - The Asylum Experiment</h2><p class="game-date">Game A Week 01 · Old-fashioned Asylum</p>
+<div class="game-slide-copy"><span class="game-slide-num">04 / 05</span><h2>Mental Maze - The Asylum Experiment</h2><p class="game-date">Game A Week 01 · Old-fashioned Asylum</p>
 <p class="game-blurb">You are a patient in an asylum, unsure why you are here. Each day brings new tasks, strange grades, and more questions. They promise you will get better… but can you trust them?</p>
 <h3>My main contributions</h3><p>Level design, puzzle mechanics, lore and narrative, UI and Render Texture experiments, and voice-based grading.</p>
 <button class="button game-open" data-game="3" type="button">Explore project <span aria-hidden="true" class="game-open-arrow"><span class="arrow-default"><svg aria-hidden="true" class="handdrawn-arrow" focusable="false" viewbox="0 0 36 36"><path d="M8 28 Q18 18 29 8 M17 8 Q23 7 30 7 L30 20"></path><path class="pencil-echo" d="M10 30 Q20 20 28 12"></path></svg></span><span class="arrow-hover"><svg aria-hidden="true" class="handdrawn-arrow" focusable="false" viewbox="0 0 36 36"><path d="M5 18 Q17 17 31 18 M24 10 Q28 14 32 18 Q28 23 24 26"></path><path class="pencil-echo" d="M8 20 Q18 19 28 20"></path></svg></span></span></button>
 </div><div class="game-slide-visual"><img alt="Mental Maze - The Asylum Experiment poster" src="assets/mental-maze-poster.png"/></div>
 </article>
+<article aria-label="Dance Beatz" class="game-slide">
+<div class="game-slide-copy"><span class="game-slide-num">05 / 05</span><h2>Dance Beatz</h2><p class="game-date">Game A Week 03 · Mobile Game</p>
+<p class="game-blurb">Dance, dance, dance away to the beatz! Tap falling arrows in time with the music in a playful pixel-art rhythm game, with Carlos the Penguin dancing along and a leaderboard to aim for.</p>
+<h3>My main contributions</h3><p>Pixel-art assets and sprite sheets, character animation, rhythm gameplay, and an automated falling-arrow system designed around the music.</p>
+<button class="button game-open" data-game="4" type="button">Explore project <span aria-hidden="true" class="game-open-arrow"><span class="arrow-default"><svg aria-hidden="true" class="handdrawn-arrow" focusable="false" viewBox="0 0 36 36"><path d="M8 28 Q18 18 29 8 M17 8 Q23 7 30 7 L30 20"></path><path class="pencil-echo" d="M10 30 Q20 20 28 12"></path></svg></span><span class="arrow-hover"><svg aria-hidden="true" class="handdrawn-arrow" focusable="false" viewBox="0 0 36 36"><path d="M5 18 Q17 17 31 18 M24 10 Q28 14 32 18 Q28 23 24 26"></path><path class="pencil-echo" d="M8 20 Q18 19 28 20"></path></svg></span></span></button>
+</div><div class="game-slide-visual"><img alt="Dance Beatz pixel-art poster featuring Carlos the Penguin" src="assets/dance-beatz-poster.png"/></div>
+</article>
 </div>
-<div class="game-controls"><button aria-label="Previous game" id="game-prev" type="button"><svg aria-hidden="true" class="handdrawn-arrow" focusable="false" viewbox="0 0 36 36"><path d="M31 18 Q18 17 5 18 M12 10 Q8 14 4 18 Q8 23 12 26"></path><path class="pencil-echo" d="M28 20 Q18 19 8 20"></path></svg></button><span id="game-progress">01 — 04</span><button aria-label="Next game" id="game-next" type="button"><svg aria-hidden="true" class="handdrawn-arrow" focusable="false" viewbox="0 0 36 36"><path d="M5 18 Q17 17 31 18 M24 10 Q28 14 32 18 Q28 23 24 26"></path><path class="pencil-echo" d="M8 20 Q18 19 28 20"></path></svg></button></div>
+<div class="game-controls"><button aria-label="Previous game" id="game-prev" type="button"><svg aria-hidden="true" class="handdrawn-arrow" focusable="false" viewbox="0 0 36 36"><path d="M31 18 Q18 17 5 18 M12 10 Q8 14 4 18 Q8 23 12 26"></path><path class="pencil-echo" d="M28 20 Q18 19 8 20"></path></svg></button><span id="game-progress">01 — 05</span><button aria-label="Next game" id="game-next" type="button"><svg aria-hidden="true" class="handdrawn-arrow" focusable="false" viewbox="0 0 36 36"><path d="M5 18 Q17 17 31 18 M24 10 Q28 14 32 18 Q28 23 24 26"></path><path class="pencil-echo" d="M8 20 Q18 19 28 20"></path></svg></button></div>
 </div>
 </div>
 </section>
@@ -3171,6 +3189,34 @@ const games = [
   ],
   meta:[["Genre","Psychological horror / mystery"],["Platform","Windows · macOS (Apple Silicon)"],["Duration","1 week"],["Team size","1"],["Engine","Unity"],["Tools","Unity · C#"]],link:"https://anoobcarrot.itch.io/mental-maze-the-asylum-experiment"
  }
+ ,{title:"Dance Beatz",role:"Game Design · Pixel Art · Rhythm Systems",
+  short:"Dance dance dance away to the beatz!",
+  banner:"assets/dance-beatz-banner.png",trailer:null,
+  contributionGroups:[
+    {title:"Visual Design & Pixel Art",items:["I created the game's pixel-art assets and sprite sheets in Aseprite.","I designed the visual identity around Carlos the Penguin dancing in the background and the colourful arcade-style rhythm gameplay."]},
+    {title:"Rhythm Gameplay & Player Experience",items:["I designed a mobile rhythm game inspired by Dance Dance Revolution, where players tap falling arrows in time with the beat.","I focused on readable arrow cues, responsive tapping and a light-hearted experience with music and score chasing."]},
+    {title:"Automated Arrow System",items:["I built an automated falling-arrow system in Unity using C#, experimenting with arrow timing and synchronisation to the music.","I worked on the underlying gameplay logic for a rhythm-based mobile experience within a one-week prototype schedule."]}
+  ],
+  gameplay:[
+    ["Full Mobile App Showcase","Complete walkthrough of the mobile game.","assets/dance-app-showcase.mp4"],
+    ["Rhythm Gameplay & Song","Falling-arrow gameplay and timing.","assets/dance-song-clip.mp4"],
+    ["Main Menu","Pixel-art main menu.","assets/dance-menu.png"],
+    ["Tutorial & Player Onboarding","Tutorial instructions and scoring guidance.","assets/dance-tutorial.png"],
+    ["Leaderboard","High-score leaderboard.","assets/dance-leaderboard.png"],
+    ["Pixel Art & Backgrounds","Original character art and backgrounds.","assets/dance-sprites/Penguin.png"],
+    ["Arrow & Rhythm Assets","Original arrow sprites and falling-arrow sheets.","assets/dance-sprites/Up Arrow.png"],
+    ["UI Buttons & Elements","Original menu buttons and interface elements.","assets/dance-sprites/UI/Play Button.png"],
+    ["Score Feedback Art","Pixel-art scoring feedback and effects.","assets/dance-sprites/Words/perfect word.png"]
+  ],
+  technical:[
+    ["Audio Beat Detection","Unity Audio Analyser component and beat-detection settings.","assets/dance-audio-detection.png"],
+    ["Arrow Sprite Animations","Unity animation timeline for arrow sprite frames.","assets/dance-animations.png"],
+    ["Scene Hierarchy & Organisation","Organised gameplay systems, UI and spawners in Unity.","assets/dance-hierarchy.png"],
+    ["Working in Aseprite","Creating the arrow sprite sheet in Aseprite.","assets/dance-working-aseprite.png"]
+  ],
+  meta:[["Genre","Mobile rhythm / music"],["Platform","iOS · Android"],["Duration","1 week"],["Team size","1"],["Engine","Unity"],["Tools","Unity · C# · Aseprite"]],link:"https://anoobcarrot.itch.io/dance-beatz"
+ }
+
 ];
 const root=document.getElementById('games-page'), track=root.querySelector('.game-track');
 const tabs=[...root.querySelectorAll('.game-index-btn')],progress=document.getElementById('game-progress'),count=root.querySelector('.game-index-count');
@@ -3187,10 +3233,10 @@ const escapeHTML=t=>String(t).replace(/[&<>"']/g,c=>({'&':'&amp;','<':'&lt;','>'
 function openDrawer(i){
  const g=games[i];lastFocus=document.activeElement;
  document.getElementById('game-drawer-content').innerHTML=`
- <div class="game-detail-banner ${'game-detail-banner--artwork'} ${i===1?'game-detail-banner--maplewood':i===2?'game-detail-banner--carlos':i===3?'game-detail-banner--mental':''}"><img src="${g.banner}" alt="${i===0?'Breaking Point illustrated mountain banner with the game title':i===1?'August In Maplewood illustrated forest banner with the game title':'Project banner'}">${i===0||i===1||i===2||i===3?`<div class="game-detail-intro"><p class="game-detail-role">${escapeHTML(g.role)}</p><p class="game-detail-tagline">${escapeHTML(g.short)}</p></div>`:`<div class="game-detail-banner-content"><p>${escapeHTML(g.role)}</p><h2>${escapeHTML(g.title)}</h2><p>${escapeHTML(g.short)}</p></div>`}</div>${g.trailer?'<div class="game-trailer-action"><button type="button" class="button game-trailer-btn" data-trailer>▶ View Trailer</button></div>':'<div class="game-no-trailer-divider" aria-hidden="true"></div>'}
+ <div class="game-detail-banner ${'game-detail-banner--artwork'} ${i===1?'game-detail-banner--maplewood':i===2?'game-detail-banner--carlos':i===3?'game-detail-banner--mental':i===4?'game-detail-banner--dance':''}"><img src="${g.banner}" alt="${i===0?'Breaking Point illustrated mountain banner with the game title':i===1?'August In Maplewood illustrated forest banner with the game title':'Project banner'}">${i===0||i===1||i===2||i===3||i===4?`<div class="game-detail-intro"><p class="game-detail-role">${escapeHTML(g.role)}</p><p class="game-detail-tagline">${escapeHTML(g.short)}</p></div>`:`<div class="game-detail-banner-content"><p>${escapeHTML(g.role)}</p><h2>${escapeHTML(g.title)}</h2><p>${escapeHTML(g.short)}</p></div>`}</div>${g.trailer?'<div class="game-trailer-action"><button type="button" class="button game-trailer-btn" data-trailer>▶ View Trailer</button></div>':'<div class="game-no-trailer-divider" aria-hidden="true"></div>'}
  <div class="game-detail-body"><h3>My Contributions</h3>${g.contributionGroups?`<div class="game-contrib-groups">${g.contributionGroups.map((group,i)=>`<section class="game-contrib-group"><div class="game-contrib-heading"><span>${String(i+1).padStart(2,'0')}</span><h4>${escapeHTML(group.title)}</h4></div><ul>${group.items.map(x=>`<li>${escapeHTML(x)}</li>`).join('')}</ul></section>`).join('')}</div>`:`<ul>${g.contributions.map(x=>`<li>${escapeHTML(x)}</li>`).join('')}</ul>`}
  <div class="game-detail-actions"><button type="button" class="button game-trailer-btn contribution-action" data-evidence="gameplay">Gameplay Design Contributions <svg class="handdrawn-arrow" viewBox="0 0 36 36" aria-hidden="true" focusable="false"><path d="M8 28 Q18 18 29 8 M17 8 Q23 7 30 7 L30 20"/><path class="pencil-echo" d="M10 30 Q20 20 28 12"/></svg></button><button type="button" class="button game-trailer-btn contribution-action" data-evidence="technical">Technical Design Contributions <svg class="handdrawn-arrow" viewBox="0 0 36 36" aria-hidden="true" focusable="false"><path d="M8 28 Q18 18 29 8 M17 8 Q23 7 30 7 L30 20"/><path class="pencil-echo" d="M10 30 Q20 20 28 12"/></svg></button></div>
- <h3>Project Details</h3><dl class="game-detail-meta">${g.meta.map(([a,b])=>`<div><dt>${escapeHTML(a)}</dt><dd>${escapeHTML(b)}</dd></div>`).join('')}</dl>${g.link?`<p style="margin-top:28px"><a class="button secondary" href="${g.link}" target="_blank" rel="noopener noreferrer">${g.title === "Mental Maze - The Asylum Experiment" ? "View Playable Project ↗" : "View playable project ↗"}</a></p>`:''}</div>`;
+ <h3>Project Details</h3><dl class="game-detail-meta">${g.meta.map(([a,b])=>`<div><dt>${escapeHTML(a)}</dt><dd>${escapeHTML(b)}</dd></div>`).join('')}</dl>${g.link?`<p style="margin-top:28px"><a class="button secondary" href="${g.link}" target="_blank" rel="noopener noreferrer">${"View Playable Project ↗"}</a></p>`:''}</div>`;
  drawer.scrollTop=0;drawer.dataset.game=i;drawer.classList.add('open');drawer.setAttribute('aria-hidden','false');scrim.hidden=false;requestAnimationFrame(()=>scrim.classList.add('visible'));document.body.style.overflow='hidden';drawer.scrollTop=0;drawer.focus({preventScroll:true});
 }
 function closeDrawer(){resetModalVideos();if(!modal.hidden)closeModal();drawer.classList.remove('open');drawer.setAttribute('aria-hidden','true');scrim.classList.remove('visible');document.body.style.overflow='';setTimeout(()=>{if(!drawer.classList.contains('open'))scrim.hidden=true},570);lastFocus?.focus()}
@@ -3205,6 +3251,10 @@ function openModal(kind){
      :`<img src="${safe}" alt="${alt}" loading="lazy">`;
  };
  const galleries={
+   "Pixel Art & Backgrounds":[["Mobile Game Menu Background","assets/dance-sprites/Mobile Game Menu Background.png"],["Penguin","assets/dance-sprites/Penguin.png"],["Mobile Game Background","assets/dance-sprites/Mobile Game Background.png"],["Firework","assets/dance-sprites/Firework.png"]],
+   "Arrow & Rhythm Assets":[["Side Left Arrow","assets/dance-sprites/Side Left Arrow.png"],["Side Right Arrow","assets/dance-sprites/Side Right Arrow.png"],["Down Arrow","assets/dance-sprites/Down Arrow.png"],["Up Arrow","assets/dance-sprites/Up Arrow.png"],["Side Left Arrow","assets/dance-sprites/Falling Down Arrows/Side Left Arrow.png"],["Side Right Arrow","assets/dance-sprites/Falling Down Arrows/Side Right Arrow.png"],["Down Arrow","assets/dance-sprites/Falling Down Arrows/Down Arrow.png"],["Up Arrow","assets/dance-sprites/Falling Down Arrows/Up Arrow.png"]],
+   "UI Buttons & Elements":[["Dance Beatz Title","assets/dance-sprites/UI/Dance Beatz Title.png"],["Yes Button","assets/dance-sprites/UI/Yes Button.png"],["Ranking Button","assets/dance-sprites/UI/Ranking Button.png"],["Menu Button","assets/dance-sprites/UI/Menu Button.png"],["Exit Button","assets/dance-sprites/UI/Exit Button.png"],["Button Template","assets/dance-sprites/UI/Button Template.png"],["Options Button","assets/dance-sprites/UI/Options Button.png"],["No Button","assets/dance-sprites/UI/No Button.png"],["Heart Icon","assets/dance-sprites/UI/Heart Icon.png"],["UI Background","assets/dance-sprites/UI/UI Background.png"],["Tutorial Button","assets/dance-sprites/UI/Tutorial Button.png"],["Select Button","assets/dance-sprites/UI/Select Button.png"],["Restart Button","assets/dance-sprites/UI/Restart Button.png"],["Bar","assets/dance-sprites/UI/Bar.png"],["Submit Button","assets/dance-sprites/UI/Submit Button.png"],["Pause Button","assets/dance-sprites/UI/Pause Button.png"],["Play Button","assets/dance-sprites/UI/Play Button.png"]],
+   "Score Feedback Art":[["x letter","assets/dance-sprites/Words/x letter.png"],["perfect word","assets/dance-sprites/Words/perfect word.png"],["miss word","assets/dance-sprites/Words/miss word.png"],["late word","assets/dance-sprites/Words/late word.png"],["great word","assets/dance-sprites/Words/great word.png"],["combo word","assets/dance-sprites/Words/combo word.png"],["early word","assets/dance-sprites/Words/early word.png"]],
    "Level Design":[["Library","assets/mental-level-library.png"],["Office","assets/mental-level-office.png"],["Locked Door","assets/mental-level-door.png"],["Treatment Chair","assets/mental-level-chair.png"],["Medical Trolley & Desk","assets/mental-level-bench.png"]],
    "Survival & Progression":[["Oxygen & Stamina UI","assets/oxygen-stamina-ui.mp4"],["Oxygen Depletion","assets/oxygen-draining.mp4"],["Sleep Mechanic","assets/sleep-mechanic.mp4"]],
    "Onboarding & Player Experience":[["Tips Mechanic","assets/tips-mechanic.mp4"],["Customisable Keybinds","assets/changing-keybinds.mp4"],["Level Progression","assets/level-progression.mp4"]],
@@ -3212,15 +3262,19 @@ function openModal(kind){
  };
  const clipGallery=(name)=>{
    const clips=galleries[name];
-   return `<div class="survival-tabs" role="tablist" aria-label="${escapeHTML(name)} videos">${clips.map(([label],i)=>`<button type="button" class="survival-tab" role="tab" aria-selected="${i===0}" data-clip-tab="${i}">${escapeHTML(label)}</button>`).join('')}</div><div class="survival-player">${name==="Level Design"?`<img src="${clips[0][1]}" alt="${escapeHTML(clips[0][0])}" style="display:block;width:100%;height:auto;object-fit:contain">`:`<video controls playsinline preload="metadata" src="${clips[0][1]}" aria-label="${clips[0][0]} footage"></video>`}</div>`;
+   return `<div class="survival-tabs" role="tablist" aria-label="${escapeHTML(name)} videos">${clips.map(([label],i)=>`<button type="button" class="survival-tab" role="tab" aria-selected="${i===0}" data-clip-tab="${i}">${escapeHTML(label)}</button>`).join('')}</div><div class="survival-player">${["Level Design","Pixel Art & Backgrounds","Arrow & Rhythm Assets","UI Buttons & Elements","Score Feedback Art"].includes(name)?`<img src="${clips[0][1]}" alt="${escapeHTML(clips[0][0])}" style="display:block;width:100%;height:auto;object-fit:contain">`:`<video controls playsinline preload="metadata" src="${clips[0][1]}" aria-label="${clips[0][0]} footage"></video>`}</div>`;
  };
- document.getElementById('game-modal-content').innerHTML=`<h2>${title}</h2>${items.map(([name,desc,img],idx)=>`<section class="game-evidence game-evidence--visual"><div class="game-evidence-label"><span class="game-evidence-number">${String(idx+1).padStart(2,'0')}</span><h3>${escapeHTML(name)}</h3><span class="game-evidence-line" aria-hidden="true"></span></div>${((g.title === "Breaking Point") || (g.title === "Mental Maze - The Asylum Experiment" && name === "Level Design")) && galleries[name] ? clipGallery(name) : mediaMarkup(name,img)}</section>`).join('')}`;
+ document.getElementById('game-modal-content').innerHTML=`<h2>${title}</h2>${items.map(([name,desc,img],idx)=>`<section class="game-evidence game-evidence--visual"><div class="game-evidence-label"><span class="game-evidence-number">${String(idx+1).padStart(2,'0')}</span><h3>${escapeHTML(name)}</h3><span class="game-evidence-line" aria-hidden="true"></span></div>${((g.title === "Breaking Point") || (g.title === "Mental Maze - The Asylum Experiment" && name === "Level Design" || g.title === "Dance Beatz" && ["Pixel Art & Backgrounds","Arrow & Rhythm Assets","UI Buttons & Elements","Score Feedback Art"].includes(name))) && galleries[name] ? clipGallery(name) : mediaMarkup(name,img)}</section>`).join('')}`;
  modal.hidden=false;modal.setAttribute('aria-hidden','false');modal.querySelector('.game-modal-panel').focus();
 }
 document.getElementById('game-modal-content').addEventListener('click',e=>{
  const tab=e.target.closest('[data-clip-tab]');if(!tab)return;
  const section=tab.closest('.game-evidence'),heading=section.querySelector('h3')?.textContent;
  const sources={
+   "Pixel Art & Backgrounds":[["Mobile Game Menu Background","assets/dance-sprites/Mobile Game Menu Background.png"],["Penguin","assets/dance-sprites/Penguin.png"],["Mobile Game Background","assets/dance-sprites/Mobile Game Background.png"],["Firework","assets/dance-sprites/Firework.png"]],
+   "Arrow & Rhythm Assets":[["Side Left Arrow","assets/dance-sprites/Side Left Arrow.png"],["Side Right Arrow","assets/dance-sprites/Side Right Arrow.png"],["Down Arrow","assets/dance-sprites/Down Arrow.png"],["Up Arrow","assets/dance-sprites/Up Arrow.png"],["Side Left Arrow","assets/dance-sprites/Falling Down Arrows/Side Left Arrow.png"],["Side Right Arrow","assets/dance-sprites/Falling Down Arrows/Side Right Arrow.png"],["Down Arrow","assets/dance-sprites/Falling Down Arrows/Down Arrow.png"],["Up Arrow","assets/dance-sprites/Falling Down Arrows/Up Arrow.png"]],
+   "UI Buttons & Elements":[["Dance Beatz Title","assets/dance-sprites/UI/Dance Beatz Title.png"],["Yes Button","assets/dance-sprites/UI/Yes Button.png"],["Ranking Button","assets/dance-sprites/UI/Ranking Button.png"],["Menu Button","assets/dance-sprites/UI/Menu Button.png"],["Exit Button","assets/dance-sprites/UI/Exit Button.png"],["Button Template","assets/dance-sprites/UI/Button Template.png"],["Options Button","assets/dance-sprites/UI/Options Button.png"],["No Button","assets/dance-sprites/UI/No Button.png"],["Heart Icon","assets/dance-sprites/UI/Heart Icon.png"],["UI Background","assets/dance-sprites/UI/UI Background.png"],["Tutorial Button","assets/dance-sprites/UI/Tutorial Button.png"],["Select Button","assets/dance-sprites/UI/Select Button.png"],["Restart Button","assets/dance-sprites/UI/Restart Button.png"],["Bar","assets/dance-sprites/UI/Bar.png"],["Submit Button","assets/dance-sprites/UI/Submit Button.png"],["Pause Button","assets/dance-sprites/UI/Pause Button.png"],["Play Button","assets/dance-sprites/UI/Play Button.png"]],
+   "Score Feedback Art":[["x letter","assets/dance-sprites/Words/x letter.png"],["perfect word","assets/dance-sprites/Words/perfect word.png"],["miss word","assets/dance-sprites/Words/miss word.png"],["late word","assets/dance-sprites/Words/late word.png"],["great word","assets/dance-sprites/Words/great word.png"],["combo word","assets/dance-sprites/Words/combo word.png"],["early word","assets/dance-sprites/Words/early word.png"]],
    "Level Design":[["Library","assets/mental-level-library.png"],["Office","assets/mental-level-office.png"],["Locked Door","assets/mental-level-door.png"],["Treatment Chair","assets/mental-level-chair.png"],["Medical Trolley & Desk","assets/mental-level-bench.png"]],
    "Survival & Progression":[['Oxygen & Stamina UI','assets/oxygen-stamina-ui.mp4'],['Oxygen Depletion','assets/oxygen-draining.mp4'],['Sleep Mechanic','assets/sleep-mechanic.mp4']],
    "Onboarding & Player Experience":[['Tips Mechanic','assets/tips-mechanic.mp4'],['Customisable Keybinds','assets/changing-keybinds.mp4'],['Level Progression','assets/level-progression.mp4']],
@@ -3228,7 +3282,7 @@ document.getElementById('game-modal-content').addEventListener('click',e=>{
  }[heading];
  const i=Number(tab.dataset.clipTab),player=section.querySelector('.survival-player'),video=player?.querySelector('video');
  if(!player||!sources?.[i]||tab.getAttribute('aria-selected')==='true')return;
- if(heading==="Level Design"){
+ if(["Level Design","Pixel Art & Backgrounds","Arrow & Rhythm Assets","UI Buttons & Elements","Score Feedback Art"].includes(heading)){
    player.innerHTML=`<img src="${escapeHTML(sources[i][1])}" alt="${escapeHTML(sources[i][0])}" style="display:block;width:100%;height:auto;object-fit:contain">`;
  }else{
    if(!video)return;
