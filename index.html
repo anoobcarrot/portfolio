@@ -2720,6 +2720,20 @@ footer.footer .footer-inner .footer-extras > button.pixel-heart.is-loved svg {
   image-rendering:pixelated!important;
 }
 </style>
+
+<style id="firework-fit-entire-sheet-2026">
+/* Fit the whole four-frame strip inside its existing gallery, without cropping. */
+#game-modal .game-evidence--visual .survival-player:has(img[alt="Firework"]){
+ width:min(100%,570px)!important; max-width:100%!important; min-width:0!important;
+ overflow:hidden!important; display:flex!important; align-items:center!important; justify-content:center!important;
+}
+#game-modal .game-evidence--visual .survival-player img[alt="Firework"]{
+ box-sizing:border-box!important; display:block!important; width:100%!important;
+ min-width:0!important; max-width:100%!important; height:auto!important;
+ max-height:none!important; aspect-ratio:auto!important; object-fit:contain!important;
+ margin:0 auto!important; image-rendering:pixelated!important;
+}
+</style>
 </head>
 <body>
 <svg aria-hidden="true" height="0" style="position:absolute;pointer-events:none" width="0" xmlns="http://www.w3.org/2000/svg"><filter height="120%" id="hand-ink-filter" width="120%" x="-10%" y="-10%"><feturbulence basefrequency="0.035" numoctaves="2" result="noise" seed="7" type="fractalNoise"></feturbulence><fedisplacementmap in="SourceGraphic" in2="noise" scale="1.4" xchannelselector="R" ychannelselector="G"></fedisplacementmap></filter></svg>
