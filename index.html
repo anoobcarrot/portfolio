@@ -2738,7 +2738,27 @@ footer.footer .footer-inner .footer-extras > button.pixel-heart.is-loved svg {
 }
 #contribution-image-zoom-v2 .zoom-v2-picture{object-fit:fill!important;image-rendering:pixelated}
 @media(max-width:600px){#game-modal .game-evidence--visual .survival-player:has(img[src*="dance-sprites/"]){min-height:250px!important}}
-</style></head>
+</style>
+<style id="dance-sprite-size-final-fix">
+/* Keep previews large like the original galleries, without intrinsic-size shrinkage. */
+#game-modal .game-evidence--visual .survival-player:has(img[src*="dance-sprites/"]),
+#game-modal .game-evidence--visual .survival-player:has(img[src^="data:image/png;base64,"]){
+  width:100%!important;max-width:none!important;min-height:420px!important;
+  height:auto!important;max-height:none!important;overflow:visible!important;
+  display:flex!important;align-items:center!important;justify-content:center!important;
+}
+#game-modal .game-evidence--visual .survival-player img[src*="dance-sprites/"],
+#game-modal .game-evidence--visual .survival-player img[src^="data:image/png;base64,"]{
+  width:100%!important;max-width:100%!important;height:auto!important;max-height:none!important;
+  min-width:0!important;object-fit:contain!important;image-rendering:pixelated!important;
+  display:block!important;margin:auto!important;
+}
+@media(max-width:600px){
+ #game-modal .game-evidence--visual .survival-player:has(img[src*="dance-sprites/"]),
+ #game-modal .game-evidence--visual .survival-player:has(img[src^="data:image/png;base64,"]){min-height:240px!important}
+}
+</style>
+</head>
 <body>
 <svg aria-hidden="true" height="0" style="position:absolute;pointer-events:none" width="0" xmlns="http://www.w3.org/2000/svg"><filter height="120%" id="hand-ink-filter" width="120%" x="-10%" y="-10%"><feturbulence basefrequency="0.035" numoctaves="2" result="noise" seed="7" type="fractalNoise"></feturbulence><fedisplacementmap in="SourceGraphic" in2="noise" scale="1.4" xchannelselector="R" ychannelselector="G"></fedisplacementmap></filter></svg>
 <div class="site-root" data-sites-preview-theme="">
@@ -3394,10 +3414,9 @@ go(0);
   const rect=(r)=>({left:r.left,top:r.top,width:r.width,height:r.height});
   const setRect=r=>Object.assign(picture.style,{left:r.left+'px',top:r.top+'px',width:r.width+'px',height:r.height+'px'});
   const center=(start)=>{
-    // Always grow relative to the displayed preview; never use tiny PNG dimensions.
-    const maxW=innerWidth*.94,maxH=innerHeight*.90;
-    const available=Math.min(maxW/Math.max(start.width,1),maxH/Math.max(start.height,1));
-    const factor=Math.max(1,Math.min(available,3.2));
+    const maxW=innerWidth*.96,maxH=innerHeight*.92;
+    const ratio=Math.min(maxW/Math.max(start.width,1),maxH/Math.max(start.height,1));
+    const factor=Math.max(1,Math.min(ratio,3.2));
     const width=start.width*factor,height=start.height*factor;
     return {left:(innerWidth-width)/2,top:(innerHeight-height)/2,width,height};
   };
@@ -3412,7 +3431,7 @@ go(0);
     const start=rect(img.getBoundingClientRect());
     picture.src=img.currentSrc||img.src;
     picture.alt=img.alt||'Enlarged contribution image';
-    picture.style.imageRendering=(img.src.includes('dance-sprites/'))?'pixelated':'auto';
+    picture.style.imageRendering=(img.src.includes('dance-sprites/')||img.src.startsWith('data:image/png;base64,'))?'pixelated':'auto';
     viewer.classList.add('visible');
     setRect(start);
     try{await picture.decode()}catch(e){}
