@@ -2708,9 +2708,17 @@ footer.footer .footer-inner .footer-extras > button.pixel-heart.is-loved svg {
 </style>
 
 <style id="firework-visible-artwork-alignment-2026">
-/* All four fireworks retained; centre the tightly cropped sprite without shifting or clipping it. */
-#game-modal .game-evidence--visual .survival-player:has(img[alt="Firework"]){display:flex!important;align-items:center!important;justify-content:center!important;overflow:visible!important}
-#game-modal .game-evidence--visual .survival-player img[alt="Firework"]{position:static!important;left:auto!important;transform:none!important;display:block!important;margin:0 auto!important;max-width:100%!important;height:auto!important;object-fit:contain!important;object-position:center!important;image-rendering:pixelated!important}
+/* Cropped to the actual four-firework artwork; no manual horizontal offsets. */
+#game-modal .game-evidence--visual .survival-player:has(img[alt="Firework"]) {
+  display:flex!important; align-items:center!important; justify-content:center!important;
+  overflow:visible!important;
+}
+#game-modal .game-evidence--visual .survival-player img[alt="Firework"] {
+  position:static!important; left:auto!important; right:auto!important;
+  transform:none!important; margin:0 auto!important;
+  max-width:100%!important; height:auto!important; object-fit:contain!important;
+  image-rendering:pixelated!important;
+}
 </style>
 </head>
 <body>
