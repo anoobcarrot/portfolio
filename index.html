@@ -2722,7 +2722,25 @@ footer.footer .footer-inner .footer-extras > button.pixel-heart.is-loved svg {
 .game-slide[aria-label="Dance Beatz"] .game-slide-visual img{object-fit:contain}
 .game-detail-banner--dance>img{object-fit:contain!important;object-position:center!important;background:#00131d}
 </style>
-</head>
+<style id="dance-centered-sprites-2026">
+/* Corrected pixel-art gallery: centered, bounded previews that can enlarge in the lightbox. */
+#game-modal .game-evidence--visual .survival-player:has(img[src*="dance-sprites/"]),
+#game-modal .game-evidence--visual .survival-player:has(img[src^="data:image/png;base64,"]){
+ display:flex!important;align-items:center!important;justify-content:center!important;
+ min-height:280px!important;width:min(100%,570px)!important;
+}
+#game-modal .game-evidence--visual .survival-player img[src*="dance-sprites/"],
+#game-modal .game-evidence--visual .survival-player img[src^="data:image/png;base64,"]{
+ display:block!important;width:auto!important;height:auto!important;
+ max-width:min(100%,400px)!important;max-height:260px!important;
+ margin:auto!important;object-fit:contain!important;object-position:center center!important;
+ image-rendering:pixelated!important;
+}
+#game-modal .game-evidence--visual .survival-player img[src^="data:image/png;base64,"]{
+ width:400px!important;max-width:100%!important;height:auto!important;
+}
+#contribution-image-zoom-v2 .zoom-v2-picture{object-fit:fill!important;transform:none!important;}
+</style></head>
 <body>
 <svg aria-hidden="true" height="0" style="position:absolute;pointer-events:none" width="0" xmlns="http://www.w3.org/2000/svg"><filter height="120%" id="hand-ink-filter" width="120%" x="-10%" y="-10%"><feturbulence basefrequency="0.035" numoctaves="2" result="noise" seed="7" type="fractalNoise"></feturbulence><fedisplacementmap in="SourceGraphic" in2="noise" scale="1.4" xchannelselector="R" ychannelselector="G"></fedisplacementmap></filter></svg>
 <div class="site-root" data-sites-preview-theme="">
@@ -3299,7 +3317,7 @@ function openModal(kind){
      :`<img src="${safe}" alt="${alt}" loading="lazy">`;
  };
  const galleries={
-   "Pixel Art & Backgrounds":[["Mobile Game Menu Background","assets/dance-sprites/Mobile Game Menu Background.png"],["Penguin","assets/dance-sprites/Penguin.png"],["Mobile Game Background","assets/dance-sprites/Mobile Game Background.png"],["Firework","assets/dance-firework-centered.png"]],
+   "Pixel Art & Backgrounds":[["Mobile Game Menu Background","assets/dance-sprites/Mobile Game Menu Background.png"],["Penguin","assets/dance-sprites/Penguin.png"],["Mobile Game Background","assets/dance-sprites/Mobile Game Background.png"],["Firework","data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAIAAAABACAYAAADS1n9/AAABpklEQVR4nO3X0ZLCMAhAUbv//8/xZZ3JMISSCiSt97ysY1VoIDT7egEAAAAAAAAAAAAAAABYp7XWVueAYN8Utf2LzAfFZAGvFJRGeIirxc/IBQvMFpPiF6hcZAq6kVExPu9XF2tV3J/UL3LrjK5nxT57n2ZI4t1tWQWYbTAaIYC18/oJoE2HyPjb/ku3Q1JVOXjHffZz2WqKsjNBVsfPxF71/PNOhegYM+eAmeu3l3mD2g6TDaj9/XYnjhpAxsjY8cdMksdxuD8f5XOzMnZlPn0O2uJn5SFjZcT58yZRXfw+rhY7Ox9tt2lr0TdF1uOgvzZ67FhnBDhZC6uNZPl69BtXc7CaMONxcCm56thWDlE70NpNMn5WISIKHZrTioKfFTsrp7Nmy4ztNYq/Q27hVtzQaPRbec3k6fmutgkypt7tZHe5Nf5HsWdz8n7W2uneWI9g3XDkYoyKK1/LyVDZkOisXPzI2Iz2zWnngJ12fnYuP69q3Gsxz65R+Ic7O5fg5uSBsn9ffk777ugabsRTQMY+8ItWHEABAAAAAAAAAAAAAAAA3NEbhh+I1ah8wNQAAAAASUVORK5CYII="]],
    "Arrow & Rhythm Assets":[["Side Left Arrow","assets/dance-sprites/Side Left Arrow.png"],["Side Right Arrow","assets/dance-sprites/Side Right Arrow.png"],["Down Arrow","assets/dance-sprites/Down Arrow.png"],["Up Arrow","assets/dance-sprites/Up Arrow.png"],["Side Left Arrow","assets/dance-sprites/Falling Down Arrows/Side Left Arrow.png"],["Side Right Arrow","assets/dance-sprites/Falling Down Arrows/Side Right Arrow.png"],["Down Arrow","assets/dance-sprites/Falling Down Arrows/Down Arrow.png"],["Up Arrow","assets/dance-sprites/Falling Down Arrows/Up Arrow.png"]],
    "UI Buttons & Elements":[["Dance Beatz Title","assets/dance-sprites/UI/Dance Beatz Title.png"],["Yes Button","assets/dance-sprites/UI/Yes Button.png"],["Ranking Button","assets/dance-sprites/UI/Ranking Button.png"],["Menu Button","assets/dance-sprites/UI/Menu Button.png"],["Exit Button","assets/dance-sprites/UI/Exit Button.png"],["Button Template","assets/dance-sprites/UI/Button Template.png"],["Options Button","assets/dance-sprites/UI/Options Button.png"],["No Button","assets/dance-sprites/UI/No Button.png"],["Heart Icon","assets/dance-sprites/UI/Heart Icon.png"],["UI Background","assets/dance-sprites/UI/UI Background.png"],["Tutorial Button","assets/dance-sprites/UI/Tutorial Button.png"],["Select Button","assets/dance-sprites/UI/Select Button.png"],["Restart Button","assets/dance-sprites/UI/Restart Button.png"],["Bar","assets/dance-sprites/UI/Bar.png"],["Submit Button","assets/dance-sprites/UI/Submit Button.png"],["Pause Button","assets/dance-sprites/UI/Pause Button.png"],["Play Button","assets/dance-sprites/UI/Play Button.png"]],
    "Score Feedback Art":[["x letter","assets/dance-sprites/Words/x letter.png"],["perfect word","assets/dance-sprites/Words/perfect word.png"],["miss word","assets/dance-sprites/Words/miss word.png"],["late word","assets/dance-sprites/Words/late word.png"],["great word","assets/dance-sprites/Words/great word.png"],["combo word","assets/dance-sprites/Words/combo word.png"],["early word","assets/dance-sprites/Words/early word.png"]],
@@ -3319,7 +3337,7 @@ document.getElementById('game-modal-content').addEventListener('click',e=>{
  const tab=e.target.closest('[data-clip-tab]');if(!tab)return;
  const section=tab.closest('.game-evidence'),heading=section.querySelector('h3')?.textContent;
  const sources={
-   "Pixel Art & Backgrounds":[["Mobile Game Menu Background","assets/dance-sprites/Mobile Game Menu Background.png"],["Penguin","assets/dance-sprites/Penguin.png"],["Mobile Game Background","assets/dance-sprites/Mobile Game Background.png"],["Firework","assets/dance-firework-centered.png"]],
+   "Pixel Art & Backgrounds":[["Mobile Game Menu Background","assets/dance-sprites/Mobile Game Menu Background.png"],["Penguin","assets/dance-sprites/Penguin.png"],["Mobile Game Background","assets/dance-sprites/Mobile Game Background.png"],["Firework","data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAIAAAABACAYAAADS1n9/AAABpklEQVR4nO3X0ZLCMAhAUbv//8/xZZ3JMISSCiSt97ysY1VoIDT7egEAAAAAAAAAAAAAAABYp7XWVueAYN8Utf2LzAfFZAGvFJRGeIirxc/IBQvMFpPiF6hcZAq6kVExPu9XF2tV3J/UL3LrjK5nxT57n2ZI4t1tWQWYbTAaIYC18/oJoE2HyPjb/ku3Q1JVOXjHffZz2WqKsjNBVsfPxF71/PNOhegYM+eAmeu3l3mD2g6TDaj9/XYnjhpAxsjY8cdMksdxuD8f5XOzMnZlPn0O2uJn5SFjZcT58yZRXfw+rhY7Ox9tt2lr0TdF1uOgvzZ67FhnBDhZC6uNZPl69BtXc7CaMONxcCm56thWDlE70NpNMn5WISIKHZrTioKfFTsrp7Nmy4ztNYq/Q27hVtzQaPRbec3k6fmutgkypt7tZHe5Nf5HsWdz8n7W2uneWI9g3XDkYoyKK1/LyVDZkOisXPzI2Iz2zWnngJ12fnYuP69q3Gsxz65R+Ic7O5fg5uSBsn9ffk777ugabsRTQMY+8ItWHEABAAAAAAAAAAAAAAAA3NEbhh+I1ah8wNQAAAAASUVORK5CYII="]],
    "Arrow & Rhythm Assets":[["Side Left Arrow","assets/dance-sprites/Side Left Arrow.png"],["Side Right Arrow","assets/dance-sprites/Side Right Arrow.png"],["Down Arrow","assets/dance-sprites/Down Arrow.png"],["Up Arrow","assets/dance-sprites/Up Arrow.png"],["Side Left Arrow","assets/dance-sprites/Falling Down Arrows/Side Left Arrow.png"],["Side Right Arrow","assets/dance-sprites/Falling Down Arrows/Side Right Arrow.png"],["Down Arrow","assets/dance-sprites/Falling Down Arrows/Down Arrow.png"],["Up Arrow","assets/dance-sprites/Falling Down Arrows/Up Arrow.png"]],
    "UI Buttons & Elements":[["Dance Beatz Title","assets/dance-sprites/UI/Dance Beatz Title.png"],["Yes Button","assets/dance-sprites/UI/Yes Button.png"],["Ranking Button","assets/dance-sprites/UI/Ranking Button.png"],["Menu Button","assets/dance-sprites/UI/Menu Button.png"],["Exit Button","assets/dance-sprites/UI/Exit Button.png"],["Button Template","assets/dance-sprites/UI/Button Template.png"],["Options Button","assets/dance-sprites/UI/Options Button.png"],["No Button","assets/dance-sprites/UI/No Button.png"],["Heart Icon","assets/dance-sprites/UI/Heart Icon.png"],["UI Background","assets/dance-sprites/UI/UI Background.png"],["Tutorial Button","assets/dance-sprites/UI/Tutorial Button.png"],["Select Button","assets/dance-sprites/UI/Select Button.png"],["Restart Button","assets/dance-sprites/UI/Restart Button.png"],["Bar","assets/dance-sprites/UI/Bar.png"],["Submit Button","assets/dance-sprites/UI/Submit Button.png"],["Pause Button","assets/dance-sprites/UI/Pause Button.png"],["Play Button","assets/dance-sprites/UI/Play Button.png"]],
    "Score Feedback Art":[["x letter","assets/dance-sprites/Words/x letter.png"],["perfect word","assets/dance-sprites/Words/perfect word.png"],["miss word","assets/dance-sprites/Words/miss word.png"],["late word","assets/dance-sprites/Words/late word.png"],["great word","assets/dance-sprites/Words/great word.png"],["combo word","assets/dance-sprites/Words/combo word.png"],["early word","assets/dance-sprites/Words/early word.png"]],
@@ -3381,15 +3399,16 @@ go(0);
     // Scale from the actual on-screen rectangle, not the tiny native sprite size.
     // This prevents small sprite sheets from shrinking on click.
     const maxW=innerWidth*.90,maxH=innerHeight*.85;
-    const scale=Math.min(maxW/start.width,maxH/start.height,3.2);
+    const scale=Math.min(maxW/Math.max(start.width,1),maxH/Math.max(start.height,1),4.5);
     const factor=Math.max(1,scale);
     const width=start.width*factor,height=start.height*factor;
     return {left:(innerWidth-width)/2,top:(innerHeight-height)/2,width,height};
   };
-  const animate=(a,b)=>picture.animate([
+  let activeAnimation=null;
+  const animate=(a,b)=>{if(activeAnimation)activeAnimation.cancel();activeAnimation=picture.animate([
     {left:a.left+'px',top:a.top+'px',width:a.width+'px',height:a.height+'px'},
     {left:b.left+'px',top:b.top+'px',width:b.width+'px',height:b.height+'px'}
-  ],{duration:reduced()?0:380,easing:'cubic-bezier(.22,1,.36,1)',fill:'forwards'}).finished.catch(()=>{});
+  ],{duration:reduced()?0:380,easing:'cubic-bezier(.22,1,.36,1)',fill:'forwards'});return activeAnimation.finished.catch(()=>{});};
   async function open(img){
     if(origin||busy)return;
     busy=true;origin=img;
@@ -3404,7 +3423,7 @@ go(0);
     img.style.visibility='hidden';
     const target=center(start);
     await animate(start,target);
-    if(origin===img)setRect(target);
+    if(origin===img){setRect(target);if(activeAnimation){activeAnimation.cancel();activeAnimation=null;}}
     busy=false;
   }
   async function close(immediate=false){
@@ -3415,6 +3434,7 @@ go(0);
     const start=rect(picture.getBoundingClientRect());
     const end=img.isConnected?rect(img.getBoundingClientRect()):start;
     if(!immediate)await animate(start,end);
+    if(activeAnimation){activeAnimation.cancel();activeAnimation=null;}
     viewer.classList.remove('visible');
     img.style.visibility='';
     picture.removeAttribute('src');
