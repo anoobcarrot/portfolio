@@ -2766,15 +2766,16 @@ footer.footer .footer-inner .footer-extras > button.pixel-heart.is-loved svg {
    box-sizing:border-box!important;
    height:auto;
    max-height:none!important;
+   min-height:0;
    flex:0 0 auto;
    overflow-y:auto!important;
    overflow-x:hidden!important;
-   scroll-snap-type:y proximity;
+   scroll-snap-type:none;
  }
  #games-page .game-index-scroll .game-index-btn{
    min-height:0!important;
    flex-shrink:0!important;
-   scroll-snap-align:start;
+   scroll-snap-align:none;
  }
 }
 </style>
@@ -2784,17 +2785,18 @@ footer.footer .footer-inner .footer-extras > button.pixel-heart.is-loved svg {
    var area=document.querySelector('#games-page .game-index-scroll');
    if(!area)return;
    if(window.matchMedia('(max-width:800px)').matches){area.style.removeProperty('height');return;}
-   var buttons=Array.from(area.querySelectorAll('.game-index-btn')).slice(0,5);
-   if(buttons.length!==5)return;
-   /* Use offsetHeight, which measures the actual card including its hand-drawn border. */
-   var style=getComputedStyle(area);
-   var gap=parseFloat(style.rowGap)||0;
-   var paddingTop=parseFloat(style.paddingTop)||0;
-   var paddingBottom=parseFloat(style.paddingBottom)||0;
-   var height=buttons.reduce(function(sum,button){return sum+button.offsetHeight;},0)+gap*4+paddingTop+paddingBottom;
-   area.style.height=Math.ceil(height+2)+'px';
+   var cards=Array.from(area.querySelectorAll('.game-index-btn'));
+   if(cards.length<6)return;
+   // Use the sixth card's actual position to show precisely the first five.
+   area.style.height='auto';
+   var areaTop=area.getBoundingClientRect().top;
+   var sixthTop=cards[5].getBoundingClientRect().top;
+   var gap=parseFloat(getComputedStyle(area).rowGap)||0;
+   var height=Math.ceil(sixthTop-areaTop-gap/2);
+   area.style.height=Math.max(height,500)+'px';
  }
  document.addEventListener('DOMContentLoaded',sizeFive);
+ window.addEventListener('load',sizeFive);
  if(document.fonts&&document.fonts.ready)document.fonts.ready.then(sizeFive);
  window.addEventListener('resize',sizeFive);
 })();
@@ -3387,7 +3389,7 @@ function openDrawer(i){
  document.getElementById('game-drawer-content').innerHTML=`
  <div class="game-detail-banner ${'game-detail-banner--artwork'} ${i===0?'game-detail-banner--breaking':''} ${i===1?'game-detail-banner--maplewood':i===2?'game-detail-banner--carlos':i===3?'game-detail-banner--mental':i===4?'game-detail-banner--dance':i===5?'game-detail-banner--environmental':''}"><img src="${g.banner}" alt="${i===0?'Breaking Point illustrated mountain banner with the game title':i===1?'August In Maplewood illustrated forest banner with the game title':'Project banner'}">${i===0||i===1||i===2||i===3||i===4||i===5?`<div class="game-detail-intro"><p class="game-detail-role">${escapeHTML(g.role)}</p><p class="game-detail-tagline">${escapeHTML(g.short)}</p></div>`:`<div class="game-detail-banner-content"><p>${escapeHTML(g.role)}</p><h2>${escapeHTML(g.title)}</h2><p>${escapeHTML(g.short)}</p></div>`}</div>${g.trailer?'<div class="game-trailer-action"><button type="button" class="button game-trailer-btn" data-trailer>▶ View Trailer</button></div>':'<div class="game-no-trailer-divider" aria-hidden="true"></div>'}
  <div class="game-detail-body"><h3>My Contributions</h3>${g.contributionGroups?`<div class="game-contrib-groups">${g.contributionGroups.map((group,i)=>`<section class="game-contrib-group"><div class="game-contrib-heading"><span>${String(i+1).padStart(2,'0')}</span><h4>${escapeHTML(group.title)}</h4></div><ul>${group.items.map(x=>`<li>${escapeHTML(x)}</li>`).join('')}</ul></section>`).join('')}</div>`:`<ul>${g.contributions.map(x=>`<li>${escapeHTML(x)}</li>`).join('')}</ul>`}
- ${g.gameplay.length||g.technical.length?`<div class="game-detail-actions"><button type="button" class="button game-trailer-btn contribution-action" data-evidence="gameplay">Gameplay Design Contributions <svg class="handdrawn-arrow" viewBox="0 0 36 36" aria-hidden="true" focusable="false"><path d="M8 28 Q18 18 29 8 M17 8 Q23 7 30 7 L30 20"/><path class="pencil-echo" d="M10 30 Q20 20 28 12"/></svg></button><button type="button" class="button game-trailer-btn contribution-action" data-evidence="technical">Technical Design Contributions <svg class="handdrawn-arrow" viewBox="0 0 36 36" aria-hidden="true" focusable="false"><path d="M8 28 Q18 18 29 8 M17 8 Q23 7 30 7 L30 20"/><path class="pencil-echo" d="M10 30 Q20 20 28 12"/></svg></button></div>`:}
+ ${g.gameplay.length||g.technical.length?`<div class="game-detail-actions"><button type="button" class="button game-trailer-btn contribution-action" data-evidence="gameplay">Gameplay Design Contributions <svg class="handdrawn-arrow" viewBox="0 0 36 36" aria-hidden="true" focusable="false"><path d="M8 28 Q18 18 29 8 M17 8 Q23 7 30 7 L30 20"/><path class="pencil-echo" d="M10 30 Q20 20 28 12"/></svg></button><button type="button" class="button game-trailer-btn contribution-action" data-evidence="technical">Technical Design Contributions <svg class="handdrawn-arrow" viewBox="0 0 36 36" aria-hidden="true" focusable="false"><path d="M8 28 Q18 18 29 8 M17 8 Q23 7 30 7 L30 20"/><path class="pencil-echo" d="M10 30 Q20 20 28 12"/></svg></button></div>`:''}
  <h3>Project Details</h3><dl class="game-detail-meta">${g.meta.map(([a,b])=>`<div><dt>${escapeHTML(a)}</dt><dd>${escapeHTML(b)}</dd></div>`).join('')}</dl>${g.link?`<p style="margin-top:28px"><a class="button secondary" href="${g.link}" target="_blank" rel="noopener noreferrer">${"View Playable Project ↗"}</a></p>`:''}</div>`;
  drawer.scrollTop=0;drawer.dataset.game=i;drawer.classList.add('open');drawer.setAttribute('aria-hidden','false');scrim.hidden=false;requestAnimationFrame(()=>scrim.classList.add('visible'));document.body.style.overflow='hidden';drawer.scrollTop=0;drawer.focus({preventScroll:true});
 }
