@@ -2745,6 +2745,20 @@ footer.footer .footer-inner .footer-extras > button.pixel-heart.is-loved svg {
 .game-detail-banner.game-detail-banner--artwork > img{background:transparent!important;}
 .game-detail-banner.game-detail-banner--mental > img{background:transparent!important;}
 </style>
+<style id="environmental-cleanup-game-scroll">
+/* Show five projects at once; the sixth is reached by a small, styled scroll area. */
+#games-page .game-index{min-height:0;align-self:start;gap:8px}
+#games-page .game-index-scroll{display:flex;flex-direction:column;gap:8px;max-height:365px;overflow-y:auto;overflow-x:hidden;overscroll-behavior:contain;scrollbar-width:thin;scrollbar-color:#d6a0b7 #351d2a;padding:2px 8px 4px 0;scroll-behavior:smooth}
+#games-page .game-index-scroll::-webkit-scrollbar{width:5px}
+#games-page .game-index-scroll::-webkit-scrollbar-thumb{background:#d6a0b7;border-radius:8px}
+#games-page .game-index-scroll::-webkit-scrollbar-track{background:#351d2a;border-radius:8px}
+#games-page .game-index-scroll .game-index-btn{flex:0 0 auto;min-height:65px}
+#games-page .game-index-scroll-hint{display:flex;align-items:center;justify-content:space-between;gap:6px;font:11px "Architects Daughter",cursive;color:#e3b4c5;letter-spacing:.06em;padding:4px 10px 0 0}
+#games-page .game-index-scroll-hint span{font-size:20px;line-height:1;animation:game-scroll-nudge 2.1s ease-in-out infinite}
+@keyframes game-scroll-nudge{50%{transform:translateY(4px)}}
+@media(max-width:800px){#games-page .game-index-scroll{flex-direction:row;max-height:none;max-width:100%;overflow-x:auto;overflow-y:hidden;padding:2px 0 9px;scroll-snap-type:x proximity}#games-page .game-index-scroll .game-index-btn{flex:0 0 125px;min-height:60px;scroll-snap-align:start}#games-page .game-index-scroll-hint{display:none}}
+@media(prefers-reduced-motion:reduce){#games-page .game-index-scroll-hint span{animation:none}#games-page .game-index-scroll{scroll-behavior:auto}}
+</style>
 </head>
 <body>
 <svg aria-hidden="true" height="0" style="position:absolute;pointer-events:none" width="0" xmlns="http://www.w3.org/2000/svg"><filter height="120%" id="hand-ink-filter" width="120%" x="-10%" y="-10%"><feturbulence basefrequency="0.035" numoctaves="2" result="noise" seed="7" type="fractalNoise"></feturbulence><fedisplacementmap in="SourceGraphic" in2="noise" scale="1.4" xchannelselector="R" ychannelselector="G"></fedisplacementmap></filter></svg>
@@ -2817,52 +2831,63 @@ footer.footer .footer-inner .footer-extras > button.pixel-heart.is-loved svg {
 <div class="game-carousel">
 <nav aria-label="Select game" class="game-index">
 <span class="game-index-label">SELECT PROJECT</span>
+<div class="game-index-scroll" tabindex="0" aria-label="Scroll through game projects">
 <button aria-label="Show Breaking Point" class="game-index-btn active" data-game="0" type="button">01 <span>Breaking Point</span></button>
 <button aria-label="Show August In Maplewood" class="game-index-btn" data-game="1" type="button">02 <span>August In Maplewood</span></button>
 <button aria-label="Show Carlos The Penguin!" class="game-index-btn" data-game="2" type="button">03 <span>Carlos The Penguin!</span></button>
 <button aria-label="Show Mental Maze - The Asylum Experiment" class="game-index-btn" data-game="3" type="button">04 <span>Mental Maze</span></button>
 <button aria-label="Show Dance Beatz" class="game-index-btn" data-game="4" type="button">05 <span>Dance Beatz</span></button>
-<span class="game-index-count">01 / 05</span>
+<button aria-label="Show Environmental Cleanup" class="game-index-btn" data-game="5" type="button">06 <span>Environmental Cleanup</span></button>
+</div>
+<div class="game-index-scroll-hint" aria-hidden="true">SCROLL FOR MORE <span>↓</span></div>
+<span class="game-index-count">01 / 06</span>
 </nav>
 <div aria-label="Game showcase. Use arrow keys to change slides" class="game-window" tabindex="0">
 <div class="game-track">
 <article aria-label="Breaking Point" class="game-slide">
-<div class="game-slide-copy"><span class="game-slide-num">01 / 05</span><h2>Breaking Point</h2><p class="game-date">Final major university project · 2025</p>
+<div class="game-slide-copy"><span class="game-slide-num">01 / 06</span><h2>Breaking Point</h2><p class="game-date">Final major university project · 2025</p>
 <p class="game-blurb">A narrative-driven 3D game following Alice and Phillip as they climb Mount Everest. The experience combines character-driven storytelling with survival-inspired gameplay.</p>
 <h3>My main contributions</h3><p>UI and UX design, narrative and dialogue systems, gameplay mechanics, level design, programming, and team coordination.</p>
 <button class="button game-open" data-game="0" type="button">Explore project <span aria-hidden="true" class="game-open-arrow"><span class="arrow-default"><svg aria-hidden="true" class="handdrawn-arrow" focusable="false" viewbox="0 0 36 36"><path d="M8 28 Q18 18 29 8 M17 8 Q23 7 30 7 L30 20"></path><path class="pencil-echo" d="M10 30 Q20 20 28 12"></path></svg></span><span class="arrow-hover"><svg aria-hidden="true" class="handdrawn-arrow" focusable="false" viewbox="0 0 36 36"><path d="M5 18 Q17 17 31 18 M24 10 Q28 14 32 18 Q28 23 24 26"></path><path class="pencil-echo" d="M8 20 Q18 19 28 20"></path></svg></span></span></button>
 </div><div class="game-slide-visual"><img alt="Breaking Point poster" src="assets/BP_poster_final.png"/></div>
 </article>
 <article aria-label="August In Maplewood" class="game-slide">
-<div class="game-slide-copy"><span class="game-slide-num">02 / 05</span><h2>August In Maplewood</h2><p class="game-date">University proof of concept · 2024</p>
+<div class="game-slide-copy"><span class="game-slide-num">02 / 06</span><h2>August In Maplewood</h2><p class="game-date">University proof of concept · 2024</p>
 <p class="game-blurb">A 2.5D murder mystery set in a small town. Players track clues and investigate what happened to uncover the truth.</p>
 <h3>My main contributions</h3><p>Mechanics, narrative, user interface, and overall game design.</p>
 <button class="button game-open" data-game="1" type="button">Explore project <span aria-hidden="true" class="game-open-arrow"><span class="arrow-default"><svg aria-hidden="true" class="handdrawn-arrow" focusable="false" viewbox="0 0 36 36"><path d="M8 28 Q18 18 29 8 M17 8 Q23 7 30 7 L30 20"></path><path class="pencil-echo" d="M10 30 Q20 20 28 12"></path></svg></span><span class="arrow-hover"><svg aria-hidden="true" class="handdrawn-arrow" focusable="false" viewbox="0 0 36 36"><path d="M5 18 Q17 17 31 18 M24 10 Q28 14 32 18 Q28 23 24 26"></path><path class="pencil-echo" d="M8 20 Q18 19 28 20"></path></svg></span></span></button>
 </div><div class="game-slide-visual"><img alt="August In Maplewood poster" src="assets/august-in-maplewood-poster.png"/></div>
 </article>
 <article aria-label="Carlos The Penguin!" class="game-slide">
-<div class="game-slide-copy"><span class="game-slide-num">03 / 05</span><h2>Carlos The Penguin!</h2><p class="game-date">University First Official Game · 2023</p>
+<div class="game-slide-copy"><span class="game-slide-num">03 / 06</span><h2>Carlos The Penguin!</h2><p class="game-date">University First Official Game · 2023</p>
 <p class="game-blurb">A fast-paced 2D platformer where players race to reach an igloo. Every level must be completed before the ten-second timer runs out.</p>
 <h3>My main contributions</h3><p>Initial concept, core gameplay mechanics, and level design.</p>
 <button class="button game-open" data-game="2" type="button">Explore project <span aria-hidden="true" class="game-open-arrow"><span class="arrow-default"><svg aria-hidden="true" class="handdrawn-arrow" focusable="false" viewbox="0 0 36 36"><path d="M8 28 Q18 18 29 8 M17 8 Q23 7 30 7 L30 20"></path><path class="pencil-echo" d="M10 30 Q20 20 28 12"></path></svg></span><span class="arrow-hover"><svg aria-hidden="true" class="handdrawn-arrow" focusable="false" viewbox="0 0 36 36"><path d="M5 18 Q17 17 31 18 M24 10 Q28 14 32 18 Q28 23 24 26"></path><path class="pencil-echo" d="M8 20 Q18 19 28 20"></path></svg></span></span></button>
 </div><div class="game-slide-visual"><img alt="Carlos The Penguin! banner" src="assets/carlos-the-penguin-banner.png"/></div>
 </article>
 <article aria-label="Mental Maze - The Asylum Experiment" class="game-slide">
-<div class="game-slide-copy"><span class="game-slide-num">04 / 05</span><h2>Mental Maze - The Asylum Experiment</h2><p class="game-date">Game A Week 01 · Old-fashioned Asylum</p>
+<div class="game-slide-copy"><span class="game-slide-num">04 / 06</span><h2>Mental Maze - The Asylum Experiment</h2><p class="game-date">Game A Week 01 · Old-fashioned Asylum</p>
 <p class="game-blurb">You are a patient in an asylum, unsure why you are here. Each day brings new tasks, strange grades, and more questions. They promise you will get better… but can you trust them?</p>
 <h3>My main contributions</h3><p>Level design, puzzle mechanics, lore and narrative, UI and Render Texture experiments, and voice-based grading.</p>
 <button class="button game-open" data-game="3" type="button">Explore project <span aria-hidden="true" class="game-open-arrow"><span class="arrow-default"><svg aria-hidden="true" class="handdrawn-arrow" focusable="false" viewbox="0 0 36 36"><path d="M8 28 Q18 18 29 8 M17 8 Q23 7 30 7 L30 20"></path><path class="pencil-echo" d="M10 30 Q20 20 28 12"></path></svg></span><span class="arrow-hover"><svg aria-hidden="true" class="handdrawn-arrow" focusable="false" viewbox="0 0 36 36"><path d="M5 18 Q17 17 31 18 M24 10 Q28 14 32 18 Q28 23 24 26"></path><path class="pencil-echo" d="M8 20 Q18 19 28 20"></path></svg></span></span></button>
 </div><div class="game-slide-visual"><img alt="Mental Maze - The Asylum Experiment poster" src="assets/mental-maze-poster.png"/></div>
 </article>
 <article aria-label="Dance Beatz" class="game-slide">
-<div class="game-slide-copy"><span class="game-slide-num">05 / 05</span><h2>Dance Beatz</h2><p class="game-date">Game A Week 03 · Mobile Game</p>
+<div class="game-slide-copy"><span class="game-slide-num">05 / 06</span><h2>Dance Beatz</h2><p class="game-date">Game A Week 03 · Mobile Game</p>
 <p class="game-blurb">Dance, dance, dance away to the beatz! Tap falling arrows in time with the music in a playful pixel-art rhythm game, with Carlos the Penguin dancing along and a leaderboard to aim for.</p>
 <h3>My main contributions</h3><p>Pixel-art assets and sprite sheets, character animation, rhythm gameplay, and an automated falling-arrow system designed around the music.</p>
 <button class="button game-open" data-game="4" type="button">Explore project <span aria-hidden="true" class="game-open-arrow"><span class="arrow-default"><svg aria-hidden="true" class="handdrawn-arrow" focusable="false" viewBox="0 0 36 36"><path d="M8 28 Q18 18 29 8 M17 8 Q23 7 30 7 L30 20"></path><path class="pencil-echo" d="M10 30 Q20 20 28 12"></path></svg></span><span class="arrow-hover"><svg aria-hidden="true" class="handdrawn-arrow" focusable="false" viewBox="0 0 36 36"><path d="M5 18 Q17 17 31 18 M24 10 Q28 14 32 18 Q28 23 24 26"></path><path class="pencil-echo" d="M8 20 Q18 19 28 20"></path></svg></span></span></button>
 </div><div class="game-slide-visual"><img alt="Dance Beatz pixel-art poster featuring Carlos the Penguin" src="assets/dance-beatz-poster.png"/></div>
 </article>
+<article aria-label="Environmental Cleanup" class="game-slide">
+<div class="game-slide-copy"><span class="game-slide-num">06 / 06</span><h2>Environmental Cleanup</h2><p class="game-date">Game A Week 05 · Educational</p>
+<p class="game-blurb">Greetings! Does it pain you when people litter—even right next to a bin? This cheerful educational game encourages players to pick up rubbish and keep the environment clean. Just pick up the trash, no need to stash, toss it in the bin, let the cleanup begin!</p>
+<h3>My main contributions</h3><p>Sprite animations, user interface, level design, penguin character design and sprite sheet, and character selection.</p>
+<button class="button game-open" data-game="5" type="button">Explore project <span aria-hidden="true" class="game-open-arrow"><span class="arrow-default"><svg aria-hidden="true" class="handdrawn-arrow" focusable="false" viewBox="0 0 36 36"><path d="M8 28 Q18 18 29 8 M17 8 Q23 7 30 7 L30 20"/><path class="pencil-echo" d="M10 30 Q20 20 28 12"/></svg></span><span class="arrow-hover"><svg aria-hidden="true" class="handdrawn-arrow" focusable="false" viewBox="0 0 36 36"><path d="M5 18 Q17 17 31 18 M24 10 Q28 14 32 18 Q28 23 24 26"/><path class="pencil-echo" d="M8 20 Q18 19 28 20"/></svg></span></span></button>
+</div><div class="game-slide-visual"><img alt="Environmental Cleanup game logo" src="assets/environmental-cleanup-logo.png"/></div>
+</article>
 </div>
-<div class="game-controls"><button aria-label="Previous game" id="game-prev" type="button"><svg aria-hidden="true" class="handdrawn-arrow" focusable="false" viewbox="0 0 36 36"><path d="M31 18 Q18 17 5 18 M12 10 Q8 14 4 18 Q8 23 12 26"></path><path class="pencil-echo" d="M28 20 Q18 19 8 20"></path></svg></button><span id="game-progress">01 — 05</span><button aria-label="Next game" id="game-next" type="button"><svg aria-hidden="true" class="handdrawn-arrow" focusable="false" viewbox="0 0 36 36"><path d="M5 18 Q17 17 31 18 M24 10 Q28 14 32 18 Q28 23 24 26"></path><path class="pencil-echo" d="M8 20 Q18 19 28 20"></path></svg></button></div>
+<div class="game-controls"><button aria-label="Previous game" id="game-prev" type="button"><svg aria-hidden="true" class="handdrawn-arrow" focusable="false" viewbox="0 0 36 36"><path d="M31 18 Q18 17 5 18 M12 10 Q8 14 4 18 Q8 23 12 26"></path><path class="pencil-echo" d="M28 20 Q18 19 8 20"></path></svg></button><span id="game-progress">01 — 06</span><button aria-label="Next game" id="game-next" type="button"><svg aria-hidden="true" class="handdrawn-arrow" focusable="false" viewbox="0 0 36 36"><path d="M5 18 Q17 17 31 18 M24 10 Q28 14 32 18 Q28 23 24 26"></path><path class="pencil-echo" d="M8 20 Q18 19 28 20"></path></svg></button></div>
 </div>
 </div>
 </section>
@@ -3288,13 +3313,29 @@ const games = [
   meta:[["Genre","Mobile rhythm / music"],["Platform","iOS · Android"],["Duration","1 week"],["Team size","1"],["Engine","Unity"],["Tools","Unity · C# · Aseprite"]],link:"https://anoobcarrot.itch.io/dance-beatz"
  }
 
+ ,{title:"Environmental Cleanup",role:"Educational Game · Sprite Animation · UI · Level Design",
+  short:"Just pick up the trash, no need to stash, toss it in the bin, let the cleanup begin!",
+  banner:"assets/environmental-cleanup-banner.png",trailer:null,
+  contributionGroups:[
+    {title:"Sprite Animation & Character Art",items:["I created sprite animations for the game.","I designed the penguin character and its sprite sheet."]},
+    {title:"User Interface & Character Selection",items:["I worked on the game's UI and character-selection experience."]},
+    {title:"Level Design",items:["I contributed to the level design for the educational cleanup gameplay."]}
+  ],
+  gameplay:[],technical:[],
+  meta:[["Genre","Educational"],["Platform","WebGL"],["Duration","1 week"],["Team size","2"],["Engine","Unity"],["Tools","Unity · C# · Aseprite"]],
+  link:"https://anoobcarrot.itch.io/environmental-cleanup"
+ }
+
 ];
 const root=document.getElementById('games-page'), track=root.querySelector('.game-track');
 const tabs=[...root.querySelectorAll('.game-index-btn')],progress=document.getElementById('game-progress'),count=root.querySelector('.game-index-count');
 const drawer=document.getElementById('game-drawer'),scrim=document.getElementById('game-drawer-scrim'),modal=document.getElementById('game-modal');
 let current=0,lastFocus=null;
-function go(i){current=(i+games.length)%games.length;track.style.transform=`translateX(-${current*100}%)`;tabs.forEach((t,j)=>{t.classList.toggle('active',j===current);t.setAttribute('aria-current',j===current?'true':'false')});const n=String(current+1).padStart(2,'0');progress.textContent=n+' — '+String(games.length).padStart(2,'0');count.textContent=n+' / '+String(games.length).padStart(2,'0')}
+function go(i){current=(i+games.length)%games.length;track.style.transform=`translateX(-${current*100}%)`;tabs.forEach((t,j)=>{t.classList.toggle('active',j===current);t.setAttribute('aria-current',j===current?'true':'false')});const n=String(current+1).padStart(2,'0');progress.textContent=n+' — '+String(games.length).padStart(2,'0');count.textContent=n+' / '+String(games.length).padStart(2,'0');revealActiveGame()}
 tabs.forEach(t=>t.addEventListener('click',()=>go(+t.dataset.game)));
+const gameScroll=root.querySelector('.game-index-scroll');
+function revealActiveGame(){const active=tabs[current];if(!gameScroll||!active)return;if(getComputedStyle(gameScroll).flexDirection==='row'){active.scrollIntoView({behavior:'smooth',block:'nearest',inline:'nearest'});return;}const a=active.offsetTop-gameScroll.offsetTop;const bottom=a+active.offsetHeight;if(a<gameScroll.scrollTop)gameScroll.scrollTo({top:a-5,behavior:'smooth'});else if(bottom>gameScroll.scrollTop+gameScroll.clientHeight)gameScroll.scrollTo({top:bottom-gameScroll.clientHeight+5,behavior:'smooth'});}
+
 document.getElementById('game-prev').addEventListener('click',()=>go(current-1));
 document.getElementById('game-next').addEventListener('click',()=>go(current+1));
 root.querySelector('.game-window').addEventListener('keydown',e=>{if(e.key==='ArrowRight'){go(current+1);e.preventDefault()}if(e.key==='ArrowLeft'){go(current-1);e.preventDefault()}});
@@ -3304,9 +3345,9 @@ const escapeHTML=t=>String(t).replace(/[&<>"']/g,c=>({'&':'&amp;','<':'&lt;','>'
 function openDrawer(i){
  const g=games[i];lastFocus=document.activeElement;
  document.getElementById('game-drawer-content').innerHTML=`
- <div class="game-detail-banner ${'game-detail-banner--artwork'} ${i===0?'game-detail-banner--breaking':''} ${i===1?'game-detail-banner--maplewood':i===2?'game-detail-banner--carlos':i===3?'game-detail-banner--mental':i===4?'game-detail-banner--dance':''}"><img src="${g.banner}" alt="${i===0?'Breaking Point illustrated mountain banner with the game title':i===1?'August In Maplewood illustrated forest banner with the game title':'Project banner'}">${i===0||i===1||i===2||i===3||i===4?`<div class="game-detail-intro"><p class="game-detail-role">${escapeHTML(g.role)}</p><p class="game-detail-tagline">${escapeHTML(g.short)}</p></div>`:`<div class="game-detail-banner-content"><p>${escapeHTML(g.role)}</p><h2>${escapeHTML(g.title)}</h2><p>${escapeHTML(g.short)}</p></div>`}</div>${g.trailer?'<div class="game-trailer-action"><button type="button" class="button game-trailer-btn" data-trailer>▶ View Trailer</button></div>':'<div class="game-no-trailer-divider" aria-hidden="true"></div>'}
+ <div class="game-detail-banner ${'game-detail-banner--artwork'} ${i===0?'game-detail-banner--breaking':''} ${i===1?'game-detail-banner--maplewood':i===2?'game-detail-banner--carlos':i===3?'game-detail-banner--mental':i===4?'game-detail-banner--dance':i===5?'game-detail-banner--environmental':''}"><img src="${g.banner}" alt="${i===0?'Breaking Point illustrated mountain banner with the game title':i===1?'August In Maplewood illustrated forest banner with the game title':'Project banner'}">${i===0||i===1||i===2||i===3||i===4||i===5?`<div class="game-detail-intro"><p class="game-detail-role">${escapeHTML(g.role)}</p><p class="game-detail-tagline">${escapeHTML(g.short)}</p></div>`:`<div class="game-detail-banner-content"><p>${escapeHTML(g.role)}</p><h2>${escapeHTML(g.title)}</h2><p>${escapeHTML(g.short)}</p></div>`}</div>${g.trailer?'<div class="game-trailer-action"><button type="button" class="button game-trailer-btn" data-trailer>▶ View Trailer</button></div>':'<div class="game-no-trailer-divider" aria-hidden="true"></div>'}
  <div class="game-detail-body"><h3>My Contributions</h3>${g.contributionGroups?`<div class="game-contrib-groups">${g.contributionGroups.map((group,i)=>`<section class="game-contrib-group"><div class="game-contrib-heading"><span>${String(i+1).padStart(2,'0')}</span><h4>${escapeHTML(group.title)}</h4></div><ul>${group.items.map(x=>`<li>${escapeHTML(x)}</li>`).join('')}</ul></section>`).join('')}</div>`:`<ul>${g.contributions.map(x=>`<li>${escapeHTML(x)}</li>`).join('')}</ul>`}
- <div class="game-detail-actions"><button type="button" class="button game-trailer-btn contribution-action" data-evidence="gameplay">Gameplay Design Contributions <svg class="handdrawn-arrow" viewBox="0 0 36 36" aria-hidden="true" focusable="false"><path d="M8 28 Q18 18 29 8 M17 8 Q23 7 30 7 L30 20"/><path class="pencil-echo" d="M10 30 Q20 20 28 12"/></svg></button><button type="button" class="button game-trailer-btn contribution-action" data-evidence="technical">Technical Design Contributions <svg class="handdrawn-arrow" viewBox="0 0 36 36" aria-hidden="true" focusable="false"><path d="M8 28 Q18 18 29 8 M17 8 Q23 7 30 7 L30 20"/><path class="pencil-echo" d="M10 30 Q20 20 28 12"/></svg></button></div>
+ ${g.gameplay.length||g.technical.length?`<div class="game-detail-actions"><button type="button" class="button game-trailer-btn contribution-action" data-evidence="gameplay">Gameplay Design Contributions <svg class="handdrawn-arrow" viewBox="0 0 36 36" aria-hidden="true" focusable="false"><path d="M8 28 Q18 18 29 8 M17 8 Q23 7 30 7 L30 20"/><path class="pencil-echo" d="M10 30 Q20 20 28 12"/></svg></button><button type="button" class="button game-trailer-btn contribution-action" data-evidence="technical">Technical Design Contributions <svg class="handdrawn-arrow" viewBox="0 0 36 36" aria-hidden="true" focusable="false"><path d="M8 28 Q18 18 29 8 M17 8 Q23 7 30 7 L30 20"/><path class="pencil-echo" d="M10 30 Q20 20 28 12"/></svg></button></div>`:}
  <h3>Project Details</h3><dl class="game-detail-meta">${g.meta.map(([a,b])=>`<div><dt>${escapeHTML(a)}</dt><dd>${escapeHTML(b)}</dd></div>`).join('')}</dl>${g.link?`<p style="margin-top:28px"><a class="button secondary" href="${g.link}" target="_blank" rel="noopener noreferrer">${"View Playable Project ↗"}</a></p>`:''}</div>`;
  drawer.scrollTop=0;drawer.dataset.game=i;drawer.classList.add('open');drawer.setAttribute('aria-hidden','false');scrim.hidden=false;requestAnimationFrame(()=>scrim.classList.add('visible'));document.body.style.overflow='hidden';drawer.scrollTop=0;drawer.focus({preventScroll:true});
 }
