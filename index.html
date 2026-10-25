@@ -696,6 +696,21 @@ html{scroll-padding-top:100px}
 }
 #contribution-image-zoom-v2 .zoom-v2-picture[src*="dance-sprites/"],
 #contribution-image-zoom-v2 .zoom-v2-picture[src*="dance-firework-centered"]{image-rendering:pixelated!important}
+
+/* Consistent centered frame for every Dance Beatz tabbed sprite. */
+#game-modal .game-evidence--visual .survival-player:has(img[src*="dance-"]){
+ display:flex!important;align-items:center!important;justify-content:center!important;
+ min-height:310px!important;max-height:390px;overflow:hidden;
+}
+#game-modal .game-evidence--visual .survival-player img[src*="dance-"]{
+ display:block!important;width:auto!important;height:auto!important;
+ max-width:100%!important;max-height:300px!important;
+ margin:auto!important;object-fit:contain!important;object-position:center center!important;
+}
+#game-modal .game-evidence--visual .survival-player img[src*="dance-firework-centered"]{
+ max-width:min(100%,520px)!important;
+}
+@media(max-width:600px){#game-modal .game-evidence--visual .survival-player:has(img[src*="dance-"]){min-height:220px!important}}
 </style>
 <style>
 .bp-showcase{margin:48px 0 28px}.bp-showcase h2{font-size:clamp(26px,3.4vw,42px);margin:8px 0 12px}.bp-showcase>p:not(.section-kicker){color:#d8bec8;max-width:720px;line-height:1.7}
@@ -3363,13 +3378,12 @@ go(0);
   const rect=(r)=>({left:r.left,top:r.top,width:r.width,height:r.height});
   const setRect=r=>Object.assign(picture.style,{left:r.left+'px',top:r.top+'px',width:r.width+'px',height:r.height+'px'});
   const center=(start)=>{
-    const w=picture.naturalWidth||900,h=picture.naturalHeight||600;
-    const fit=Math.min(innerWidth*.88/w,innerHeight*.84/h);
-    // Always enlarge relative to the image as it appears in the gallery,
-    // rather than relative to the sprite's tiny original pixel dimensions.
-    const startScale=Math.max(start.width/w,start.height/h);
-    const scale=Math.min(fit,Math.max(startScale*2.1,1));
-    const width=w*scale,height=h*scale;
+    // Scale from the actual on-screen rectangle, not the tiny native sprite size.
+    // This prevents small sprite sheets from shrinking on click.
+    const maxW=innerWidth*.90,maxH=innerHeight*.85;
+    const scale=Math.min(maxW/start.width,maxH/start.height,3.2);
+    const factor=Math.max(1,scale);
+    const width=start.width*factor,height=start.height*factor;
     return {left:(innerWidth-width)/2,top:(innerHeight-height)/2,width,height};
   };
   const animate=(a,b)=>picture.animate([
@@ -3394,7 +3408,8 @@ go(0);
     busy=false;
   }
   async function close(immediate=false){
-    if(!origin)return;
+    if(!origin||busy)return;
+    busy=true;
     const img=origin;
     origin=null;
     const start=rect(picture.getBoundingClientRect());
