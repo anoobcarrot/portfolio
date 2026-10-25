@@ -2758,26 +2758,27 @@ footer.footer .footer-inner .footer-extras > button.pixel-heart.is-loved svg {
 @keyframes game-scroll-nudge{50%{transform:translateY(4px)}}
 @media(max-width:800px){#games-page .game-index-scroll{flex-direction:row;max-height:none;max-width:100%;overflow-x:auto;overflow-y:hidden;padding:2px 0 9px;scroll-snap-type:x proximity}#games-page .game-index-scroll .game-index-btn{flex:0 0 125px;min-height:60px;scroll-snap-align:start}#games-page .game-index-scroll-hint{display:none}}
 @media(prefers-reduced-motion:reduce){#games-page .game-index-scroll-hint span{animation:none}#games-page .game-index-scroll{scroll-behavior:auto}}
+</style>
 <style id="five-full-game-projects-scroll-fix">
-/* Fit five complete project entries, not five clipped/condensed entries. */
+/* Desktop: five whole project cards, with the sixth below the fold. */
 @media (min-width:801px){
  #games-page .game-index-scroll{
-   box-sizing:content-box;
-   height:465px;
-   max-height:none;
+   box-sizing:border-box!important;
+   height:auto;
+   max-height:none!important;
    flex:0 0 auto;
-   overflow-y:auto;
-   overflow-x:hidden;
+   overflow-y:auto!important;
+   overflow-x:hidden!important;
    scroll-snap-type:y proximity;
  }
  #games-page .game-index-scroll .game-index-btn{
-   min-height:0;
+   min-height:0!important;
+   flex-shrink:0!important;
    scroll-snap-align:start;
  }
 }
 </style>
 <script>
-/* Size the list to exactly five fully rendered buttons, even when fonts load. */
 (function(){
  function sizeFive(){
    var area=document.querySelector('#games-page .game-index-scroll');
@@ -2785,19 +2786,19 @@ footer.footer .footer-inner .footer-extras > button.pixel-heart.is-loved svg {
    if(window.matchMedia('(max-width:800px)').matches){area.style.removeProperty('height');return;}
    var buttons=Array.from(area.querySelectorAll('.game-index-btn')).slice(0,5);
    if(buttons.length!==5)return;
+   /* Use offsetHeight, which measures the actual card including its hand-drawn border. */
    var style=getComputedStyle(area);
    var gap=parseFloat(style.rowGap)||0;
    var paddingTop=parseFloat(style.paddingTop)||0;
    var paddingBottom=parseFloat(style.paddingBottom)||0;
-   var height=buttons.reduce(function(sum,button){return sum+button.getBoundingClientRect().height;},0)+gap*4+paddingTop+paddingBottom;
-   area.style.height=Math.ceil(height)+'px';
+   var height=buttons.reduce(function(sum,button){return sum+button.offsetHeight;},0)+gap*4+paddingTop+paddingBottom;
+   area.style.height=Math.ceil(height+2)+'px';
  }
  document.addEventListener('DOMContentLoaded',sizeFive);
  if(document.fonts&&document.fonts.ready)document.fonts.ready.then(sizeFive);
  window.addEventListener('resize',sizeFive);
 })();
 </script>
-</style>
 </head>
 <body>
 <svg aria-hidden="true" height="0" style="position:absolute;pointer-events:none" width="0" xmlns="http://www.w3.org/2000/svg"><filter height="120%" id="hand-ink-filter" width="120%" x="-10%" y="-10%"><feturbulence basefrequency="0.035" numoctaves="2" result="noise" seed="7" type="fractalNoise"></feturbulence><fedisplacementmap in="SourceGraphic" in2="noise" scale="1.4" xchannelselector="R" ychannelselector="G"></fedisplacementmap></filter></svg>
