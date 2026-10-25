@@ -2706,6 +2706,16 @@ footer.footer .footer-inner .footer-extras > button.pixel-heart.is-loved svg {
  image-rendering: pixelated !important;
 }
 </style>
+
+<style id="firework-visible-artwork-alignment-2026">
+/* Correct the visible sprite sheet's right-heavy position without changing other gallery images. */
+#game-modal .game-evidence--visual .survival-player:has(img[alt="Firework"]) {
+  display:flex; align-items:center; justify-content:center; overflow:hidden;
+}
+#game-modal .game-evidence--visual .survival-player img[alt="Firework"] {
+  position:relative; left:-12%; image-rendering:pixelated!important;
+}
+</style>
 </head>
 <body>
 <svg aria-hidden="true" height="0" style="position:absolute;pointer-events:none" width="0" xmlns="http://www.w3.org/2000/svg"><filter height="120%" id="hand-ink-filter" width="120%" x="-10%" y="-10%"><feturbulence basefrequency="0.035" numoctaves="2" result="noise" seed="7" type="fractalNoise"></feturbulence><fedisplacementmap in="SourceGraphic" in2="noise" scale="1.4" xchannelselector="R" ychannelselector="G"></fedisplacementmap></filter></svg>
