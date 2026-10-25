@@ -2657,6 +2657,13 @@ footer.footer .footer-inner .footer-extras > button.pixel-heart.is-loved svg {
 .work-project-grid .project:has(.project-toggle) .project-toggle:checked + .project-panel .project-reveal {opacity:1!important;transform:translateY(0)!important}
 .work-project-grid .project:has(.project-toggle) .project-toggle:checked + .project-panel .project-icon::before {content:"−"!important}
 </style>
+<style id="mental-maze-portfolio-style">
+.game-slide[aria-label="Mental Maze - The Asylum Experiment"] .game-slide-visual{background:#151416}
+.game-slide[aria-label="Mental Maze - The Asylum Experiment"] .game-slide-visual img{object-fit:contain}
+.game-detail-banner--mental .game-detail-intro{position:absolute!important;left:0!important;right:0!important;bottom:0!important;z-index:1;padding:26px 22px 14px!important;text-align:center;background:linear-gradient(0deg,rgba(12,9,12,.9),transparent)!important}
+.game-detail-banner--mental::after{display:none!important}
+.game-detail-banner--mental>img{object-fit:cover!important;object-position:center!important}
+</style>
 </head>
 <body>
 <svg aria-hidden="true" height="0" style="position:absolute;pointer-events:none" width="0" xmlns="http://www.w3.org/2000/svg"><filter height="120%" id="hand-ink-filter" width="120%" x="-10%" y="-10%"><feturbulence basefrequency="0.035" numoctaves="2" result="noise" seed="7" type="fractalNoise"></feturbulence><fedisplacementmap in="SourceGraphic" in2="noise" scale="1.4" xchannelselector="R" ychannelselector="G"></fedisplacementmap></filter></svg>
@@ -2732,33 +2739,41 @@ footer.footer .footer-inner .footer-extras > button.pixel-heart.is-loved svg {
 <button aria-label="Show Breaking Point" class="game-index-btn active" data-game="0" type="button">01 <span>Breaking Point</span></button>
 <button aria-label="Show August In Maplewood" class="game-index-btn" data-game="1" type="button">02 <span>August In Maplewood</span></button>
 <button aria-label="Show Carlos The Penguin!" class="game-index-btn" data-game="2" type="button">03 <span>Carlos The Penguin!</span></button>
-<span class="game-index-count">01 / 03</span>
+<button aria-label="Show Mental Maze - The Asylum Experiment" class="game-index-btn" data-game="3" type="button">04 <span>Mental Maze</span></button>
+<span class="game-index-count">01 / 04</span>
 </nav>
 <div aria-label="Game showcase. Use arrow keys to change slides" class="game-window" tabindex="0">
 <div class="game-track">
 <article aria-label="Breaking Point" class="game-slide">
-<div class="game-slide-copy"><span class="game-slide-num">01 / 03</span><h2>Breaking Point</h2><p class="game-date">Final major university project · 2025</p>
+<div class="game-slide-copy"><span class="game-slide-num">01 / 04</span><h2>Breaking Point</h2><p class="game-date">Final major university project · 2025</p>
 <p class="game-blurb">A narrative-driven 3D game following Alice and Phillip as they climb Mount Everest. The experience combines character-driven storytelling with survival-inspired gameplay.</p>
 <h3>My main contributions</h3><p>UI and UX design, narrative and dialogue systems, gameplay mechanics, level design, programming, and team coordination.</p>
 <button class="button game-open" data-game="0" type="button">Explore project <span aria-hidden="true" class="game-open-arrow"><span class="arrow-default"><svg aria-hidden="true" class="handdrawn-arrow" focusable="false" viewbox="0 0 36 36"><path d="M8 28 Q18 18 29 8 M17 8 Q23 7 30 7 L30 20"></path><path class="pencil-echo" d="M10 30 Q20 20 28 12"></path></svg></span><span class="arrow-hover"><svg aria-hidden="true" class="handdrawn-arrow" focusable="false" viewbox="0 0 36 36"><path d="M5 18 Q17 17 31 18 M24 10 Q28 14 32 18 Q28 23 24 26"></path><path class="pencil-echo" d="M8 20 Q18 19 28 20"></path></svg></span></span></button>
 </div><div class="game-slide-visual"><img alt="Breaking Point poster" src="assets/BP_poster_final.png"/></div>
 </article>
 <article aria-label="August In Maplewood" class="game-slide">
-<div class="game-slide-copy"><span class="game-slide-num">02 / 03</span><h2>August In Maplewood</h2><p class="game-date">University proof of concept · 2024</p>
+<div class="game-slide-copy"><span class="game-slide-num">02 / 04</span><h2>August In Maplewood</h2><p class="game-date">University proof of concept · 2024</p>
 <p class="game-blurb">A 2.5D murder mystery set in a small town. Players track clues and investigate what happened to uncover the truth.</p>
 <h3>My main contributions</h3><p>Mechanics, narrative, user interface, and overall game design.</p>
 <button class="button game-open" data-game="1" type="button">Explore project <span aria-hidden="true" class="game-open-arrow"><span class="arrow-default"><svg aria-hidden="true" class="handdrawn-arrow" focusable="false" viewbox="0 0 36 36"><path d="M8 28 Q18 18 29 8 M17 8 Q23 7 30 7 L30 20"></path><path class="pencil-echo" d="M10 30 Q20 20 28 12"></path></svg></span><span class="arrow-hover"><svg aria-hidden="true" class="handdrawn-arrow" focusable="false" viewbox="0 0 36 36"><path d="M5 18 Q17 17 31 18 M24 10 Q28 14 32 18 Q28 23 24 26"></path><path class="pencil-echo" d="M8 20 Q18 19 28 20"></path></svg></span></span></button>
 </div><div class="game-slide-visual"><img alt="August In Maplewood poster" src="assets/august-in-maplewood-poster.png"/></div>
 </article>
 <article aria-label="Carlos The Penguin!" class="game-slide">
-<div class="game-slide-copy"><span class="game-slide-num">03 / 03</span><h2>Carlos The Penguin!</h2><p class="game-date">University First Official Game · 2023</p>
+<div class="game-slide-copy"><span class="game-slide-num">03 / 04</span><h2>Carlos The Penguin!</h2><p class="game-date">University First Official Game · 2023</p>
 <p class="game-blurb">A fast-paced 2D platformer where players race to reach an igloo. Every level must be completed before the ten-second timer runs out.</p>
 <h3>My main contributions</h3><p>Initial concept, core gameplay mechanics, and level design.</p>
 <button class="button game-open" data-game="2" type="button">Explore project <span aria-hidden="true" class="game-open-arrow"><span class="arrow-default"><svg aria-hidden="true" class="handdrawn-arrow" focusable="false" viewbox="0 0 36 36"><path d="M8 28 Q18 18 29 8 M17 8 Q23 7 30 7 L30 20"></path><path class="pencil-echo" d="M10 30 Q20 20 28 12"></path></svg></span><span class="arrow-hover"><svg aria-hidden="true" class="handdrawn-arrow" focusable="false" viewbox="0 0 36 36"><path d="M5 18 Q17 17 31 18 M24 10 Q28 14 32 18 Q28 23 24 26"></path><path class="pencil-echo" d="M8 20 Q18 19 28 20"></path></svg></span></span></button>
 </div><div class="game-slide-visual"><img alt="Carlos The Penguin! banner" src="assets/carlos-the-penguin-banner.png"/></div>
 </article>
+<article aria-label="Mental Maze - The Asylum Experiment" class="game-slide">
+<div class="game-slide-copy"><span class="game-slide-num">04 / 04</span><h2>Mental Maze - The Asylum Experiment</h2><p class="game-date">Game A Week 01 · Old-fashioned Asylum</p>
+<p class="game-blurb">You are a patient in an asylum, unsure why you are here. Each day brings new tasks, strange grades, and more questions. They promise you will get better… but can you trust them?</p>
+<h3>My main contributions</h3><p>Level design, puzzle mechanics, lore and narrative, UI and Render Texture experiments, and voice-based grading.</p>
+<button class="button game-open" data-game="3" type="button">Explore project <span aria-hidden="true" class="game-open-arrow"><span class="arrow-default"><svg aria-hidden="true" class="handdrawn-arrow" focusable="false" viewbox="0 0 36 36"><path d="M8 28 Q18 18 29 8 M17 8 Q23 7 30 7 L30 20"></path><path class="pencil-echo" d="M10 30 Q20 20 28 12"></path></svg></span><span class="arrow-hover"><svg aria-hidden="true" class="handdrawn-arrow" focusable="false" viewbox="0 0 36 36"><path d="M5 18 Q17 17 31 18 M24 10 Q28 14 32 18 Q28 23 24 26"></path><path class="pencil-echo" d="M8 20 Q18 19 28 20"></path></svg></span></span></button>
+</div><div class="game-slide-visual"><img alt="Mental Maze - The Asylum Experiment banner" src="assets/mental-maze-square-logo.png"/></div>
+</article>
 </div>
-<div class="game-controls"><button aria-label="Previous game" id="game-prev" type="button"><svg aria-hidden="true" class="handdrawn-arrow" focusable="false" viewbox="0 0 36 36"><path d="M31 18 Q18 17 5 18 M12 10 Q8 14 4 18 Q8 23 12 26"></path><path class="pencil-echo" d="M28 20 Q18 19 8 20"></path></svg></button><span id="game-progress">01 — 03</span><button aria-label="Next game" id="game-next" type="button"><svg aria-hidden="true" class="handdrawn-arrow" focusable="false" viewbox="0 0 36 36"><path d="M5 18 Q17 17 31 18 M24 10 Q28 14 32 18 Q28 23 24 26"></path><path class="pencil-echo" d="M8 20 Q18 19 28 20"></path></svg></button></div>
+<div class="game-controls"><button aria-label="Previous game" id="game-prev" type="button"><svg aria-hidden="true" class="handdrawn-arrow" focusable="false" viewbox="0 0 36 36"><path d="M31 18 Q18 17 5 18 M12 10 Q8 14 4 18 Q8 23 12 26"></path><path class="pencil-echo" d="M28 20 Q18 19 8 20"></path></svg></button><span id="game-progress">01 — 04</span><button aria-label="Next game" id="game-next" type="button"><svg aria-hidden="true" class="handdrawn-arrow" focusable="false" viewbox="0 0 36 36"><path d="M5 18 Q17 17 31 18 M24 10 Q28 14 32 18 Q28 23 24 26"></path><path class="pencil-echo" d="M8 20 Q18 19 28 20"></path></svg></button></div>
 </div>
 </div>
 </section>
@@ -3131,13 +3146,26 @@ const games = [
   gameplay:[["Timed platforming","Ten-second timer and igloo goal mechanic. Add gameplay screenshots when available.",null],["Level design","Level layouts and pacing around the countdown challenge. Add evidence when available.",null]],
   technical:[["Gameplay implementation","Add implementation footage or screenshots and specific tools when confirmed.",null]],
   meta:[["Genre","2D platformer"],["Platform","WebGL"],["Duration","4 weeks"],["Team size","2"],["Engine","Unity"],["Tools","Unity · C#"]],link:"https://anoobcarrot.itch.io/carlos-the-penguin"
+ },
+ {title:"Mental Maze - The Asylum Experiment",role:"Level Design · Puzzle Mechanics · UI · Narrative",
+  short:"You will... get better... right?",
+  banner:"assets/mental-maze-banner.png",trailer:null,
+  contributionGroups:[
+    {title:"Level Design & Player Onboarding",items:["I designed a single asylum level for my first university Game A Week prototype.","I introduced player movement through a tutorial task, then guided the player through the library, office and final locked-door escape."]},
+    {title:"Puzzle Mechanics & Sanity",items:["I designed an investigation sequence where players read library books, find a 'Staff To Do List' containing the computer password, and use the office computer to progress.","I created a symbol-order puzzle to unlock the exit before the sanity bar reaches zero."]},
+    {title:"Lore & Narrative",items:["I wrote the mystery of a patient who doesn't know why they are in the asylum, using library books and patient files to reveal pieces of its story.","I explored the unsettling idea of daily tasks and evaluations within a place that promises to make its patients better."]},
+    {title:"UI, Render Textures & Voice Experiments",items:["I experimented with Unity UI and Render Textures to play videos on 3D surfaces and in the main menu.","I implemented a time-based completion grade and experimented with voice work to announce the result."]}
+  ],
+  gameplay:[["Level Design & Onboarding","A compact asylum level introducing movement through a tutorial task before leading into the escape objective.",null],["Puzzle Mechanics & Sanity","Players find a Staff To Do List with the office computer password, then solve a symbol-order door puzzle before their sanity runs out.",null],["Lore & Narrative","Library books and patient files gradually reveal the asylum's mystery, while its daily tasks and grading raise questions about its intentions.",null]],
+  technical:[["UI & Render Textures","Experimented with Unity Render Textures for video playback on in-world 3D surfaces and in the main menu.",null],["Gameplay Systems & Grading","Implemented simple interactions, the draining sanity bar, door-unlocking logic and a time-based completion grade with experimental voice work.",null]],
+  meta:[["Genre","Psychological horror / mystery"],["Platform","Windows · macOS (Apple Silicon)"],["Duration","1 week"],["Team size","1"],["Engine","Unity"],["Tools","Unity · C#"]],link:null
  }
 ];
 const root=document.getElementById('games-page'), track=root.querySelector('.game-track');
 const tabs=[...root.querySelectorAll('.game-index-btn')],progress=document.getElementById('game-progress'),count=root.querySelector('.game-index-count');
 const drawer=document.getElementById('game-drawer'),scrim=document.getElementById('game-drawer-scrim'),modal=document.getElementById('game-modal');
 let current=0,lastFocus=null;
-function go(i){current=(i+games.length)%games.length;track.style.transform=`translateX(-${current*100}%)`;tabs.forEach((t,j)=>{t.classList.toggle('active',j===current);t.setAttribute('aria-current',j===current?'true':'false')});const n=String(current+1).padStart(2,'0');progress.textContent=n+' — 03';count.textContent=n+' / 03'}
+function go(i){current=(i+games.length)%games.length;track.style.transform=`translateX(-${current*100}%)`;tabs.forEach((t,j)=>{t.classList.toggle('active',j===current);t.setAttribute('aria-current',j===current?'true':'false')});const n=String(current+1).padStart(2,'0');progress.textContent=n+' — '+String(games.length).padStart(2,'0');count.textContent=n+' / '+String(games.length).padStart(2,'0')}
 tabs.forEach(t=>t.addEventListener('click',()=>go(+t.dataset.game)));
 document.getElementById('game-prev').addEventListener('click',()=>go(current-1));
 document.getElementById('game-next').addEventListener('click',()=>go(current+1));
@@ -3148,7 +3176,7 @@ const escapeHTML=t=>String(t).replace(/[&<>"']/g,c=>({'&':'&amp;','<':'&lt;','>'
 function openDrawer(i){
  const g=games[i];lastFocus=document.activeElement;
  document.getElementById('game-drawer-content').innerHTML=`
- <div class="game-detail-banner ${'game-detail-banner--artwork'} ${i===1?'game-detail-banner--maplewood':i===2?'game-detail-banner--carlos':''}"><img src="${g.banner}" alt="${i===0?'Breaking Point illustrated mountain banner with the game title':i===1?'August In Maplewood illustrated forest banner with the game title':'Project banner'}">${i===0||i===1||i===2?`<div class="game-detail-intro"><p class="game-detail-role">${escapeHTML(g.role)}</p><p class="game-detail-tagline">${escapeHTML(g.short)}</p></div>`:`<div class="game-detail-banner-content"><p>${escapeHTML(g.role)}</p><h2>${escapeHTML(g.title)}</h2><p>${escapeHTML(g.short)}</p></div>`}</div>${g.trailer?'<div class="game-trailer-action"><button type="button" class="button game-trailer-btn" data-trailer>▶ View Trailer</button></div>':'<div class="game-no-trailer-divider" aria-hidden="true"></div>'}
+ <div class="game-detail-banner ${'game-detail-banner--artwork'} ${i===1?'game-detail-banner--maplewood':i===2?'game-detail-banner--carlos':i===3?'game-detail-banner--mental':''}"><img src="${g.banner}" alt="${i===0?'Breaking Point illustrated mountain banner with the game title':i===1?'August In Maplewood illustrated forest banner with the game title':'Project banner'}">${i===0||i===1||i===2||i===3?`<div class="game-detail-intro"><p class="game-detail-role">${escapeHTML(g.role)}</p><p class="game-detail-tagline">${escapeHTML(g.short)}</p></div>`:`<div class="game-detail-banner-content"><p>${escapeHTML(g.role)}</p><h2>${escapeHTML(g.title)}</h2><p>${escapeHTML(g.short)}</p></div>`}</div>${g.trailer?'<div class="game-trailer-action"><button type="button" class="button game-trailer-btn" data-trailer>▶ View Trailer</button></div>':'<div class="game-no-trailer-divider" aria-hidden="true"></div>'}
  <div class="game-detail-body"><h3>My Contributions</h3>${g.contributionGroups?`<div class="game-contrib-groups">${g.contributionGroups.map((group,i)=>`<section class="game-contrib-group"><div class="game-contrib-heading"><span>${String(i+1).padStart(2,'0')}</span><h4>${escapeHTML(group.title)}</h4></div><ul>${group.items.map(x=>`<li>${escapeHTML(x)}</li>`).join('')}</ul></section>`).join('')}</div>`:`<ul>${g.contributions.map(x=>`<li>${escapeHTML(x)}</li>`).join('')}</ul>`}
  <div class="game-detail-actions"><button type="button" class="button game-trailer-btn contribution-action" data-evidence="gameplay">Gameplay Design Contributions <svg class="handdrawn-arrow" viewBox="0 0 36 36" aria-hidden="true" focusable="false"><path d="M8 28 Q18 18 29 8 M17 8 Q23 7 30 7 L30 20"/><path class="pencil-echo" d="M10 30 Q20 20 28 12"/></svg></button><button type="button" class="button game-trailer-btn contribution-action" data-evidence="technical">Technical Design Contributions <svg class="handdrawn-arrow" viewBox="0 0 36 36" aria-hidden="true" focusable="false"><path d="M8 28 Q18 18 29 8 M17 8 Q23 7 30 7 L30 20"/><path class="pencil-echo" d="M10 30 Q20 20 28 12"/></svg></button></div>
  <h3>Project Details</h3><dl class="game-detail-meta">${g.meta.map(([a,b])=>`<div><dt>${escapeHTML(a)}</dt><dd>${escapeHTML(b)}</dd></div>`).join('')}</dl>${g.link?`<p style="margin-top:28px"><a class="button secondary" href="${g.link}" target="_blank" rel="noopener noreferrer">View playable project ↗</a></p>`:''}</div>`;
