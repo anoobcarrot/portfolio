@@ -686,6 +686,16 @@ html{scroll-padding-top:100px}
 #contribution-image-zoom-v2 .zoom-v2-shade{position:absolute;inset:0;background:rgba(9,5,9,.88);backdrop-filter:blur(5px);-webkit-backdrop-filter:blur(5px);cursor:zoom-out}
 #contribution-image-zoom-v2 .zoom-v2-picture{position:fixed;display:block;max-width:none!important;max-height:none!important;object-fit:contain;box-sizing:border-box;border-radius:7px;box-shadow:0 22px 75px #000a;cursor:default;z-index:1}
 #game-modal-content .game-evidence img{cursor:zoom-in!important}
+
+/* Center tabbed sprite previews consistently inside their media frame. */
+#game-modal .game-evidence--visual .survival-player:has(img[src*="dance-"]){
+  display:flex;align-items:center;justify-content:center;min-height:180px;
+}
+#game-modal .game-evidence--visual .survival-player img[src*="dance-"]{
+  margin-left:auto!important;margin-right:auto!important;object-position:center!important;
+}
+#contribution-image-zoom-v2 .zoom-v2-picture[src*="dance-sprites/"],
+#contribution-image-zoom-v2 .zoom-v2-picture[src*="dance-firework-centered"]{image-rendering:pixelated!important}
 </style>
 <style>
 .bp-showcase{margin:48px 0 28px}.bp-showcase h2{font-size:clamp(26px,3.4vw,42px);margin:8px 0 12px}.bp-showcase>p:not(.section-kicker){color:#d8bec8;max-width:720px;line-height:1.7}
@@ -3274,7 +3284,7 @@ function openModal(kind){
      :`<img src="${safe}" alt="${alt}" loading="lazy">`;
  };
  const galleries={
-   "Pixel Art & Backgrounds":[["Mobile Game Menu Background","assets/dance-sprites/Mobile Game Menu Background.png"],["Penguin","assets/dance-sprites/Penguin.png"],["Mobile Game Background","assets/dance-sprites/Mobile Game Background.png"],["Firework","assets/dance-sprites/Firework.png"]],
+   "Pixel Art & Backgrounds":[["Mobile Game Menu Background","assets/dance-sprites/Mobile Game Menu Background.png"],["Penguin","assets/dance-sprites/Penguin.png"],["Mobile Game Background","assets/dance-sprites/Mobile Game Background.png"],["Firework","assets/dance-firework-centered.png"]],
    "Arrow & Rhythm Assets":[["Side Left Arrow","assets/dance-sprites/Side Left Arrow.png"],["Side Right Arrow","assets/dance-sprites/Side Right Arrow.png"],["Down Arrow","assets/dance-sprites/Down Arrow.png"],["Up Arrow","assets/dance-sprites/Up Arrow.png"],["Side Left Arrow","assets/dance-sprites/Falling Down Arrows/Side Left Arrow.png"],["Side Right Arrow","assets/dance-sprites/Falling Down Arrows/Side Right Arrow.png"],["Down Arrow","assets/dance-sprites/Falling Down Arrows/Down Arrow.png"],["Up Arrow","assets/dance-sprites/Falling Down Arrows/Up Arrow.png"]],
    "UI Buttons & Elements":[["Dance Beatz Title","assets/dance-sprites/UI/Dance Beatz Title.png"],["Yes Button","assets/dance-sprites/UI/Yes Button.png"],["Ranking Button","assets/dance-sprites/UI/Ranking Button.png"],["Menu Button","assets/dance-sprites/UI/Menu Button.png"],["Exit Button","assets/dance-sprites/UI/Exit Button.png"],["Button Template","assets/dance-sprites/UI/Button Template.png"],["Options Button","assets/dance-sprites/UI/Options Button.png"],["No Button","assets/dance-sprites/UI/No Button.png"],["Heart Icon","assets/dance-sprites/UI/Heart Icon.png"],["UI Background","assets/dance-sprites/UI/UI Background.png"],["Tutorial Button","assets/dance-sprites/UI/Tutorial Button.png"],["Select Button","assets/dance-sprites/UI/Select Button.png"],["Restart Button","assets/dance-sprites/UI/Restart Button.png"],["Bar","assets/dance-sprites/UI/Bar.png"],["Submit Button","assets/dance-sprites/UI/Submit Button.png"],["Pause Button","assets/dance-sprites/UI/Pause Button.png"],["Play Button","assets/dance-sprites/UI/Play Button.png"]],
    "Score Feedback Art":[["x letter","assets/dance-sprites/Words/x letter.png"],["perfect word","assets/dance-sprites/Words/perfect word.png"],["miss word","assets/dance-sprites/Words/miss word.png"],["late word","assets/dance-sprites/Words/late word.png"],["great word","assets/dance-sprites/Words/great word.png"],["combo word","assets/dance-sprites/Words/combo word.png"],["early word","assets/dance-sprites/Words/early word.png"]],
@@ -3294,7 +3304,7 @@ document.getElementById('game-modal-content').addEventListener('click',e=>{
  const tab=e.target.closest('[data-clip-tab]');if(!tab)return;
  const section=tab.closest('.game-evidence'),heading=section.querySelector('h3')?.textContent;
  const sources={
-   "Pixel Art & Backgrounds":[["Mobile Game Menu Background","assets/dance-sprites/Mobile Game Menu Background.png"],["Penguin","assets/dance-sprites/Penguin.png"],["Mobile Game Background","assets/dance-sprites/Mobile Game Background.png"],["Firework","assets/dance-sprites/Firework.png"]],
+   "Pixel Art & Backgrounds":[["Mobile Game Menu Background","assets/dance-sprites/Mobile Game Menu Background.png"],["Penguin","assets/dance-sprites/Penguin.png"],["Mobile Game Background","assets/dance-sprites/Mobile Game Background.png"],["Firework","assets/dance-firework-centered.png"]],
    "Arrow & Rhythm Assets":[["Side Left Arrow","assets/dance-sprites/Side Left Arrow.png"],["Side Right Arrow","assets/dance-sprites/Side Right Arrow.png"],["Down Arrow","assets/dance-sprites/Down Arrow.png"],["Up Arrow","assets/dance-sprites/Up Arrow.png"],["Side Left Arrow","assets/dance-sprites/Falling Down Arrows/Side Left Arrow.png"],["Side Right Arrow","assets/dance-sprites/Falling Down Arrows/Side Right Arrow.png"],["Down Arrow","assets/dance-sprites/Falling Down Arrows/Down Arrow.png"],["Up Arrow","assets/dance-sprites/Falling Down Arrows/Up Arrow.png"]],
    "UI Buttons & Elements":[["Dance Beatz Title","assets/dance-sprites/UI/Dance Beatz Title.png"],["Yes Button","assets/dance-sprites/UI/Yes Button.png"],["Ranking Button","assets/dance-sprites/UI/Ranking Button.png"],["Menu Button","assets/dance-sprites/UI/Menu Button.png"],["Exit Button","assets/dance-sprites/UI/Exit Button.png"],["Button Template","assets/dance-sprites/UI/Button Template.png"],["Options Button","assets/dance-sprites/UI/Options Button.png"],["No Button","assets/dance-sprites/UI/No Button.png"],["Heart Icon","assets/dance-sprites/UI/Heart Icon.png"],["UI Background","assets/dance-sprites/UI/UI Background.png"],["Tutorial Button","assets/dance-sprites/UI/Tutorial Button.png"],["Select Button","assets/dance-sprites/UI/Select Button.png"],["Restart Button","assets/dance-sprites/UI/Restart Button.png"],["Bar","assets/dance-sprites/UI/Bar.png"],["Submit Button","assets/dance-sprites/UI/Submit Button.png"],["Pause Button","assets/dance-sprites/UI/Pause Button.png"],["Play Button","assets/dance-sprites/UI/Play Button.png"]],
    "Score Feedback Art":[["x letter","assets/dance-sprites/Words/x letter.png"],["perfect word","assets/dance-sprites/Words/perfect word.png"],["miss word","assets/dance-sprites/Words/miss word.png"],["late word","assets/dance-sprites/Words/late word.png"],["great word","assets/dance-sprites/Words/great word.png"],["combo word","assets/dance-sprites/Words/combo word.png"],["early word","assets/dance-sprites/Words/early word.png"]],
@@ -3352,9 +3362,13 @@ go(0);
   const reduced=()=>matchMedia('(prefers-reduced-motion: reduce)').matches;
   const rect=(r)=>({left:r.left,top:r.top,width:r.width,height:r.height});
   const setRect=r=>Object.assign(picture.style,{left:r.left+'px',top:r.top+'px',width:r.width+'px',height:r.height+'px'});
-  const center=()=>{
+  const center=(start)=>{
     const w=picture.naturalWidth||900,h=picture.naturalHeight||600;
-    const scale=Math.min(innerWidth*.88/w,innerHeight*.84/h,Math.max(1,6));
+    const fit=Math.min(innerWidth*.88/w,innerHeight*.84/h);
+    // Always enlarge relative to the image as it appears in the gallery,
+    // rather than relative to the sprite's tiny original pixel dimensions.
+    const startScale=Math.max(start.width/w,start.height/h);
+    const scale=Math.min(fit,Math.max(startScale*2.1,1));
     const width=w*scale,height=h*scale;
     return {left:(innerWidth-width)/2,top:(innerHeight-height)/2,width,height};
   };
@@ -3374,8 +3388,9 @@ go(0);
     try{await picture.decode()}catch(e){}
     if(origin!==img){busy=false;return;}
     img.style.visibility='hidden';
-    await animate(start,center());
-    if(origin===img)setRect(center());
+    const target=center(start);
+    await animate(start,target);
+    if(origin===img)setRect(target);
     busy=false;
   }
   async function close(immediate=false){
