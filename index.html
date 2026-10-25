@@ -663,6 +663,13 @@ html{scroll-padding-top:100px}
 .game-detail-banner--dance .game-detail-intro{position:relative!important;inset:auto!important;width:100%!important;min-height:0!important;padding:18px 22px!important;background:linear-gradient(180deg,#21121b,#1e1019)!important;box-sizing:border-box!important;text-align:center}
 .game-detail-banner--dance>img{width:100%;height:auto;max-height:420px;object-fit:contain!important;object-position:center!important;background:#00131d}
 #game-modal .dance-evidence-desc{max-width:660px;margin:16px auto 0;text-align:center;line-height:1.65;color:#e5cbd4}
+
+/* Keep original low-resolution Dance Beatz sprite pixels crisp when enlarged. */
+#game-modal .game-evidence--visual img[src*="dance-sprites/"] {
+  image-rendering: pixelated;
+  image-rendering: crisp-edges;
+  image-rendering: pixelated;
+}
 </style>
 <style>
 .bp-showcase{margin:48px 0 28px}.bp-showcase h2{font-size:clamp(26px,3.4vw,42px);margin:8px 0 12px}.bp-showcase>p:not(.section-kicker){color:#d8bec8;max-width:720px;line-height:1.7}
