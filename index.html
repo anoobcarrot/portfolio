@@ -686,6 +686,14 @@ html{scroll-padding-top:100px}
 #contribution-image-zoom-v2 .zoom-v2-shade{position:absolute;inset:0;background:rgba(9,5,9,.88);backdrop-filter:blur(5px);-webkit-backdrop-filter:blur(5px);cursor:zoom-out}
 #contribution-image-zoom-v2 .zoom-v2-picture{position:fixed;display:block;max-width:none!important;max-height:none!important;object-fit:contain;box-sizing:border-box;border-radius:7px;box-shadow:0 22px 75px #000a;cursor:default;z-index:1}
 #game-modal-content .game-evidence img{cursor:zoom-in!important}
+
+/* Firework only: prevent the tiny pixel-art sprite from being smoothed when scaled. */
+#game-modal .game-evidence--visual img[src*="dance-sprites/Firework.png"],
+#contribution-image-zoom-v2 .zoom-v2-picture[src*="dance-sprites/Firework.png"] {
+  image-rendering: pixelated !important;
+  image-rendering: -moz-crisp-edges !important;
+  image-rendering: pixelated !important;
+}
 </style>
 <style>
 .bp-showcase{margin:48px 0 28px}.bp-showcase h2{font-size:clamp(26px,3.4vw,42px);margin:8px 0 12px}.bp-showcase>p:not(.section-kicker){color:#d8bec8;max-width:720px;line-height:1.7}
