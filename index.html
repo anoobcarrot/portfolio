@@ -3156,8 +3156,19 @@ const games = [
     {title:"Lore & Narrative",items:["I wrote the mystery of a patient who doesn't know why they are in the asylum, using library books and patient files to reveal pieces of its story.","I explored the unsettling idea of daily tasks and evaluations within a place that promises to make its patients better."]},
     {title:"UI, Render Textures & Voice Experiments",items:["I experimented with Unity UI and Render Textures to play videos on 3D surfaces and in the main menu.","I implemented a time-based completion grade and experimented with voice work to announce the result."]}
   ],
-  gameplay:[["Level Design & Onboarding","A compact asylum level introducing movement through a tutorial task before leading into the escape objective.",null],["Puzzle Mechanics & Sanity","Players find a Staff To Do List with the office computer password, then solve a symbol-order door puzzle before their sanity runs out.",null],["Lore & Narrative","Library books and patient files gradually reveal the asylum's mystery, while its daily tasks and grading raise questions about its intentions.",null]],
-  technical:[["UI & Render Textures","Experimented with Unity Render Textures for video playback on in-world 3D surfaces and in the main menu.",null],["Gameplay Systems & Grading","Implemented simple interactions, the draining sanity bar, door-unlocking logic and a time-based completion grade with experimental voice work.",null]],
+  gameplay:[
+    ["Level Design","Designed a single asylum level with a library, office, locked exit and environmental details.","assets/mental-level-library.png"],
+    ["UI & Player Feedback","Designed the menu, computer interface, sanity indicator and readable notes to support the player experience.","assets/mental-main-menu.mp4"],
+    ["Player Onboarding & Movement","A movement tutorial introduces the player to the asylum and its task-based progression.","assets/mental-onboarding.mp4"],
+    ["Environmental Storytelling & Library Lore","Readable books in the library reveal fragments of the asylum's story.","assets/mental-books-lore.mp4"],
+    ["Office Computer & Investigation","A Staff To Do List provides the office computer password, leading players to patient records and further clues.","assets/mental-computer-mechanic.mp4"],
+    ["Escape Puzzle & Performance Grade","Players enter the symbols in the correct order to unlock the door before sanity reaches zero, then receive a completion-time grade.","assets/mental-door-grade.mp4"]
+  ],
+  technical:[
+    ["Render Textures & Spatial Audio","Used a Unity Video Player and Render Texture to display video on a 3D surface, experimenting with positional audio.","assets/mental-render-texture-audio.mp4"],
+    ["UI Implementation","Implemented the computer interface, sanity indicator and readable notes in Unity.","assets/mental-computer-ui.png"],
+    ["Render Texture & Audio Setup","Unity Video Player, Render Texture and Audio Source setup for the in-world projection.","assets/mental-render-textures-audio.png"]
+  ],
   meta:[["Genre","Psychological horror / mystery"],["Platform","Windows · macOS (Apple Silicon)"],["Duration","1 week"],["Team size","1"],["Engine","Unity"],["Tools","Unity · C#"]],link:null
  }
 ];
@@ -3193,28 +3204,35 @@ function openModal(kind){
      :`<img src="${safe}" alt="${alt}" loading="lazy">`;
  };
  const galleries={
+   "Level Design":[["Library","assets/mental-level-library.png"],["Office","assets/mental-level-office.png"],["Locked Door","assets/mental-level-door.png"],["Treatment Chair","assets/mental-level-chair.png"],["Medical Trolley & Desk","assets/mental-level-bench.png"]],
    "Survival & Progression":[["Oxygen & Stamina UI","assets/oxygen-stamina-ui.mp4"],["Oxygen Depletion","assets/oxygen-draining.mp4"],["Sleep Mechanic","assets/sleep-mechanic.mp4"]],
    "Onboarding & Player Experience":[["Tips Mechanic","assets/tips-mechanic.mp4"],["Customisable Keybinds","assets/changing-keybinds.mp4"],["Level Progression","assets/level-progression.mp4"]],
    "Menu & Settings":[["Menu","assets/main-menu.mp4"],["Settings","assets/settings-ui.mp4"]]
  };
  const clipGallery=(name)=>{
    const clips=galleries[name];
-   return `<div class="survival-tabs" role="tablist" aria-label="${escapeHTML(name)} videos">${clips.map(([label],i)=>`<button type="button" class="survival-tab" role="tab" aria-selected="${i===0}" data-clip-tab="${i}">${escapeHTML(label)}</button>`).join('')}</div><div class="survival-player"><video controls playsinline preload="metadata" src="${clips[0][1]}" aria-label="${clips[0][0]} footage"></video></div>`;
+   return `<div class="survival-tabs" role="tablist" aria-label="${escapeHTML(name)} videos">${clips.map(([label],i)=>`<button type="button" class="survival-tab" role="tab" aria-selected="${i===0}" data-clip-tab="${i}">${escapeHTML(label)}</button>`).join('')}</div><div class="survival-player">${name==="Level Design"?`<img src="${clips[0][1]}" alt="${escapeHTML(clips[0][0])}" style="display:block;width:100%;height:auto;object-fit:contain">`:`<video controls playsinline preload="metadata" src="${clips[0][1]}" aria-label="${clips[0][0]} footage"></video>`}</div>`;
  };
- document.getElementById('game-modal-content').innerHTML=`<h2>${title}</h2>${items.map(([name,desc,img],idx)=>`<section class="game-evidence game-evidence--visual"><div class="game-evidence-label"><span class="game-evidence-number">${String(idx+1).padStart(2,'0')}</span><h3>${escapeHTML(name)}</h3><span class="game-evidence-line" aria-hidden="true"></span></div>${g.title === "Breaking Point" && galleries[name] ? clipGallery(name) : mediaMarkup(name,img)}</section>`).join('')}`;
+ document.getElementById('game-modal-content').innerHTML=`<h2>${title}</h2>${items.map(([name,desc,img],idx)=>`<section class="game-evidence game-evidence--visual"><div class="game-evidence-label"><span class="game-evidence-number">${String(idx+1).padStart(2,'0')}</span><h3>${escapeHTML(name)}</h3><span class="game-evidence-line" aria-hidden="true"></span></div>${((g.title === "Breaking Point") || (g.title === "Mental Maze - The Asylum Experiment" && name === "Level Design")) && galleries[name] ? clipGallery(name) : mediaMarkup(name,img)}</section>`).join('')}`;
  modal.hidden=false;modal.setAttribute('aria-hidden','false');modal.querySelector('.game-modal-panel').focus();
 }
 document.getElementById('game-modal-content').addEventListener('click',e=>{
  const tab=e.target.closest('[data-clip-tab]');if(!tab)return;
  const section=tab.closest('.game-evidence'),heading=section.querySelector('h3')?.textContent;
  const sources={
+   "Level Design":[["Library","assets/mental-level-library.png"],["Office","assets/mental-level-office.png"],["Locked Door","assets/mental-level-door.png"],["Treatment Chair","assets/mental-level-chair.png"],["Medical Trolley & Desk","assets/mental-level-bench.png"]],
    "Survival & Progression":[['Oxygen & Stamina UI','assets/oxygen-stamina-ui.mp4'],['Oxygen Depletion','assets/oxygen-draining.mp4'],['Sleep Mechanic','assets/sleep-mechanic.mp4']],
    "Onboarding & Player Experience":[['Tips Mechanic','assets/tips-mechanic.mp4'],['Customisable Keybinds','assets/changing-keybinds.mp4'],['Level Progression','assets/level-progression.mp4']],
    "Menu & Settings":[['Menu','assets/main-menu.mp4'],['Settings','assets/settings-ui.mp4']]
  }[heading];
- const i=Number(tab.dataset.clipTab),video=section.querySelector('.survival-player video');
- if(!video||!sources?.[i]||tab.getAttribute('aria-selected')==='true')return;
- video.pause();video.src=sources[i][1];video.setAttribute('aria-label',sources[i][0]+' footage');video.load();
+ const i=Number(tab.dataset.clipTab),player=section.querySelector('.survival-player'),video=player?.querySelector('video');
+ if(!player||!sources?.[i]||tab.getAttribute('aria-selected')==='true')return;
+ if(heading==="Level Design"){
+   player.innerHTML=`<img src="${escapeHTML(sources[i][1])}" alt="${escapeHTML(sources[i][0])}" style="display:block;width:100%;height:auto;object-fit:contain">`;
+ }else{
+   if(!video)return;
+   video.pause();video.src=sources[i][1];video.setAttribute('aria-label',sources[i][0]+' footage');video.load();
+ }
  section.querySelectorAll('[data-clip-tab]').forEach(b=>b.setAttribute('aria-selected',String(b===tab)));
 });
 function closeModal(){const video=modal.querySelector("video");if(video){video.pause();video.removeAttribute("src");video.load()}modal.hidden=true;modal.setAttribute('aria-hidden','true');drawer.focus()}
