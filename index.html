@@ -2760,42 +2760,36 @@ footer.footer .footer-inner .footer-extras > button.pixel-heart.is-loved svg {
 @media(prefers-reduced-motion:reduce){#games-page .game-index-scroll-hint span{animation:none}#games-page .game-index-scroll{scroll-behavior:auto}}
 </style>
 <style id="five-full-game-projects-scroll-fix">
-/* Desktop: five whole project cards, with the sixth below the fold. */
+/* Five complete project cards; the sixth is reachable by scrolling. */
 @media (min-width:801px){
- #games-page .game-index-scroll{
-   box-sizing:border-box!important;
-   height:auto;
-   max-height:none!important;
-   min-height:0;
-   flex:0 0 auto;
-   overflow-y:auto!important;
-   overflow-x:hidden!important;
-   scroll-snap-type:none;
- }
- #games-page .game-index-scroll .game-index-btn{
-   min-height:0!important;
-   flex-shrink:0!important;
-   scroll-snap-align:none;
- }
+ #games-page .game-index-scroll{box-sizing:border-box!important;max-height:none!important;height:1100px;overflow-y:auto!important;overflow-x:hidden!important;scroll-snap-type:none}
+ #games-page .game-index-scroll .game-index-btn{flex:0 0 auto!important;min-height:0!important;scroll-snap-align:none}
 }
 </style>
 <script>
 (function(){
  function sizeFive(){
    var area=document.querySelector('#games-page .game-index-scroll');
-   if(!area)return;
+   var page=document.getElementById('games-page');
+   if(!area||!page)return;
    if(window.matchMedia('(max-width:800px)').matches){area.style.removeProperty('height');return;}
-   var cards=Array.from(area.querySelectorAll('.game-index-btn'));
+   // Do not measure hidden route pages: their bounding boxes are all zero.
+   if(!page.classList.contains('active')||page.getClientRects().length===0)return;
+   var cards=area.querySelectorAll('.game-index-btn');
    if(cards.length<6)return;
-   // Use the sixth card's actual position to show precisely the first five.
-   area.style.height='auto';
+   area.style.height='1100px';
    var areaTop=area.getBoundingClientRect().top;
-   var sixthTop=cards[5].getBoundingClientRect().top;
-   var gap=parseFloat(getComputedStyle(area).rowGap)||0;
-   var height=Math.ceil(sixthTop-areaTop-gap/2);
-   area.style.height=Math.max(height,500)+'px';
+   var bottom=cards[4].getBoundingClientRect().bottom;
+   if(bottom<=areaTop)return;
+   var padding=parseFloat(getComputedStyle(area).paddingBottom)||0;
+   area.style.height=Math.ceil(bottom-areaTop+padding+12)+'px';
  }
- document.addEventListener('DOMContentLoaded',sizeFive);
+ function setup(){
+   var page=document.getElementById('games-page');
+   if(page){new MutationObserver(function(){if(page.classList.contains('active'))requestAnimationFrame(sizeFive)}).observe(page,{attributes:true,attributeFilter:['class']});}
+   requestAnimationFrame(sizeFive);
+ }
+ document.addEventListener('DOMContentLoaded',setup);
  window.addEventListener('load',sizeFive);
  if(document.fonts&&document.fonts.ready)document.fonts.ready.then(sizeFive);
  window.addEventListener('resize',sizeFive);
