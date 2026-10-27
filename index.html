@@ -2800,6 +2800,16 @@ footer.footer .footer-inner .footer-extras > button.pixel-heart.is-loved svg {
 #game-modal-content .ec-media-slot,#game-modal-content .ec-ui-player{min-height:190px;border:1px dashed rgba(221,163,186,.4);background:rgba(31,15,25,.2);margin-top:16px}
 #game-modal-content .ec-ui-player{display:block;width:100%}
 </style>
+
+<style id="environmental-pixel-art-display-fix">
+/* Environmental Cleanup: crisp, integer-scaled sprites in the existing gallery. */
+#game-modal .ec-ui-player:has(img[src*="assets/carlos-"]),
+#game-modal .ec-ui-player:has(img[src*="assets/environmental-"]){display:flex;align-items:center;justify-content:center;min-height:180px;max-width:100%;overflow:hidden}
+#game-modal .ec-ui-player img[src*="assets/carlos-"],
+#game-modal .ec-ui-player img[src*="assets/environmental-"]{image-rendering:pixelated!important;width:auto;max-width:100%!important;height:auto!important;max-height:320px!important;object-fit:contain!important;margin:12px auto!important;flex-shrink:1}
+#contribution-image-zoom-v2 .zoom-v2-picture[src*="assets/carlos-"],
+#contribution-image-zoom-v2 .zoom-v2-picture[src*="assets/environmental-"]{image-rendering:pixelated!important}
+</style>
 </head>
 <body>
 <svg aria-hidden="true" height="0" style="position:absolute;pointer-events:none" width="0" xmlns="http://www.w3.org/2000/svg"><filter height="120%" id="hand-ink-filter" width="120%" x="-10%" y="-10%"><feturbulence basefrequency="0.035" numoctaves="2" result="noise" seed="7" type="fractalNoise"></feturbulence><fedisplacementmap in="SourceGraphic" in2="noise" scale="1.4" xchannelselector="R" ychannelselector="G"></fedisplacementmap></filter></svg>
@@ -3553,7 +3563,7 @@ go(0);
     const start=rect(img.getBoundingClientRect());
     picture.src=img.currentSrc||img.src;
     picture.alt=img.alt||'Enlarged contribution image';
-    picture.style.imageRendering=(img.src.includes('dance-sprites/')||img.alt==='Firework')?'pixelated':'auto';
+    picture.style.imageRendering=(img.src.includes('dance-sprites/')||img.src.includes('assets/carlos-')||img.src.includes('assets/environmental-')||img.alt==='Firework')?'pixelated':'auto';
     viewer.classList.add('visible');
     setRect(start);
     try{await picture.decode()}catch(e){}
@@ -3671,6 +3681,30 @@ go(0);
   };
   if (document.readyState === 'loading') document.addEventListener('DOMContentLoaded', setup);
   else setup();
+})();
+</script>
+
+<script id="environmental-pixel-art-scaling">
+(()=>{
+ const modal=document.getElementById('game-modal');
+ if(!modal)return;
+ const sprites=/\/(?:carlos-(?:idle|walk)-|environmental-(?:penguin-bin-peak|cat-bin-peak|play-button|select-button|options-button|quit-button|left-arrow|right-arrow|main-menu-background|ui-background|x-button))[^/]*\.png(?:[?#]|$)/i;
+ function fit(img){
+   if(!sprites.test(img.getAttribute('src')||''))return;
+   const w=img.naturalWidth,h=img.naturalHeight;
+   if(!w||!h)return;
+   const box=img.closest('.ec-ui-player');
+   const maxW=Math.min(570,Math.max(160,(box?.clientWidth||570)-8));
+   const maxH=300;
+   const factor=Math.max(1,Math.floor(Math.min(maxW/w,maxH/h)));
+   img.style.width=Math.min(w*factor,maxW)+'px';
+   img.style.height='auto';
+   img.style.imageRendering='pixelated';
+ }
+ modal.addEventListener('load',e=>{if(e.target instanceof HTMLImageElement)fit(e.target)},true);
+ const observer=new MutationObserver(()=>modal.querySelectorAll('.ec-ui-player img').forEach(img=>{if(img.complete&&img.naturalWidth)fit(img)}));
+ observer.observe(modal,{subtree:true,childList:true});
+ window.addEventListener('resize',()=>modal.querySelectorAll('.ec-ui-player img').forEach(fit));
 })();
 </script>
 </body>
