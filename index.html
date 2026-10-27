@@ -690,6 +690,7 @@ html{scroll-padding-top:100px}
 /* Breaking Point only: fit the supplied wide banner without letterboxing. */
 .game-detail-banner.game-detail-banner--breaking{aspect-ratio:2048/854!important;min-height:0!important;height:auto!important;display:block!important;overflow:hidden!important;background:transparent!important}
 .game-detail-banner.game-detail-banner--breaking>img{position:absolute!important;inset:0!important;width:100%!important;height:100%!important;max-height:none!important;object-fit:cover!important;object-position:center!important;display:block!important;opacity:1!important;filter:none!important}
+.ec-ui-player img{display:block;width:100%;height:auto;max-height:420px;object-fit:contain;image-rendering:pixelated;image-rendering:crisp-edges;margin:12px auto;}
 </style>
 <style>
 .bp-showcase{margin:48px 0 28px}.bp-showcase h2{font-size:clamp(26px,3.4vw,42px);margin:8px 0 12px}.bp-showcase>p:not(.section-kicker){color:#d8bec8;max-width:720px;line-height:1.7}
@@ -2795,6 +2796,10 @@ footer.footer .footer-inner .footer-extras > button.pixel-heart.is-loved svg {
  window.addEventListener('resize',sizeFive);
 })();
 </script>
+<style id="ec-media-placeholders">
+#game-modal-content .ec-media-slot,#game-modal-content .ec-ui-player{min-height:190px;border:1px dashed rgba(221,163,186,.4);background:rgba(31,15,25,.2);margin-top:16px}
+#game-modal-content .ec-ui-player{display:block;width:100%}
+</style>
 </head>
 <body>
 <svg aria-hidden="true" height="0" style="position:absolute;pointer-events:none" width="0" xmlns="http://www.w3.org/2000/svg"><filter height="120%" id="hand-ink-filter" width="120%" x="-10%" y="-10%"><feturbulence basefrequency="0.035" numoctaves="2" result="noise" seed="7" type="fractalNoise"></feturbulence><fedisplacementmap in="SourceGraphic" in2="noise" scale="1.4" xchannelselector="R" ychannelselector="G"></fedisplacementmap></filter></svg>
@@ -2917,7 +2922,7 @@ footer.footer .footer-inner .footer-extras > button.pixel-heart.is-loved svg {
 </article>
 <article aria-label="Environmental Cleanup" class="game-slide">
 <div class="game-slide-copy"><span class="game-slide-num">06 / 06</span><h2>Environmental Cleanup</h2><p class="game-date">Game A Week 05 · Educational</p>
-<p class="game-blurb">Greetings! Does it pain you when people litter—even right next to a bin? This cheerful educational game encourages players to pick up rubbish and keep the environment clean. Just pick up the trash, no need to stash, toss it in the bin, let the cleanup begin!</p>
+<p class="game-blurb">Does it pain you when people litter? Even right next to a bin? This educational game encourages players to pick up rubbish and keep the environment clean.</p>
 <h3>My main contributions</h3><p>Sprite animations, user interface, level design, penguin character design and sprite sheet, and character selection.</p>
 <button class="button game-open" data-game="5" type="button">Explore project <span aria-hidden="true" class="game-open-arrow"><span class="arrow-default"><svg aria-hidden="true" class="handdrawn-arrow" focusable="false" viewBox="0 0 36 36"><path d="M8 28 Q18 18 29 8 M17 8 Q23 7 30 7 L30 20"/><path class="pencil-echo" d="M10 30 Q20 20 28 12"/></svg></span><span class="arrow-hover"><svg aria-hidden="true" class="handdrawn-arrow" focusable="false" viewBox="0 0 36 36"><path d="M5 18 Q17 17 31 18 M24 10 Q28 14 32 18 Q28 23 24 26"/><path class="pencil-echo" d="M8 20 Q18 19 28 20"/></svg></span></span></button>
 </div><div class="game-slide-visual"><img alt="Environmental Cleanup game logo" src="assets/environmental-cleanup-logo.png"/></div>
@@ -3321,7 +3326,7 @@ const games = [
   ],
   meta:[["Genre","Psychological horror / mystery"],["Platform","Windows · macOS (Apple Silicon)"],["Duration","1 week"],["Team size","1"],["Engine","Unity"],["Tools","Unity · C#"]],link:"https://anoobcarrot.itch.io/mental-maze-the-asylum-experiment"
  }
- ,{title:"Dance Beatz",role:"Game Design · Pixel Art · Rhythm Systems",
+ ,{title:"Dance Beatz",role:"Asset Creation & Animations · UI · Rhythm Systems",
   short:"Dance dance dance away to the beatz!",
   banner:"assets/dance-beatz-banner.png",trailer:null,
   contributionGroups:[
@@ -3349,7 +3354,7 @@ const games = [
   meta:[["Genre","Mobile rhythm / music"],["Platform","iOS · Android"],["Duration","1 week"],["Team size","1"],["Engine","Unity"],["Tools","Unity · C# · Aseprite"]],link:"https://anoobcarrot.itch.io/dance-beatz"
  }
 
- ,{title:"Environmental Cleanup",role:"Educational Game · Sprite Animation · UI · Level Design",
+ ,{title:"Environmental Cleanup",role:"Sprite Animation & Creation · UI · Level Design",
   short:"Just pick up the trash, no need to stash, toss it in the bin, let the cleanup begin!",
   banner:"assets/environmental-cleanup-banner.png",trailer:null,
   contributionGroups:[
@@ -3357,7 +3362,23 @@ const games = [
     {title:"User Interface & Character Selection",items:["I worked on the game's UI and character-selection experience."]},
     {title:"Level Design",items:["I contributed to the level design for the educational cleanup gameplay."]}
   ],
-  gameplay:[],technical:[],
+  gameplay:[
+    ["Level Design","","assets/environmental-level-design.png"],
+    ["UI","",null],
+    ["Carlos Sprite Sheets","",null],
+    ["Main Menu Sprite Sheets","",null],
+    ["Button UI Sprite Sheets","",null],
+    ["Other Assets","",null]
+  ],
+  technical:[
+    ["Main Menu Interactable","","assets/environmental-main-menu-interactable.mp4"],
+    ["Character Selection","","assets/environmental-character-selection-technical.png"],
+    ["Tilemap Implementation","","assets/environmental-tilemap-implementation.png"],
+    ["Sprite Animations","","assets/environmental-sprite-animations.png"],
+    ["Player Movement","",null],
+    ["Audio Implementation","",null],
+    ["Working in Aseprite","","assets/environmental-working-in-aseprite.png"]
+  ],
   meta:[["Genre","Educational"],["Platform","WebGL"],["Duration","1 week"],["Team size","2"],["Engine","Unity"],["Tools","Unity · C# · Aseprite"]],
   link:"https://anoobcarrot.itch.io/environmental-cleanup"
  }
@@ -3388,6 +3409,15 @@ function openDrawer(i){
  drawer.scrollTop=0;drawer.dataset.game=i;drawer.classList.add('open');drawer.setAttribute('aria-hidden','false');scrim.hidden=false;requestAnimationFrame(()=>scrim.classList.add('visible'));document.body.style.overflow='hidden';drawer.scrollTop=0;drawer.focus({preventScroll:true});
 }
 function closeDrawer(){resetModalVideos();if(!modal.hidden)closeModal();drawer.classList.remove('open');drawer.setAttribute('aria-hidden','true');scrim.classList.remove('visible');document.body.style.overflow='';setTimeout(()=>{if(!drawer.classList.contains('open'))scrim.hidden=true},570);lastFocus?.focus()}
+const ecMedia={
+   "UI": ["assets/environmental-main-menu.mp4","assets/environmental-character-selection.mp4"],
+   "Carlos Sprite Sheets": ["assets/carlos-idle-left.png","assets/carlos-idle-right.png","assets/carlos-walk-left.png","assets/carlos-walk-right.png"],
+   "Main Menu Sprite Sheets": ["assets/environmental-penguin-bin-peak.png","assets/environmental-cat-bin-peak.png"],
+   "Button UI Sprite Sheets": ["assets/environmental-play-button.png","assets/environmental-select-button.png","assets/environmental-options-button.png","assets/environmental-quit-button.png","assets/environmental-left-arrow.png","assets/environmental-right-arrow.png"],
+   "Other Assets": ["assets/environmental-main-menu-background.png","assets/environmental-ui-background.png","assets/environmental-x-button.png"],
+   "Player Movement": ["assets/environmental-carlos-player-movement.mp4","assets/environmental-raymond-player-movement.mp4","assets/environmental-player-movement-unity.png"],
+   "Audio Implementation": ["assets/environmental-audio-showcase.mp4","assets/environmental-audio-implementation.mp4"]
+ };
 function openModal(kind){
  resetModalVideos();
  const g=games[+drawer.dataset.game],items=g[kind],title=kind==='gameplay'?'Gameplay Design Contributions':'Technical Design Contributions';
@@ -3397,6 +3427,23 @@ function openModal(kind){
    return /\.(mp4|webm|ogg)(?:[?#]|$)/i.test(src)
      ?`<video src="${safe}" controls playsinline preload="metadata" aria-label="${alt} footage"></video>`
      :`<img src="${safe}" alt="${alt}" loading="lazy">`;
+ };
+ const ecTabs={
+   "UI":["Main Menu","Character Selection"],
+   "Carlos Sprite Sheets":["Idle Left","Idle Right","Walk Left","Walk Right"],
+   "Main Menu Sprite Sheets":["Carlos Bin Peak","Raymond Bin Peak"],
+   "Button UI Sprite Sheets":["Play Button","Select Button","Options Button","Quit Button","Left Arrow","Right Arrow"],
+   "Other Assets":["Main Menu Background","UI Background","X Button"],
+   "Player Movement":["Carlos Showcase","Raymond Showcase","In Unity"],
+   "Audio Implementation":["Showcase","In Unity"]
+ };
+
+ const ecGallery=(name)=>{
+   const labels=ecTabs[name];
+   if(!labels)return `<div class="ec-media-slot" aria-label="${escapeHTML(name)} media area"></div>`;
+   const src=ecMedia[name]?.[0];
+   const initial=src?mediaMarkup(labels[0],src):'';
+   return `<div class="survival-tabs" role="tablist" aria-label="${escapeHTML(name)} media">${labels.map((label,i)=>`<button type="button" class="survival-tab" role="tab" aria-selected="${i===0}" data-ec-media="${i}">${escapeHTML(label)}</button>`).join('')}</div><div class="survival-player ec-ui-player" role="tabpanel" aria-label="${escapeHTML(labels[0])} media area">${initial}</div>`;
  };
  const galleries={
    "Pixel Art & Backgrounds":[["Mobile Game Menu Background","assets/dance-sprites/Mobile Game Menu Background.png"],["Penguin","assets/dance-sprites/Penguin.png"],["Mobile Game Background","assets/dance-sprites/Mobile Game Background.png"],["Firework","data:image/png;base64,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"]],
@@ -3412,9 +3459,22 @@ function openModal(kind){
    const clips=galleries[name];
    return `<div class="survival-tabs" role="tablist" aria-label="${escapeHTML(name)} videos">${clips.map(([label],i)=>`<button type="button" class="survival-tab" role="tab" aria-selected="${i===0}" data-clip-tab="${i}">${escapeHTML(label)}</button>`).join('')}</div><div class="survival-player">${["Level Design","Pixel Art & Backgrounds","Arrow & Rhythm Assets","UI Buttons & Elements","Score Feedback Art"].includes(name)?`<img src="${clips[0][1]}" alt="${escapeHTML(clips[0][0])}" style="display:block;width:100%;height:auto;object-fit:contain">`:`<video controls playsinline preload="metadata" src="${clips[0][1]}" aria-label="${clips[0][0]} footage"></video>`}</div>`;
  };
- document.getElementById('game-modal-content').innerHTML=`<h2>${title}</h2>${items.map(([name,desc,img],idx)=>`<section class="game-evidence game-evidence--visual"><div class="game-evidence-label"><span class="game-evidence-number">${String(idx+1).padStart(2,'0')}</span><h3>${escapeHTML(name)}</h3><span class="game-evidence-line" aria-hidden="true"></span></div>${((g.title === "Breaking Point") || (g.title === "Mental Maze - The Asylum Experiment" && name === "Level Design" || g.title === "Dance Beatz" && ["Pixel Art & Backgrounds","Arrow & Rhythm Assets","UI Buttons & Elements","Score Feedback Art"].includes(name))) && galleries[name] ? clipGallery(name) : mediaMarkup(name,img)}</section>`).join('')}`;
+ document.getElementById('game-modal-content').innerHTML=`<h2>${title}</h2>${items.map(([name,desc,img],idx)=>`<section class="game-evidence game-evidence--visual"><div class="game-evidence-label"><span class="game-evidence-number">${String(idx+1).padStart(2,'0')}</span><h3>${escapeHTML(name)}</h3><span class="game-evidence-line" aria-hidden="true"></span></div>${((g.title === "Breaking Point") || (g.title === "Mental Maze - The Asylum Experiment" && name === "Level Design" || g.title === "Dance Beatz" && ["Pixel Art & Backgrounds","Arrow & Rhythm Assets","UI Buttons & Elements","Score Feedback Art"].includes(name))) && galleries[name] ? clipGallery(name) : (img?mediaMarkup(name,img):(g.title === "Environmental Cleanup" ? ecGallery(name) : `<p>${escapeHTML(desc)}</p>`))}</section>`).join('')}`;
  modal.hidden=false;modal.setAttribute('aria-hidden','false');modal.querySelector('.game-modal-panel').focus();
 }
+document.getElementById('game-modal-content').addEventListener('click',e=>{
+ const selected=e.target.closest('[data-ec-media]');if(!selected)return;
+ const section=selected.closest('.game-evidence');
+ section.querySelectorAll('[data-ec-media]').forEach(button=>button.setAttribute('aria-selected',String(button===selected)));
+ const panel=section.querySelector('.ec-ui-player');
+ if(panel){
+   const heading=section.querySelector('h3')?.textContent?.trim();
+   const source=ecMedia[heading]?.[Number(selected.dataset.ecMedia)] || null;
+   panel.querySelectorAll('video').forEach(video=>video.pause());
+   panel.setAttribute('aria-label',selected.textContent.trim()+' media area');
+   panel.innerHTML=source?mediaMarkup(selected.textContent.trim(),source):'';
+ }
+});
 document.getElementById('game-modal-content').addEventListener('click',e=>{
  const tab=e.target.closest('[data-clip-tab]');if(!tab)return;
  const section=tab.closest('.game-evidence'),heading=section.querySelector('h3')?.textContent;
