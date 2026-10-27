@@ -2810,6 +2810,23 @@ footer.footer .footer-inner .footer-extras > button.pixel-heart.is-loved svg {
 #contribution-image-zoom-v2 .zoom-v2-picture[src*="assets/carlos-"],
 #contribution-image-zoom-v2 .zoom-v2-picture[src*="assets/environmental-"]{image-rendering:pixelated!important}
 </style>
+
+<style id="environmental-media-border-final-fix">
+/* Environmental Cleanup: remove the dashed placeholder box on every gallery panel.
+   Override older generic placeholder rules and pseudo-elements. */
+#game-modal #game-modal-content .game-evidence .ec-ui-player,
+#game-modal #game-modal-content .game-evidence .ec-media-slot {
+  border: none !important; border-style: none !important; outline: none !important;
+  box-shadow: none !important; background: transparent !important;
+  border-radius: 0 !important; padding: 0 !important;
+}
+#game-modal #game-modal-content .game-evidence .ec-ui-player::before,
+#game-modal #game-modal-content .game-evidence .ec-ui-player::after,
+#game-modal #game-modal-content .game-evidence .ec-media-slot::before,
+#game-modal #game-modal-content .game-evidence .ec-media-slot::after {
+  content: none !important; display: none !important; border: 0 !important;
+}
+</style>
 </head>
 <body>
 <svg aria-hidden="true" height="0" style="position:absolute;pointer-events:none" width="0" xmlns="http://www.w3.org/2000/svg"><filter height="120%" id="hand-ink-filter" width="120%" x="-10%" y="-10%"><feturbulence basefrequency="0.035" numoctaves="2" result="noise" seed="7" type="fractalNoise"></feturbulence><fedisplacementmap in="SourceGraphic" in2="noise" scale="1.4" xchannelselector="R" ychannelselector="G"></fedisplacementmap></filter></svg>
