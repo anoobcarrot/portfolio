@@ -3453,7 +3453,7 @@ function openModal(kind){
    if(!labels)return `<div class="ec-media-slot" aria-label="${escapeHTML(name)} media area"></div>`;
    const src=ecMedia[name]?.[0];
    const initial=src?mediaMarkup(labels[0],src):'';
-   return `<div class="survival-tabs" role="tablist" aria-label="${escapeHTML(name)} media">${labels.map((label,i)=>`<button type="button" class="survival-tab" role="tab" aria-selected="${i===0}" data-ec-media="${i}">${escapeHTML(label)}</button>`).join('')}</div><div class="survival-player ec-ui-player" role="tabpanel" aria-label="${escapeHTML(labels[0])} media area">${initial}</div>`;
+   return `<div class="survival-tabs" role="tablist" aria-label="${escapeHTML(name)} media">${labels.map((label,i)=>`<button type="button" class="survival-tab" role="tab" aria-selected="${i===0}" data-ec-media="${i}" tabindex="${i===0?0:-1}">${escapeHTML(label)}</button>`).join('')}</div><div class="survival-player ec-ui-player" role="tabpanel" aria-label="${escapeHTML(labels[0])} media area">${initial}</div>`;
  };
  const galleries={
    "Pixel Art & Backgrounds":[["Mobile Game Menu Background","assets/dance-sprites/Mobile Game Menu Background.png"],["Penguin","assets/dance-sprites/Penguin.png"],["Mobile Game Background","assets/dance-sprites/Mobile Game Background.png"],["Firework","data:image/png;base64,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"]],
@@ -3469,21 +3469,34 @@ function openModal(kind){
    const clips=galleries[name];
    return `<div class="survival-tabs" role="tablist" aria-label="${escapeHTML(name)} videos">${clips.map(([label],i)=>`<button type="button" class="survival-tab" role="tab" aria-selected="${i===0}" data-clip-tab="${i}">${escapeHTML(label)}</button>`).join('')}</div><div class="survival-player">${["Level Design","Pixel Art & Backgrounds","Arrow & Rhythm Assets","UI Buttons & Elements","Score Feedback Art"].includes(name)?`<img src="${clips[0][1]}" alt="${escapeHTML(clips[0][0])}" style="display:block;width:100%;height:auto;object-fit:contain">`:`<video controls playsinline preload="metadata" src="${clips[0][1]}" aria-label="${clips[0][0]} footage"></video>`}</div>`;
  };
- document.getElementById('game-modal-content').innerHTML=`<h2>${title}</h2>${items.map(([name,desc,img],idx)=>`<section class="game-evidence game-evidence--visual"><div class="game-evidence-label"><span class="game-evidence-number">${String(idx+1).padStart(2,'0')}</span><h3>${escapeHTML(name)}</h3><span class="game-evidence-line" aria-hidden="true"></span></div>${((g.title === "Breaking Point") || (g.title === "Mental Maze - The Asylum Experiment" && name === "Level Design" || g.title === "Dance Beatz" && ["Pixel Art & Backgrounds","Arrow & Rhythm Assets","UI Buttons & Elements","Score Feedback Art"].includes(name))) && galleries[name] ? clipGallery(name) : (img?mediaMarkup(name,img):(g.title === "Environmental Cleanup" ? ecGallery(name) : `<p>${escapeHTML(desc)}</p>`))}</section>`).join('')}`;
+ document.getElementById('game-modal-content').innerHTML=`<h2>${title}</h2>${items.map(([name,desc,img],idx)=>`<section class="game-evidence game-evidence--visual" data-evidence-name="${escapeHTML(name)}"><div class="game-evidence-label"><span class="game-evidence-number">${String(idx+1).padStart(2,'0')}</span><h3>${escapeHTML(name)}</h3><span class="game-evidence-line" aria-hidden="true"></span></div>${((g.title === "Breaking Point") || (g.title === "Mental Maze - The Asylum Experiment" && name === "Level Design" || g.title === "Dance Beatz" && ["Pixel Art & Backgrounds","Arrow & Rhythm Assets","UI Buttons & Elements","Score Feedback Art"].includes(name))) && galleries[name] ? clipGallery(name) : (img?mediaMarkup(name,img):(g.title === "Environmental Cleanup" ? ecGallery(name) : `<p>${escapeHTML(desc)}</p>`))}</section>`).join('')}`;
  modal.hidden=false;modal.setAttribute('aria-hidden','false');modal.querySelector('.game-modal-panel').focus();
 }
-document.getElementById('game-modal-content').addEventListener('click',e=>{
- const selected=e.target.closest('[data-ec-media]');if(!selected)return;
- const section=selected.closest('.game-evidence');
- section.querySelectorAll('[data-ec-media]').forEach(button=>button.setAttribute('aria-selected',String(button===selected)));
- const panel=section.querySelector('.ec-ui-player');
- if(panel){
-   const heading=section.querySelector('h3')?.textContent?.trim();
-   const source=ecMedia[heading]?.[Number(selected.dataset.ecMedia)] || null;
-   panel.querySelectorAll('video').forEach(video=>video.pause());
-   panel.setAttribute('aria-label',selected.textContent.trim()+' media area');
-   panel.innerHTML=source?mediaMarkup(selected.textContent.trim(),source):'';
- }
+// Environmental Cleanup: each tab updates ONLY its own contribution section.
+document.getElementById('game-modal-content').addEventListener('click', e => {
+ const selected = e.target.closest('button[data-ec-media]');
+ if (!selected) return;
+ e.preventDefault();
+ const section = selected.closest('.game-evidence');
+ if (!section) return;
+ const heading = section.dataset.evidenceName || section.querySelector('h3')?.textContent?.trim();
+ const index = Number(selected.dataset.ecMedia);
+ const source = ecMedia[heading]?.[index];
+ const panel = section.querySelector('.ec-ui-player');
+ if (!panel || !source) return;
+ panel.querySelectorAll('video').forEach(video => {
+   video.pause();
+   video.removeAttribute('src');
+   video.load();
+ });
+ panel.replaceChildren();
+ panel.innerHTML = mediaMarkup(selected.textContent.trim(), source);
+ panel.setAttribute('aria-label', selected.textContent.trim() + ' media area');
+ section.querySelectorAll('button[data-ec-media]').forEach(button => {
+   const active = button === selected;
+   button.setAttribute('aria-selected', String(active));
+   button.tabIndex = active ? 0 : -1;
+ });
 });
 document.getElementById('game-modal-content').addEventListener('click',e=>{
  const tab=e.target.closest('[data-clip-tab]');if(!tab)return;
