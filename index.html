@@ -3453,7 +3453,7 @@ function openModal(kind){
    if(!labels)return `<div class="ec-media-slot" aria-label="${escapeHTML(name)} media area"></div>`;
    const src=ecMedia[name]?.[0];
    const initial=src?mediaMarkup(labels[0],src):'';
-   return `<div class="survival-tabs" role="tablist" aria-label="${escapeHTML(name)} media">${labels.map((label,i)=>`<button type="button" class="survival-tab" role="tab" aria-selected="${i===0}" data-ec-media="${i}" tabindex="${i===0?0:-1}">${escapeHTML(label)}</button>`).join('')}</div><div class="survival-player ec-ui-player" role="tabpanel" aria-label="${escapeHTML(labels[0])} media area">${initial}</div>`;
+   return `<div class="survival-tabs" role="tablist" aria-label="${escapeHTML(name)} media">${labels.map((label,i)=>`<button type="button" class="survival-tab" role="tab" aria-selected="${i===0}" data-ec-media="${i}" onclick="window.ecSwitchMedia(this);return false" tabindex="${i===0?0:-1}">${escapeHTML(label)}</button>`).join('')}</div><div class="survival-player ec-ui-player" role="tabpanel" aria-label="${escapeHTML(labels[0])} media area">${initial}</div>`;
  };
  const galleries={
    "Pixel Art & Backgrounds":[["Mobile Game Menu Background","assets/dance-sprites/Mobile Game Menu Background.png"],["Penguin","assets/dance-sprites/Penguin.png"],["Mobile Game Background","assets/dance-sprites/Mobile Game Background.png"],["Firework","data:image/png;base64,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"]],
@@ -3722,6 +3722,37 @@ go(0);
  const observer=new MutationObserver(()=>modal.querySelectorAll('.ec-ui-player img').forEach(img=>{if(img.complete&&img.naturalWidth)fit(img)}));
  observer.observe(modal,{subtree:true,childList:true});
  window.addEventListener('resize',()=>modal.querySelectorAll('.ec-ui-player img').forEach(fit));
+})();
+</script>
+<script id="environmental-tab-switch-robust">
+(function(){
+  const sources = {
+    "UI": ["assets/environmental-main-menu.mp4","assets/environmental-character-selection.mp4"],
+    "Carlos Sprite Sheets": ["assets/carlos-idle-left.png","assets/carlos-idle-right.png","assets/carlos-walk-left.png","assets/carlos-walk-right.png"],
+    "Main Menu Sprite Sheets": ["assets/environmental-penguin-bin-peak.png","assets/environmental-cat-bin-peak.png"],
+    "Button UI Sprite Sheets": ["assets/environmental-play-button.png","assets/environmental-select-button.png","assets/environmental-options-button.png","assets/environmental-quit-button.png","assets/environmental-left-arrow.png","assets/environmental-right-arrow.png"],
+    "Other Assets": ["assets/environmental-main-menu-background.png","assets/environmental-ui-background.png","assets/environmental-x-button.png"],
+    "Player Movement": ["assets/environmental-carlos-player-movement.mp4","assets/environmental-raymond-player-movement.mp4","assets/environmental-player-movement-unity.png"],
+    "Audio Implementation": ["assets/environmental-audio-showcase.mp4","assets/environmental-audio-implementation.mp4"]
+  };
+  window.ecSwitchMedia = function(button){
+    const section=button.closest('.game-evidence');
+    if(!section)return;
+    const name=section.getAttribute('data-evidence-name');
+    const idx=Number(button.getAttribute('data-ec-media'));
+    const src=sources[name] && sources[name][idx];
+    const panel=section.querySelector('.ec-ui-player');
+    if(!src||!panel)return;
+    panel.querySelectorAll('video').forEach(v=>{v.pause();v.removeAttribute('src');v.load()});
+    const label=button.textContent.trim();
+    const node=document.createElement(/\.(mp4|webm|ogg)$/i.test(src)?'video':'img');
+    node.src=src;
+    if(node.tagName==='VIDEO'){node.controls=true;node.playsInline=true;node.preload='metadata';node.setAttribute('aria-label',label+' footage')}
+    else {node.alt=label;node.loading='eager';node.style.imageRendering='pixelated'}
+    panel.replaceChildren(node);
+    panel.setAttribute('aria-label',label+' media area');
+    section.querySelectorAll('[data-ec-media]').forEach(b=>{const active=b===button;b.setAttribute('aria-selected',String(active));b.tabIndex=active?0:-1});
+  };
 })();
 </script>
 </body>
