@@ -3490,7 +3490,11 @@ document.getElementById('game-modal-content').addEventListener('click', e => {
    video.load();
  });
  panel.replaceChildren();
- panel.innerHTML = mediaMarkup(selected.textContent.trim(), source);
+ const safeSource = escapeHTML(source);
+ const safeLabel = escapeHTML(selected.textContent.trim());
+ panel.innerHTML = /\.(mp4|webm|ogg)(?:[?#]|$)/i.test(source)
+   ? `<video src="${safeSource}" controls playsinline preload="metadata" aria-label="${safeLabel} footage"></video>`
+   : `<img src="${safeSource}" alt="${safeLabel}" loading="lazy">`;
  panel.setAttribute('aria-label', selected.textContent.trim() + ' media area');
  section.querySelectorAll('button[data-ec-media]').forEach(button => {
    const active = button === selected;
