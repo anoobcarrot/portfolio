@@ -691,6 +691,13 @@ html{scroll-padding-top:100px}
 .game-detail-banner.game-detail-banner--breaking{aspect-ratio:2048/854!important;min-height:0!important;height:auto!important;display:block!important;overflow:hidden!important;background:transparent!important}
 .game-detail-banner.game-detail-banner--breaking>img{position:absolute!important;inset:0!important;width:100%!important;height:100%!important;max-height:none!important;object-fit:cover!important;object-position:center!important;display:block!important;opacity:1!important;filter:none!important}
 .ec-ui-player img{display:block;width:100%;height:auto;max-height:420px;object-fit:contain;image-rendering:pixelated;image-rendering:crisp-edges;margin:12px auto;}
+/* Celestria: intentional artwork placeholder until a poster is provided. */
+.celestria-poster-placeholder{width:100%;min-height:460px;display:flex;flex-direction:column;align-items:center;justify-content:center;gap:15px;text-align:center;padding:30px;background:radial-gradient(ellipse at 50% 35%,#663a67,#2c193c 60%,#19101e);color:#f8e6f5}
+.celestria-poster-placeholder span{font-size:55px;color:#e7bfdc}
+.celestria-poster-placeholder strong{font:500 clamp(42px,5vw,70px) "Cormorant Garamond",serif}
+.celestria-poster-placeholder small{letter-spacing:.18em;color:#d5b5d1;font-size:10px}
+.game-detail-meta .game-meta-status{grid-column:1 / -1;text-align:center;border-top:1px solid #654052;padding:19px 0 2px;margin-top:4px}
+.game-detail-banner--celestria > img{object-fit:contain!important;object-position:center!important;background:#d7e9fa!important}
 </style>
 <style>
 .bp-showcase{margin:48px 0 28px}.bp-showcase h2{font-size:clamp(26px,3.4vw,42px);margin:8px 0 12px}.bp-showcase>p:not(.section-kicker){color:#d8bec8;max-width:720px;line-height:1.7}
@@ -2906,56 +2913,64 @@ footer.footer .footer-inner .footer-extras > button.pixel-heart.is-loved svg {
 <button aria-label="Show Mental Maze - The Asylum Experiment" class="game-index-btn" data-game="3" type="button">04 <span>Mental Maze</span></button>
 <button aria-label="Show Dance Beatz" class="game-index-btn" data-game="4" type="button">05 <span>Dance Beatz</span></button>
 <button aria-label="Show Environmental Cleanup" class="game-index-btn" data-game="5" type="button">06 <span>Environmental Cleanup</span></button>
+<button aria-label="Show Celestria" class="game-index-btn" data-game="6" type="button">07 <span>Celestria</span></button>
 </div>
 <div class="game-index-scroll-hint" aria-hidden="true">SCROLL FOR MORE <span>↓</span></div>
-<span class="game-index-count">01 / 06</span>
+<span class="game-index-count">01 / 07</span>
 </nav>
 <div aria-label="Game showcase. Use arrow keys to change slides" class="game-window" tabindex="0">
 <div class="game-track">
 <article aria-label="Breaking Point" class="game-slide">
-<div class="game-slide-copy"><span class="game-slide-num">01 / 06</span><h2>Breaking Point</h2><p class="game-date">Final major university project · 2025</p>
+<div class="game-slide-copy"><span class="game-slide-num">01 / 07</span><h2>Breaking Point</h2><p class="game-date">Final major university project · 2025</p>
 <p class="game-blurb">A narrative-driven 3D game following Alice and Phillip as they climb Mount Everest. The experience combines character-driven storytelling with survival-inspired gameplay.</p>
 <h3>My main contributions</h3><p>UI and UX design, narrative and dialogue systems, gameplay mechanics, level design, programming, and team coordination.</p>
 <button class="button game-open" data-game="0" type="button">Explore project <span aria-hidden="true" class="game-open-arrow"><span class="arrow-default"><svg aria-hidden="true" class="handdrawn-arrow" focusable="false" viewbox="0 0 36 36"><path d="M8 28 Q18 18 29 8 M17 8 Q23 7 30 7 L30 20"></path><path class="pencil-echo" d="M10 30 Q20 20 28 12"></path></svg></span><span class="arrow-hover"><svg aria-hidden="true" class="handdrawn-arrow" focusable="false" viewbox="0 0 36 36"><path d="M5 18 Q17 17 31 18 M24 10 Q28 14 32 18 Q28 23 24 26"></path><path class="pencil-echo" d="M8 20 Q18 19 28 20"></path></svg></span></span></button>
 </div><div class="game-slide-visual"><img alt="Breaking Point poster" src="assets/BP_poster_final.png"/></div>
 </article>
 <article aria-label="August In Maplewood" class="game-slide">
-<div class="game-slide-copy"><span class="game-slide-num">02 / 06</span><h2>August In Maplewood</h2><p class="game-date">University proof of concept · 2024</p>
+<div class="game-slide-copy"><span class="game-slide-num">02 / 07</span><h2>August In Maplewood</h2><p class="game-date">University proof of concept · 2024</p>
 <p class="game-blurb">A 2.5D murder mystery set in a small town. Players track clues and investigate what happened to uncover the truth.</p>
 <h3>My main contributions</h3><p>Mechanics, narrative, user interface, and overall game design.</p>
 <button class="button game-open" data-game="1" type="button">Explore project <span aria-hidden="true" class="game-open-arrow"><span class="arrow-default"><svg aria-hidden="true" class="handdrawn-arrow" focusable="false" viewbox="0 0 36 36"><path d="M8 28 Q18 18 29 8 M17 8 Q23 7 30 7 L30 20"></path><path class="pencil-echo" d="M10 30 Q20 20 28 12"></path></svg></span><span class="arrow-hover"><svg aria-hidden="true" class="handdrawn-arrow" focusable="false" viewbox="0 0 36 36"><path d="M5 18 Q17 17 31 18 M24 10 Q28 14 32 18 Q28 23 24 26"></path><path class="pencil-echo" d="M8 20 Q18 19 28 20"></path></svg></span></span></button>
 </div><div class="game-slide-visual"><img alt="August In Maplewood poster" src="assets/august-in-maplewood-poster.png"/></div>
 </article>
 <article aria-label="Carlos The Penguin!" class="game-slide">
-<div class="game-slide-copy"><span class="game-slide-num">03 / 06</span><h2>Carlos The Penguin!</h2><p class="game-date">University First Official Game · 2023</p>
+<div class="game-slide-copy"><span class="game-slide-num">03 / 07</span><h2>Carlos The Penguin!</h2><p class="game-date">University First Official Game · 2023</p>
 <p class="game-blurb">A fast-paced 2D platformer where players race to reach an igloo. Every level must be completed before the ten-second timer runs out.</p>
 <h3>My main contributions</h3><p>Initial concept, core gameplay mechanics, and level design.</p>
 <button class="button game-open" data-game="2" type="button">Explore project <span aria-hidden="true" class="game-open-arrow"><span class="arrow-default"><svg aria-hidden="true" class="handdrawn-arrow" focusable="false" viewbox="0 0 36 36"><path d="M8 28 Q18 18 29 8 M17 8 Q23 7 30 7 L30 20"></path><path class="pencil-echo" d="M10 30 Q20 20 28 12"></path></svg></span><span class="arrow-hover"><svg aria-hidden="true" class="handdrawn-arrow" focusable="false" viewbox="0 0 36 36"><path d="M5 18 Q17 17 31 18 M24 10 Q28 14 32 18 Q28 23 24 26"></path><path class="pencil-echo" d="M8 20 Q18 19 28 20"></path></svg></span></span></button>
 </div><div class="game-slide-visual"><img alt="Carlos The Penguin! banner" src="assets/carlos-the-penguin-banner.png"/></div>
 </article>
 <article aria-label="Mental Maze - The Asylum Experiment" class="game-slide">
-<div class="game-slide-copy"><span class="game-slide-num">04 / 06</span><h2>Mental Maze - The Asylum Experiment</h2><p class="game-date">Game A Week 01 · Old-fashioned Asylum</p>
+<div class="game-slide-copy"><span class="game-slide-num">04 / 07</span><h2>Mental Maze - The Asylum Experiment</h2><p class="game-date">Game A Week 01 · Old-fashioned Asylum</p>
 <p class="game-blurb">You are a patient in an asylum, unsure why you are here. Each day brings new tasks, strange grades, and more questions. They promise you will get better… but can you trust them?</p>
 <h3>My main contributions</h3><p>Level design, puzzle mechanics, lore and narrative, UI and Render Texture experiments, and voice-based grading.</p>
 <button class="button game-open" data-game="3" type="button">Explore project <span aria-hidden="true" class="game-open-arrow"><span class="arrow-default"><svg aria-hidden="true" class="handdrawn-arrow" focusable="false" viewbox="0 0 36 36"><path d="M8 28 Q18 18 29 8 M17 8 Q23 7 30 7 L30 20"></path><path class="pencil-echo" d="M10 30 Q20 20 28 12"></path></svg></span><span class="arrow-hover"><svg aria-hidden="true" class="handdrawn-arrow" focusable="false" viewbox="0 0 36 36"><path d="M5 18 Q17 17 31 18 M24 10 Q28 14 32 18 Q28 23 24 26"></path><path class="pencil-echo" d="M8 20 Q18 19 28 20"></path></svg></span></span></button>
 </div><div class="game-slide-visual"><img alt="Mental Maze - The Asylum Experiment poster" src="assets/mental-maze-poster.png"/></div>
 </article>
 <article aria-label="Dance Beatz" class="game-slide">
-<div class="game-slide-copy"><span class="game-slide-num">05 / 06</span><h2>Dance Beatz</h2><p class="game-date">Game A Week 03 · Mobile Game</p>
+<div class="game-slide-copy"><span class="game-slide-num">05 / 07</span><h2>Dance Beatz</h2><p class="game-date">Game A Week 03 · Mobile Game</p>
 <p class="game-blurb">Dance, dance, dance away to the beatz! Tap falling arrows in time with the music in a playful pixel-art rhythm game, with Carlos the Penguin dancing along and a leaderboard to aim for.</p>
 <h3>My main contributions</h3><p>Pixel-art assets and sprite sheets, character animation, rhythm gameplay, and an automated falling-arrow system designed around the music.</p>
 <button class="button game-open" data-game="4" type="button">Explore project <span aria-hidden="true" class="game-open-arrow"><span class="arrow-default"><svg aria-hidden="true" class="handdrawn-arrow" focusable="false" viewBox="0 0 36 36"><path d="M8 28 Q18 18 29 8 M17 8 Q23 7 30 7 L30 20"></path><path class="pencil-echo" d="M10 30 Q20 20 28 12"></path></svg></span><span class="arrow-hover"><svg aria-hidden="true" class="handdrawn-arrow" focusable="false" viewBox="0 0 36 36"><path d="M5 18 Q17 17 31 18 M24 10 Q28 14 32 18 Q28 23 24 26"></path><path class="pencil-echo" d="M8 20 Q18 19 28 20"></path></svg></span></span></button>
 </div><div class="game-slide-visual"><img alt="Dance Beatz pixel-art poster featuring Carlos the Penguin" src="assets/dance-beatz-poster.png"/></div>
 </article>
 <article aria-label="Environmental Cleanup" class="game-slide">
-<div class="game-slide-copy"><span class="game-slide-num">06 / 06</span><h2>Environmental Cleanup</h2><p class="game-date">Game A Week 05 · Educational</p>
+<div class="game-slide-copy"><span class="game-slide-num">06 / 07</span><h2>Environmental Cleanup</h2><p class="game-date">Game A Week 05 · Educational</p>
 <p class="game-blurb">Does it pain you when people litter? Even right next to a bin? This educational game encourages players to pick up rubbish and keep the environment clean.</p>
 <h3>My main contributions</h3><p>Sprite animations, user interface, level design, penguin character design and sprite sheet, and character selection.</p>
 <button class="button game-open" data-game="5" type="button">Explore project <span aria-hidden="true" class="game-open-arrow"><span class="arrow-default"><svg aria-hidden="true" class="handdrawn-arrow" focusable="false" viewBox="0 0 36 36"><path d="M8 28 Q18 18 29 8 M17 8 Q23 7 30 7 L30 20"/><path class="pencil-echo" d="M10 30 Q20 20 28 12"/></svg></span><span class="arrow-hover"><svg aria-hidden="true" class="handdrawn-arrow" focusable="false" viewBox="0 0 36 36"><path d="M5 18 Q17 17 31 18 M24 10 Q28 14 32 18 Q28 23 24 26"/><path class="pencil-echo" d="M8 20 Q18 19 28 20"/></svg></span></span></button>
 </div><div class="game-slide-visual"><img alt="Environmental Cleanup game logo" src="assets/environmental-cleanup-logo.png"/></div>
 </article>
+<article aria-label="Celestria" class="game-slide">
+<div class="game-slide-copy"><span class="game-slide-num">07 / 07</span><h2>Celestria</h2><p class="game-date">Game A Week 06 · Companion or Pets · 2024</p>
+<p class="game-blurb">In the distant world of Celestria, every child receives a lifelong soul-bound companion. Play as Vera as she meets hers, discovers a growing darkness, and faces a choice between light and shadow.</p>
+<h3>My main contributions</h3><p>Dialogue system, level design, morality system, and narrative concept. I independently developed the prototype.</p>
+<button class="button game-open" data-game="6" type="button">Explore project <span aria-hidden="true" class="game-open-arrow"><span class="arrow-default"><svg aria-hidden="true" class="handdrawn-arrow" focusable="false" viewBox="0 0 36 36"><path d="M8 28 Q18 18 29 8 M17 8 Q23 7 30 7 L30 20"/><path class="pencil-echo" d="M10 30 Q20 20 28 12"/></svg></span><span class="arrow-hover"><svg aria-hidden="true" class="handdrawn-arrow" focusable="false" viewBox="0 0 36 36"><path d="M5 18 Q17 17 31 18 M24 10 Q28 14 32 18 Q28 23 24 26"/><path class="pencil-echo" d="M8 20 Q18 19 28 20"/></svg></span></span></button>
+</div><div class="game-slide-visual"><img src="assets/celestria-poster.png" alt="Celestria illustrated game poster" loading="lazy"></div>
+</article>
 </div>
-<div class="game-controls"><button aria-label="Previous game" id="game-prev" type="button"><svg aria-hidden="true" class="handdrawn-arrow" focusable="false" viewbox="0 0 36 36"><path d="M31 18 Q18 17 5 18 M12 10 Q8 14 4 18 Q8 23 12 26"></path><path class="pencil-echo" d="M28 20 Q18 19 8 20"></path></svg></button><span id="game-progress">01 — 06</span><button aria-label="Next game" id="game-next" type="button"><svg aria-hidden="true" class="handdrawn-arrow" focusable="false" viewbox="0 0 36 36"><path d="M5 18 Q17 17 31 18 M24 10 Q28 14 32 18 Q28 23 24 26"></path><path class="pencil-echo" d="M8 20 Q18 19 28 20"></path></svg></button></div>
+<div class="game-controls"><button aria-label="Previous game" id="game-prev" type="button"><svg aria-hidden="true" class="handdrawn-arrow" focusable="false" viewbox="0 0 36 36"><path d="M31 18 Q18 17 5 18 M12 10 Q8 14 4 18 Q8 23 12 26"></path><path class="pencil-echo" d="M28 20 Q18 19 8 20"></path></svg></button><span id="game-progress">01 — 07</span><button aria-label="Next game" id="game-next" type="button"><svg aria-hidden="true" class="handdrawn-arrow" focusable="false" viewbox="0 0 36 36"><path d="M5 18 Q17 17 31 18 M24 10 Q28 14 32 18 Q28 23 24 26"></path><path class="pencil-echo" d="M8 20 Q18 19 28 20"></path></svg></button></div>
 </div>
 </div>
 </section>
@@ -3283,7 +3298,7 @@ const games = [
     ["Events & Game Logic","Dialogue triggers, conditional checks and progression logic.",null,null],
     ["Save & Load Systems","JSON save/load and checkpoint implementation.",null,null]
   ],
-  meta:[["Genre","3D narrative adventure / climbing"],["Platform","Windows · macOS (Apple Silicon)"],["Duration","6 months"],["Team size","6 (including me)"],["Engine","Unity"],["Tools","Unity · C# · FMOD"]],
+  meta:[["Genre","3D narrative adventure / climbing"],["Platform","Windows · macOS (Apple Silicon)"],["Duration","6 months"],["Team size","6 (including me)"],["Engine","Unity"],["Tools","Unity · C# · FMOD"],["Status","Proof of Concept"]],
   link:"https://bun-bao.itch.io/breaking-point"
  },
  {title:"August In Maplewood",role:"Mechanics · Narrative · UI · Design",
@@ -3318,7 +3333,7 @@ const games = [
   ],
   gameplay:[["Investigation Mechanics","Clue tracking and murder-mystery gameplay design.",null],["Narrative Design","Small-town mystery and story structure.",null]],
   technical:[["Interface Design","UI planning and implementation.",null]],
-  meta:[["Genre","2.5D murder mystery"],["Platform","Windows · macOS (Apple Silicon)"],["Duration","12 weeks"],["Team size","2"],["Engine","Unity"],["Tools","Unity · C#"]],
+  meta:[["Genre","2.5D murder mystery"],["Platform","Windows · macOS (Apple Silicon)"],["Duration","12 weeks"],["Team size","2"],["Engine","Unity"],["Tools","Unity · C#"],["Status","Proof of Concept"]],
   link:"https://anoobcarrot.itch.io/august-in-maplewood"
  },
  {title:"Carlos The Penguin!",role:"Mechanics · Level Design",
@@ -3327,7 +3342,7 @@ const games = [
   contributionGroups:[{title:"Initial Concept & Core Mechanics",items:["I developed the initial concept for the game.","I designed the core gameplay mechanics around reaching the igloo within ten seconds."]},{title:"Level Design & Testing",items:["I designed levels around the ten-second timer and platforming challenges.","I tested each level to make sure it was challenging but possible to complete."]}],
   gameplay:[["Timed platforming","Ten-second timer and igloo goal mechanic. Add gameplay screenshots when available.",null],["Level design","Level layouts and pacing around the countdown challenge. Add evidence when available.",null]],
   technical:[["Gameplay implementation","Add implementation footage or screenshots and specific tools when confirmed.",null]],
-  meta:[["Genre","2D platformer"],["Platform","WebGL"],["Duration","4 weeks"],["Team size","2"],["Engine","Unity"],["Tools","Unity · C#"]],link:"https://anoobcarrot.itch.io/carlos-the-penguin"
+  meta:[["Genre","2D platformer"],["Platform","WebGL"],["Duration","4 weeks"],["Team size","2"],["Engine","Unity"],["Tools","Unity · C#"],["Status","Prototype"]],link:"https://anoobcarrot.itch.io/carlos-the-penguin"
  },
  {title:"Mental Maze - The Asylum Experiment",role:"Level Design · Puzzle Mechanics · UI · Narrative",
   short:"You will... get better... right?",
@@ -3351,7 +3366,7 @@ const games = [
     ["UI Implementation","Implemented the computer interface, sanity indicator and readable notes in Unity.","assets/mental-computer-ui.png"],
     ["Render Texture & Audio Setup","Unity Video Player, Render Texture and Audio Source setup for the in-world projection.","assets/mental-render-textures-audio.png"]
   ],
-  meta:[["Genre","Psychological horror / mystery"],["Platform","Windows · macOS (Apple Silicon)"],["Duration","1 week"],["Team size","1"],["Engine","Unity"],["Tools","Unity · C#"]],link:"https://anoobcarrot.itch.io/mental-maze-the-asylum-experiment"
+  meta:[["Genre","Psychological horror / mystery"],["Platform","Windows · macOS (Apple Silicon)"],["Duration","1 week"],["Team size","1"],["Engine","Unity"],["Tools","Unity · C#"],["Status","Prototype"]],link:"https://anoobcarrot.itch.io/mental-maze-the-asylum-experiment"
  }
  ,{title:"Dance Beatz",role:"Asset Creation & Animations · UI · Rhythm Systems",
   short:"Dance dance dance away to the beatz!",
@@ -3378,7 +3393,7 @@ const games = [
     ["Scene Hierarchy & Organisation","Organised gameplay systems, UI and spawners in Unity.","assets/dance-hierarchy.png"],
     ["Working in Aseprite","Creating the arrow sprite sheet in Aseprite.","assets/dance-working-aseprite.png"]
   ],
-  meta:[["Genre","Mobile rhythm / music"],["Platform","iOS · Android"],["Duration","1 week"],["Team size","1"],["Engine","Unity"],["Tools","Unity · C# · Aseprite"]],link:"https://anoobcarrot.itch.io/dance-beatz"
+  meta:[["Genre","Mobile rhythm / music"],["Platform","iOS · Android"],["Duration","1 week"],["Team size","1"],["Engine","Unity"],["Tools","Unity · C# · Aseprite"],["Status","Prototype"]],link:"https://anoobcarrot.itch.io/dance-beatz"
  }
 
  ,{title:"Environmental Cleanup",role:"Sprite Animation & Creation · UI · Level Design",
@@ -3406,8 +3421,36 @@ const games = [
     ["Audio Implementation","",null],
     ["Working in Aseprite","","assets/environmental-working-in-aseprite.png"]
   ],
-  meta:[["Genre","Educational"],["Platform","WebGL"],["Duration","1 week"],["Team size","2"],["Engine","Unity"],["Tools","Unity · C# · Aseprite"]],
+  meta:[["Genre","Educational"],["Platform","WebGL"],["Duration","1 week"],["Team size","2"],["Engine","Unity"],["Tools","Unity · C# · Aseprite"],["Status","Prototype"]],
   link:"https://anoobcarrot.itch.io/environmental-cleanup"
+ }
+
+ ,{title:"Celestria",role:"Dialogue System · Level Design · Morality System · Narrative Concept",
+  short:"Will you choose a light path or venture down a dark path?",
+  banner:"assets/celestria-banner.png",trailer:null,
+  contributionGroups:[
+    {title:"Narrative Concept & Worldbuilding",items:["I created a short proof of concept for the opening of Celestria, introducing a world where children form lifelong soul bonds with companions.","I outlined the beginning of Vera's journey as she receives her companion, hinting at a growing darkness and the possibility of choosing a light or dark path."]},
+    {title:"Dialogue System",items:["I developed the dialogue system to support conversations and the companion-focused narrative.","I focused on dialogue as a way to communicate the bond between characters and their companions."]},
+    {title:"Bonding With Companions / Player Stats",items:["I designed and implemented a morality system centred on the player's choices between light and darkness."]},
+    {title:"Level Design & Solo Development",items:["I designed the game's levels and spaces for Vera's journey.","I created the prototype independently in Unity using C# within one week."]}
+  ],
+  gameplay:[
+    ["Narrative & Worldbuilding","","assets/celestria-intro-narrative.mp4"],
+    ["Main Menu UI","","assets/celestria-main-menu-ui.mp4"],
+    ["Dialogue System","","assets/celestria-dialogue-system.mp4"],
+    ["Different Companions Quiz","","assets/celestria-different-companions.mp4"],
+    ["Bonding With Companions / Player Stats","","assets/celestria-bonding-player-stats.mp4"],
+    ["Level Design","",null]
+  ],
+  technical:[
+    ["Dialogue System Implementation","",null],
+    ["Companion Quiz Implementation","","assets/celestria-companion-quiz-implementation.png"],
+    ["Companion Bonding Stats Implementation","","assets/celestria-companion-bonding-stats-implementation.png"],
+    ["Enemies Concept","","assets/celestria-enemies-concept.mp4"],
+    ["Level Construction","","assets/celestria-level-design-construction.mp4"]
+  ],
+  meta:[["Genre","Narrative adventure · Companion / Pets"],["Platform","WebGL · Windows · macOS"],["Duration","1 week"],["Team size","1"],["Engine","Unity"],["Tools","Unity · C#"],["Status","Prototype"]],
+  link:"https://anoobcarrot.itch.io/celestria"
  }
 
 ];
@@ -3429,10 +3472,10 @@ const escapeHTML=t=>String(t).replace(/[&<>"']/g,c=>({'&':'&amp;','<':'&lt;','>'
 function openDrawer(i){
  const g=games[i];lastFocus=document.activeElement;
  document.getElementById('game-drawer-content').innerHTML=`
- <div class="game-detail-banner ${'game-detail-banner--artwork'} ${i===0?'game-detail-banner--breaking':''} ${i===1?'game-detail-banner--maplewood':i===2?'game-detail-banner--carlos':i===3?'game-detail-banner--mental':i===4?'game-detail-banner--dance':i===5?'game-detail-banner--environmental':''}"><img src="${g.banner}" alt="${i===0?'Breaking Point illustrated mountain banner with the game title':i===1?'August In Maplewood illustrated forest banner with the game title':'Project banner'}">${i===0||i===1||i===2||i===3||i===4||i===5?`<div class="game-detail-intro"><p class="game-detail-role">${escapeHTML(g.role)}</p><p class="game-detail-tagline">${escapeHTML(g.short)}</p></div>`:`<div class="game-detail-banner-content"><p>${escapeHTML(g.role)}</p><h2>${escapeHTML(g.title)}</h2><p>${escapeHTML(g.short)}</p></div>`}</div>${g.trailer?'<div class="game-trailer-action"><button type="button" class="button game-trailer-btn" data-trailer>▶ View Trailer</button></div>':'<div class="game-no-trailer-divider" aria-hidden="true"></div>'}
+ <div class="game-detail-banner ${'game-detail-banner--artwork'} ${i===0?'game-detail-banner--breaking':''} ${i===1?'game-detail-banner--maplewood':i===2?'game-detail-banner--carlos':i===3?'game-detail-banner--mental':i===4?'game-detail-banner--dance':i===5?'game-detail-banner--environmental':i===6?'game-detail-banner--celestria':''}">${g.banner?`<img src="${g.banner}" alt="${i===0?'Breaking Point illustrated mountain banner with the game title':i===1?'August In Maplewood illustrated forest banner with the game title':i===6?'Celestria illustrated pastel fantasy banner with game title':'Project banner'}">`:''}${i===0||i===1||i===2||i===3||i===4||i===5||i===6?`<div class="game-detail-intro"><p class="game-detail-role">${escapeHTML(g.role)}</p><p class="game-detail-tagline">${escapeHTML(g.short)}</p></div>`:`<div class="game-detail-banner-content"><p>${escapeHTML(g.role)}</p><h2>${escapeHTML(g.title)}</h2><p>${escapeHTML(g.short)}</p></div>`}</div>${g.trailer?'<div class="game-trailer-action"><button type="button" class="button game-trailer-btn" data-trailer>▶ View Trailer</button></div>':'<div class="game-no-trailer-divider" aria-hidden="true"></div>'}
  <div class="game-detail-body"><h3>My Contributions</h3>${g.contributionGroups?`<div class="game-contrib-groups">${g.contributionGroups.map((group,i)=>`<section class="game-contrib-group"><div class="game-contrib-heading"><span>${String(i+1).padStart(2,'0')}</span><h4>${escapeHTML(group.title)}</h4></div><ul>${group.items.map(x=>`<li>${escapeHTML(x)}</li>`).join('')}</ul></section>`).join('')}</div>`:`<ul>${g.contributions.map(x=>`<li>${escapeHTML(x)}</li>`).join('')}</ul>`}
  ${g.gameplay.length||g.technical.length?`<div class="game-detail-actions"><button type="button" class="button game-trailer-btn contribution-action" data-evidence="gameplay">Gameplay Design Contributions <svg class="handdrawn-arrow" viewBox="0 0 36 36" aria-hidden="true" focusable="false"><path d="M8 28 Q18 18 29 8 M17 8 Q23 7 30 7 L30 20"/><path class="pencil-echo" d="M10 30 Q20 20 28 12"/></svg></button><button type="button" class="button game-trailer-btn contribution-action" data-evidence="technical">Technical Design Contributions <svg class="handdrawn-arrow" viewBox="0 0 36 36" aria-hidden="true" focusable="false"><path d="M8 28 Q18 18 29 8 M17 8 Q23 7 30 7 L30 20"/><path class="pencil-echo" d="M10 30 Q20 20 28 12"/></svg></button></div>`:''}
- <h3>Project Details</h3><dl class="game-detail-meta">${g.meta.map(([a,b])=>`<div><dt>${escapeHTML(a)}</dt><dd>${escapeHTML(b)}</dd></div>`).join('')}</dl>${g.link?`<p style="margin-top:28px"><a class="button secondary" href="${g.link}" target="_blank" rel="noopener noreferrer">${"View Playable Project ↗"}</a></p>`:''}</div>`;
+ <h3>Project Details</h3><dl class="game-detail-meta">${g.meta.map(([a,b])=>`<div class="${a==='Status'?'game-meta-status':''}"><dt>${escapeHTML(a)}</dt><dd>${escapeHTML(b)}</dd></div>`).join('')}</dl>${g.link?`<p style="margin-top:28px"><a class="button secondary" href="${g.link}" target="_blank" rel="noopener noreferrer">${"View Playable Project ↗"}</a></p>`:''}</div>`;
  drawer.scrollTop=0;drawer.dataset.game=i;drawer.classList.add('open');drawer.setAttribute('aria-hidden','false');scrim.hidden=false;requestAnimationFrame(()=>scrim.classList.add('visible'));document.body.style.overflow='hidden';drawer.scrollTop=0;drawer.focus({preventScroll:true});
 }
 function closeDrawer(){resetModalVideos();if(!modal.hidden)closeModal();drawer.classList.remove('open');drawer.setAttribute('aria-hidden','true');scrim.classList.remove('visible');document.body.style.overflow='';setTimeout(()=>{if(!drawer.classList.contains('open'))scrim.hidden=true},570);lastFocus?.focus()}
@@ -3482,13 +3525,42 @@ function openModal(kind){
    "Onboarding & Player Experience":[["Tips Mechanic","assets/tips-mechanic.mp4"],["Customisable Keybinds","assets/changing-keybinds.mp4"],["Level Progression","assets/level-progression.mp4"]],
    "Menu & Settings":[["Menu","assets/main-menu.mp4"],["Settings","assets/settings-ui.mp4"]]
  };
+ const celestriaLevels=[["Outdoors Intro","assets/celestria-level-outdoors.png"],["Companion Store","assets/celestria-level-store.png"],["Start of Adventure","assets/celestria-level-adventure.png"]];
+ const celestriaLevelGallery=()=>`<div class="survival-tabs" role="tablist" aria-label="Celestria level design images">${celestriaLevels.map(([label],i)=>`<button type="button" class="survival-tab" role="tab" aria-selected="${i===0}" tabindex="${i===0?0:-1}" data-celestria-level="${i}">${escapeHTML(label)}</button>`).join('')}</div><div class="survival-player" role="tabpanel" aria-label="Outdoors Intro"><img src="${celestriaLevels[0][1]}" alt="Outdoors Intro level design in Unity" style="display:block;width:100%;height:auto;object-fit:contain;cursor:zoom-in" data-celestria-zoom></div>`;
+ const celestriaDialogueTabs=[["Manager","assets/celestria-dialogue-manager.png"],["Scriptable Object","assets/celestria-dialogue-scriptable-object.png"],["NPC Controller","assets/celestria-dialogue-npc-controller.png"]];
+ const celestriaDialogueGallery=()=>`<div class="survival-tabs" role="tablist" aria-label="Celestria dialogue system implementation">${celestriaDialogueTabs.map(([label],i)=>`<button type="button" class="survival-tab" role="tab" aria-selected="${i===0}" tabindex="${i===0?0:-1}" data-celestria-dialogue="${i}">${escapeHTML(label)}</button>`).join('')}</div><div class="survival-player" role="tabpanel" aria-label="Manager"><img src="${celestriaDialogueTabs[0][1]}" alt="Manager dialogue system implementation in Unity" style="display:block;width:100%;height:auto;object-fit:contain;cursor:zoom-in" data-celestria-zoom></div>`;
  const clipGallery=(name)=>{
    const clips=galleries[name];
    return `<div class="survival-tabs" role="tablist" aria-label="${escapeHTML(name)} videos">${clips.map(([label],i)=>`<button type="button" class="survival-tab" role="tab" aria-selected="${i===0}" data-clip-tab="${i}">${escapeHTML(label)}</button>`).join('')}</div><div class="survival-player">${["Level Design","Pixel Art & Backgrounds","Arrow & Rhythm Assets","UI Buttons & Elements","Score Feedback Art"].includes(name)?`<img src="${clips[0][1]}" alt="${escapeHTML(clips[0][0])}" style="display:block;width:100%;height:auto;object-fit:contain">`:`<video controls playsinline preload="metadata" src="${clips[0][1]}" aria-label="${clips[0][0]} footage"></video>`}</div>`;
  };
- document.getElementById('game-modal-content').innerHTML=`<h2>${title}</h2>${items.map(([name,desc,img],idx)=>`<section class="game-evidence game-evidence--visual" data-evidence-name="${escapeHTML(name)}"><div class="game-evidence-label"><span class="game-evidence-number">${String(idx+1).padStart(2,'0')}</span><h3>${escapeHTML(name)}</h3><span class="game-evidence-line" aria-hidden="true"></span></div>${((g.title === "Breaking Point") || (g.title === "Mental Maze - The Asylum Experiment" && name === "Level Design" || g.title === "Dance Beatz" && ["Pixel Art & Backgrounds","Arrow & Rhythm Assets","UI Buttons & Elements","Score Feedback Art"].includes(name))) && galleries[name] ? clipGallery(name) : (g.title === "Environmental Cleanup" && ecTabs[name] ? ecGallery(name) : (img?mediaMarkup(name,img):(g.title === "Environmental Cleanup" ? `<div class="ec-media-slot"></div>` : `<p>${escapeHTML(desc)}</p>`)))}</section>`).join('')}`;
+ document.getElementById('game-modal-content').innerHTML=`<h2>${title}</h2>${items.map(([name,desc,img],idx)=>`<section class="game-evidence game-evidence--visual" data-evidence-name="${escapeHTML(name)}"><div class="game-evidence-label"><span class="game-evidence-number">${String(idx+1).padStart(2,'0')}</span><h3>${escapeHTML(name)}</h3><span class="game-evidence-line" aria-hidden="true"></span></div>${(g.title === "Celestria" && name === "Dialogue System Implementation") ? celestriaDialogueGallery() : (g.title === "Celestria" && name === "Level Design") ? celestriaLevelGallery() : ((g.title === "Breaking Point") || (g.title === "Mental Maze - The Asylum Experiment" && name === "Level Design" || g.title === "Dance Beatz" && ["Pixel Art & Backgrounds","Arrow & Rhythm Assets","UI Buttons & Elements","Score Feedback Art"].includes(name))) && galleries[name] ? clipGallery(name) : (g.title === "Environmental Cleanup" && ecTabs[name] ? ecGallery(name) : (img?mediaMarkup(name,img):(g.title === "Environmental Cleanup" ? `<div class="ec-media-slot"></div>` : (desc?`<p>${escapeHTML(desc)}</p>`:``))))}</section>`).join('')}`;
  modal.hidden=false;modal.setAttribute('aria-hidden','false');modal.querySelector('.game-modal-panel').focus();
 }
+// Celestria level-design tabs: independent of other games' galleries.
+document.getElementById('game-modal-content').addEventListener('click',e=>{
+ const tab=e.target.closest('[data-celestria-level]');
+ if(tab){
+  const section=tab.closest('.game-evidence');const i=Number(tab.dataset.celestriaLevel);
+  const levels=[["Outdoors Intro","assets/celestria-level-outdoors.png"],["Companion Store","assets/celestria-level-store.png"],["Start of Adventure","assets/celestria-level-adventure.png"]];
+  if(!section||!levels[i])return;
+  const player=section.querySelector('.survival-player');
+  player.innerHTML=`<img src="${levels[i][1]}" alt="${escapeHTML(levels[i][0])} level design in Unity" style="display:block;width:100%;height:auto;object-fit:contain;cursor:zoom-in" data-celestria-zoom>`;
+  player.setAttribute('aria-label',levels[i][0]);
+  section.querySelectorAll('[data-celestria-level]').forEach(b=>{const active=b===tab;b.setAttribute('aria-selected',String(active));b.tabIndex=active?0:-1;});
+ }
+ const dialogueTab=e.target.closest('[data-celestria-dialogue]');
+ if(dialogueTab){
+  const section=dialogueTab.closest('.game-evidence');const i=Number(dialogueTab.dataset.celestriaDialogue);
+  const tabs=[["Manager","assets/celestria-dialogue-manager.png"],["Scriptable Object","assets/celestria-dialogue-scriptable-object.png"],["NPC Controller","assets/celestria-dialogue-npc-controller.png"]];
+  if(!section||!tabs[i])return;
+  const player=section.querySelector('.survival-player');
+  player.innerHTML=`<img src="${tabs[i][1]}" alt="${escapeHTML(tabs[i][0])} dialogue system implementation in Unity" style="display:block;width:100%;height:auto;object-fit:contain;cursor:zoom-in" data-celestria-zoom>`;
+  player.setAttribute('aria-label',tabs[i][0]);
+  section.querySelectorAll('[data-celestria-dialogue]').forEach(b=>{const active=b===dialogueTab;b.setAttribute('aria-selected',String(active));b.tabIndex=active?0:-1;});
+ }
+ const zoom=e.target.closest('[data-celestria-zoom]');
+ if(zoom){window.open(zoom.src,'_blank','noopener,noreferrer');}
+});
 // Environmental Cleanup: each tab updates ONLY its own contribution section.
 document.getElementById('game-modal-content').addEventListener('click', e => {
  const selected = e.target.closest('button[data-ec-media]');
